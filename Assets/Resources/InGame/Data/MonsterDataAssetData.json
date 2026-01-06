@@ -1,0 +1,38 @@
+[
+  {
+    "type": 0,
+    "name": "좀비",
+    "defaultSpeed": 0.0,
+    "defaultHp": 0.0,
+    "defaultAtk": 0.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 0.0
+  },
+  {
+    "type": 1,
+    "name": "군인",
+    "defaultSpeed": 0.0,
+    "defaultHp": 0.0,
+    "defaultAtk": 0.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 0.0
+  },
+  {
+    "type": 2,
+    "name": "엘리트 군인",
+    "defaultSpeed": 0.0,
+    "defaultHp": 0.0,
+    "defaultAtk": 0.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 0.0
+  },
+  {
+    "type": 3,
+    "name": "화염방사병",
+    "defaultSpeed": 0.0,
+    "defaultHp": 0.0,
+    "defaultAtk": 0.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 0.0
+  }
+]
