@@ -117,11 +117,19 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: HeroType
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: e3caf38ba16a77949bc98ff31b5bd67f, type: 3}
+    m_Threshold: 4
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: HeroType
+    m_Mirror: 0
   m_BlendParameter: HeroType
   m_BlendParameterY: HeroType
   m_MinThreshold: 0
-  m_MaxThreshold: 3
-  m_UseAutomaticThresholds: 1
+  m_MaxThreshold: 4
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1101 &-1762356250949669217
@@ -425,11 +433,19 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: HeroType
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 5af874656ec2e434b80f9647d65942a7, type: 3}
+    m_Threshold: 4
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: HeroType
+    m_Mirror: 0
   m_BlendParameter: HeroType
   m_BlendParameterY: HeroType
   m_MinThreshold: 0
-  m_MaxThreshold: 3
-  m_UseAutomaticThresholds: 1
+  m_MaxThreshold: 4
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1102 &3870414076192121424
@@ -561,11 +577,19 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: HeroType
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 687cb842871188646890b29f6e3b80b6, type: 3}
+    m_Threshold: 4
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: HeroType
+    m_Mirror: 0
   m_BlendParameter: HeroType
   m_BlendParameterY: HeroType
   m_MinThreshold: 0
-  m_MaxThreshold: 3
-  m_UseAutomaticThresholds: 1
+  m_MaxThreshold: 4
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1102 &9054012773027881851
