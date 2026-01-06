@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: MonsterDataAsset
   m_EditorClassIdentifier: Assembly-CSharp:ND.Data:MonsterDataSO
-  textAsset: {fileID: 0}
+  textAsset: {fileID: 4900000, guid: 378b1028945fe2c4aaa9feed14080b65, type: 3}
   monsterDataList:
   - type: 0
     name: "\uC880\uBE44"

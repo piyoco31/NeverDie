@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace ND.Hero
+namespace ND.Character
 {
-    public class Hero : MonoBehaviour
+    public class Character : MonoBehaviour
     {
         Animator anim;
         E_CharacterState state;
@@ -10,7 +10,7 @@ namespace ND.Hero
         private void Awake()
         {
             anim = GetComponent<Animator>();
-        
+
         }
 
         void Start()
@@ -39,5 +39,3 @@ namespace ND.Hero
         }
     }
 }
-
-
