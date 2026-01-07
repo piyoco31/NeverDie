@@ -16,6 +16,7 @@ namespace ND.Data
     {
         public E_MonsterType type;
         public string name;
+        public string prefab;
         public float defaultSpeed;
         public float defaultHp;
         public float defaultAtk;

@@ -16,6 +16,7 @@ MonoBehaviour:
   monsterDataList:
   - type: 0
     name: "\uC880\uBE44"
+    prefab: ND_M_Zombie
     defaultSpeed: 0
     defaultHp: 0
     defaultAtk: 0
@@ -23,6 +24,7 @@ MonoBehaviour:
     defaultDps: 0
   - type: 1
     name: "\uAD70\uC778"
+    prefab: ND_M_SoldierA
     defaultSpeed: 0
     defaultHp: 0
     defaultAtk: 0
@@ -30,6 +32,7 @@ MonoBehaviour:
     defaultDps: 0
   - type: 2
     name: "\uC5D8\uB9AC\uD2B8 \uAD70\uC778"
+    prefab: ND_M_SoldierB
     defaultSpeed: 0
     defaultHp: 0
     defaultAtk: 0
@@ -37,6 +40,7 @@ MonoBehaviour:
     defaultDps: 0
   - type: 3
     name: "\uD654\uC5FC\uBC29\uC0AC\uBCD1"
+    prefab: ND_M_SoldierC
     defaultSpeed: 0
     defaultHp: 0
     defaultAtk: 0

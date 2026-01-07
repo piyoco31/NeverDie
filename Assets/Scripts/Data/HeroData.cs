@@ -16,6 +16,7 @@ namespace ND.Data
     {
         public E_HeroType type;
         public string name;
+        public string prefab;
         public float defaultSpeed;
         public float defaultHp;
         public float defaultAtk;

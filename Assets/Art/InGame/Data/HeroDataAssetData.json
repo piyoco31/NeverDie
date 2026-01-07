@@ -2,6 +2,7 @@
   {
     "type": 0,
     "name": "동물병원 박선생님",
+    "prefab": "ND_H_Doctor",
     "defaultSpeed": 0.0,
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
@@ -11,6 +12,7 @@
   {
     "type": 1,
     "name": "와인바 정마담",
+    "prefab": "ND_H_Girl",
     "defaultSpeed": 2.0,
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
@@ -20,6 +22,7 @@
   {
     "type": 2,
     "name": "쉬었음청년 김군",
+    "prefab": "ND_H_Boy",
     "defaultSpeed": 1.0,
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
@@ -29,6 +32,7 @@
   {
     "type": 3,
     "name": "부패경찰관 이경사",
+    "prefab": "ND_H_Police",
     "defaultSpeed": 0.0,
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
@@ -38,6 +42,7 @@
   {
     "type": 4,
     "name": "무장탈영 최일병",
+    "prefab": "ND_H_Soldier",
     "defaultSpeed": 0.0,
     "defaultHp": 0.0,
     "defaultAtk": 0.0,

@@ -14,7 +14,8 @@ namespace ND
         Girl,
         Boy,
         Police,
-        Soldier
+        Soldier,
+        NotHero
     }
 
     public enum E_MonsterType
@@ -22,6 +23,8 @@ namespace ND
         Zombie = 0,
         Soldier_A,
         Soldier_B,
-        Soldier_C
+        Soldier_C,
+        NotMonster
+            
     }
 }

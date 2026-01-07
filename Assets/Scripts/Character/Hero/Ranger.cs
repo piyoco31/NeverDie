@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ND.Character.Hero
 {
-    public class Healer : Character
+    public class Ranger : Character
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
