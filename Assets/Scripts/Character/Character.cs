@@ -1,28 +1,33 @@
 using UnityEngine;
+using R3;
 
 namespace ND.Character
 {
     public class Character : MonoBehaviour
     {
-        Animator anim;
-        E_CharacterState state;
+        ReactiveProperty<E_CharacterState> stateRxProp = new ReactiveProperty<E_CharacterState>(E_CharacterState.Idle);
 
+        public E_CharacterState State 
+        { 
+            get { return stateRxProp.Value; }
+            set { stateRxProp.Value = value; }
+        }
+
+        [SerializeField] Animator anim;
+        
         private void Awake()
         {
             anim = GetComponent<Animator>();
 
+            stateRxProp.Subscribe(state =>
+            {
+                SetAnimByState(state);
+            });
         }
 
         void Start()
         {
-            SetHeroState(E_CharacterState.Idle);
-        }
 
-        void SetHeroState(E_CharacterState state)
-        {
-            this.state = state;
-
-            SetAnimByState(state);
         }
 
         void SetAnimByState(E_CharacterState InState)
@@ -36,6 +41,11 @@ namespace ND.Character
             };
 
             anim?.SetTrigger(triggerStr);
+        }
+
+        private void OnDestroy()
+        {
+            stateRxProp.Dispose();
         }
     }
 }
