@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d47c9830f1f34f24c93052e28130fa2c, type: 3}
   m_Name: MonsterDataAsset
-  m_EditorClassIdentifier: Assembly-CSharp:ND.Data:MonsterDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Data.MonsterDataSO
   textAsset: {fileID: 4900000, guid: 378b1028945fe2c4aaa9feed14080b65, type: 3}
   monsterDataList:
   - type: 0

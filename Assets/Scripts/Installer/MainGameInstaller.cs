@@ -1,17 +1,19 @@
+using Redcode.Pools;
 using VContainer;
 using VContainer.Unity;
 
 namespace ND.Installer
 {
-    //using Hero;
-    //using Monster;
+    using Manager;
 
     public class MainGameInstaller : LifetimeScope
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            //builder.RegisterEntryPoint<Hero>().AsSelf();
-            //builder.Register<Monster>(Lifetime.Singleton);
+            builder.Register<HeroManager>(Lifetime.Singleton);
+            builder.Register<MonsterManager>(Lifetime.Singleton);
+
+            builder.RegisterEntryPoint<MainGameManager>().AsSelf();
         }
 
         private void Start()

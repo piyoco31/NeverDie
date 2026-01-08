@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace ND.Character
 {
+    using System.Threading.Tasks;
+    using Cysharp.Threading.Tasks;
     using Data;
 
     public class Character : MonoBehaviour
@@ -30,11 +32,18 @@ namespace ND.Character
             set { speedRxProp.Value = value; }
         }
 
-        protected ReactiveProperty<float> hpRxProp = new ReactiveProperty<float>();
-        public float Hp
+        protected ReactiveProperty<float> currentHpRxProp = new ReactiveProperty<float>();
+        public float CurrentHp
         {
-            get { return hpRxProp.Value; }
-            set { hpRxProp.Value = value; }
+            get { return currentHpRxProp.Value; }
+            set { currentHpRxProp.Value = value; }
+        }
+
+        protected ReactiveProperty<float> maxHpRxProp = new ReactiveProperty<float>();
+        public float MaxHp
+        {
+            get { return maxHpRxProp.Value; }
+            set { maxHpRxProp.Value = value; }
         }
 
         protected ReactiveProperty<float> atkRxProp = new ReactiveProperty<float>();
@@ -64,6 +73,7 @@ namespace ND.Character
         public E_HeroType HeroType { get; private set; } = E_HeroType.NotHero;
         public E_MonsterType MonsterType { get; private set; } = E_MonsterType.NotMonster;
         public bool IsHero { get { return HeroType != E_HeroType.NotHero; } }
+        public bool IsDead { get { return State != E_CharacterState.Death; } }
         #endregion
 
         #region Component
@@ -86,7 +96,8 @@ namespace ND.Character
         {
             Name = data.name;
             Speed = data.defaultSpeed;
-            Hp = data.defaultHp;
+            CurrentHp = data.defaultHp;
+            MaxHp = data.defaultHp;
             Atk = data.defaultAtk;
             Armor = data.defaultArmor;
             Dps = data.defaultDps;
@@ -98,7 +109,8 @@ namespace ND.Character
         {
             Name = data.name;
             Speed = data.defaultSpeed;
-            Hp = data.defaultHp;
+            CurrentHp = data.defaultHp;
+            MaxHp = data.defaultHp;
             Atk = data.defaultAtk;
             Armor = data.defaultArmor;
             Dps = data.defaultDps;
@@ -117,6 +129,26 @@ namespace ND.Character
             };
 
             anim?.SetTrigger(triggerStr);
+        }
+
+        private async void WaitingAttack()
+        {
+            await UniTask.Delay((int)(Dps * 1000));
+
+            if (!IsDead)
+            {
+                await AttackToTarget(null);
+            }
+        }
+
+        protected virtual async UniTask AttackToTarget(Character target)
+        { 
+            await target.DamageToCharacter(Atk);
+        }
+
+        public async UniTask DamageToCharacter(float damage = 0)
+        {
+            await UniTask.CompletedTask;
         }
 
         private void OnDestroy()

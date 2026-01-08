@@ -22,7 +22,7 @@ MonoBehaviour:
     - Data
     - Monster
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f6febe026bbe44489178f0fe210143e
+  - m_GUID: 8e3048b9774d68d49a142b13d8fa0a84
     m_Address: HeroDataAsset
     m_ReadOnly: 0
     m_SerializedLabels:

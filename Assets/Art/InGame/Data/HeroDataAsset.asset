@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: bb53b96cd1c30cc4d9f0b0eb5f7785c8, type: 3}
   m_Name: HeroDataAsset
-  m_EditorClassIdentifier: Assembly-CSharp:ND.Data:HeroDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Data.HeroDataSO
   textAsset: {fileID: 4900000, guid: 32ed50cd9e27262478584c5242868d75, type: 3}
   heroDataList:
   - type: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     defaultArmor: 0
     defaultDps: 3
   - type: 3
-    name: "\uBD80\uD328\uACBD\uCC30\uAD00 \uC774\uACBD\uC0AC"
+    name: "\uBD80\uD328\uACBD\uCC30\uAD00 \uC774\uACBD\uC7A5"
     prefab: ND_H_Police
     defaultSpeed: 0
     defaultHp: 0

@@ -1,10 +1,10 @@
 using System;
-using ND.Data;
+//using ND.Data;
 using UnityEngine;
 
 namespace ND.Character.Hero
 {
-    using Data;
+    //using Data;
 
     public class Attacker : Character
     {

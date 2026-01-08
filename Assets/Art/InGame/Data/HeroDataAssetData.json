@@ -31,7 +31,7 @@
   },
   {
     "type": 3,
-    "name": "부패경찰관 이경사",
+    "name": "부패경찰관 이경장",
     "prefab": "ND_H_Police",
     "defaultSpeed": 0.0,
     "defaultHp": 0.0,
