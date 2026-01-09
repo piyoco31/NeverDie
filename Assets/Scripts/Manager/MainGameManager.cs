@@ -1,13 +1,13 @@
 using Cysharp.Threading.Tasks;
+using System.Threading;
 using VContainer;
 using VContainer.Unity;
-using System.Threading;
 
 namespace ND.Manager
 {
     public class MainGameManager : IAsyncStartable
     {
-        public int WaveCount { get; private set; } = 1;
+        public int WaveCount { get; private set; } = 0;
 
         [Inject] HeroManager heroManager;
         [Inject] MonsterManager monsterManager;
@@ -22,11 +22,21 @@ namespace ND.Manager
         {
             await heroManager.Init();
 
-            await UniTask.Delay(System.TimeSpan.FromSeconds(3));
-
             await monsterManager.Init();
 
-            // await UniTask.Delay();
+            await UniTask.Delay(System.TimeSpan.FromSeconds(1));
+
+            _ = heroManager.SpawmHero(E_HeroType.Doctor);
+
+            _ = heroManager.SpawmHero(E_HeroType.Police);
+
+            _ = heroManager.SpawmHero(E_HeroType.Girl);
+
+            _ = heroManager.SpawmHero(E_HeroType.Boy);
+
+            _ = heroManager.SpawmHero(E_HeroType.Soldier);
+
+
 
             await UniTask.WaitUntil(() => 1 == 2);
 

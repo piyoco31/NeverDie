@@ -7,7 +7,8 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 0.0
+    "defaultDps": 0.0,
+    "poolCount": 10
   },
   {
     "type": 1,
@@ -17,7 +18,8 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 0.0
+    "defaultDps": 0.0,
+    "poolCount": 3
   },
   {
     "type": 2,
@@ -27,7 +29,8 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 0.0
+    "defaultDps": 0.0,
+    "poolCount": 3
   },
   {
     "type": 3,
@@ -37,6 +40,7 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 0.0
+    "defaultDps": 0.0,
+    "poolCount": 3
   }
 ]

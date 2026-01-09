@@ -1,10 +1,12 @@
 using R3;
 using UnityEngine;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using System;
 
 namespace ND.Character
 {
-    using System.Threading.Tasks;
-    using Cysharp.Threading.Tasks;
     using Data;
 
     public class Character : MonoBehaviour
@@ -149,6 +151,21 @@ namespace ND.Character
         public async UniTask DamageToCharacter(float damage = 0)
         {
             await UniTask.CompletedTask;
+        }
+
+        public async UniTask MoveToPos(Vector3 pos)
+        {
+            State = E_CharacterState.Run;
+
+            Vector3 dir = pos - transform.position;
+            transform.forward = dir.normalized;
+
+            transform.DOMove(pos, 3).OnComplete(() => 
+            {
+                State = E_CharacterState.Idle;
+            });
+
+            await UniTask.Delay(TimeSpan.FromSeconds(3));
         }
 
         private void OnDestroy()

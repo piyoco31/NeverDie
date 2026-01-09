@@ -73,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4197069543173658620}
   - component: {fileID: 5180711239468197357}
+  - component: {fileID: -4393762426838631393}
   m_Layer: 0
   m_Name: ND_M_SoldierC
   m_TagString: Untagged
@@ -120,6 +121,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4393762426838631393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783598509955349119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b472d7fe2a7843489403916e3ead33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Character.Monster.Soldier
+  anim: {fileID: 0}
 --- !u!1 &1041851583778579258
 GameObject:
   m_ObjectHideFlags: 0

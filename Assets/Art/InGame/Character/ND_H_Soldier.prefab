@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4095619681897946266}
   - component: {fileID: 6842075116291057659}
+  - component: {fileID: -5034367482572155197}
   m_Layer: 0
   m_Name: ND_H_Soldier
   m_TagString: Untagged
@@ -181,6 +182,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5034367482572155197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418618514264768218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a9c38302752fb4baaa40596de81370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Character.Hero.Ranger
+  anim: {fileID: 0}
 --- !u!1 &1481630729064842206
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,51 +10,73 @@ namespace ND.Manager
     using Character;
     using Character.Hero;
     using Data;
-   
 
     public class HeroManager : MonoBehaviour
     {
-
-
-        [SerializeField] HeroDataSO heroDataSO;
+        Dictionary<E_HeroType, Pool<Character>> poolDic = new();
+        Dictionary<E_HeroType, HeroData> dataDic = new();
+        Transform poolParentTr;
+        HeroDataSO heroDataSO;
         
+        List<Character> heroList = new();
 
-        List<Character> heroList;
-
-        public void Start()
-        {
-        }
 
         public async UniTask Init()
         {
+            GameObject trObj = new();
+            trObj.name = "HeroPool";
+            poolParentTr = trObj.transform;
+
+            var bgObj = await Addressables.LoadAssetAsync<GameObject>("ND_Bg");
+
+            Instantiate(bgObj);
 
             heroDataSO = await Addressables.LoadAssetAsync<HeroDataSO>("HeroDataAsset");
 
             foreach (var data in heroDataSO.heroDataList)
             {
                 var obj = await Addressables.LoadAssetAsync<GameObject>(data.prefab);
-                var character = Instantiate(obj, Vector3.zero, Quaternion.identity);
+                var type = data.type;
 
-                if (data.type == E_HeroType.Doctor)
+                if (!dataDic.ContainsKey(type))
                 {
-                    var hero = character.AddComponent<Surportter>();
+                    dataDic.Add(type, data);
+                }
+
+                if (type == E_HeroType.Doctor)
+                {
+                    var hero = obj.GetComponent<Surportter>();
                     hero.InitCharacter(data);
                     
                 }
-                else if (data.type == E_HeroType.Police || data.type == E_HeroType.Soldier)
+                else if (type == E_HeroType.Police || type == E_HeroType.Soldier)
                 {
-                    var hero = character.AddComponent<Ranger>();
+                    var hero = obj.GetComponent<Ranger>();
                     hero.InitCharacter(data);
                 }
                 else
                 {
-                    var hero = character.AddComponent<Attacker>();
+                    var hero = obj.GetComponent<Attacker>();
                     hero.InitCharacter(data);
                 }
 
-                var pool = Pool.Create(character.GetComponent<Character>(), 10, character.transform).NonLazy();
-
+                if (!poolDic.ContainsKey(type))
+                {
+                    Pool<Character> pool = Pool.Create(obj.GetComponent<Character>(), data.poolCount, poolParentTr).NonLazy();
+                    poolDic.Add(type, pool);
+                }
             }
+        }
+
+        public async UniTask SpawmHero(E_HeroType type)
+        {
+            var hero = poolDic[type].Get();
+            hero.InitCharacter(dataDic[type]);
+            heroList.Add(hero);
+
+            await hero.MoveToPos(new Vector3(dataDic[type].startPosX, dataDic[type].startPosY, dataDic[type].startPosZ));
+
+            hero.transform.forward = Vector3.right;
         }
     }
 }

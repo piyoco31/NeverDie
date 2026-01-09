@@ -878,6 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5168287970973122886}
   - component: {fileID: 2625612411721612336}
+  - component: {fileID: -8977651681479607996}
   m_Layer: 0
   m_Name: ND_H_Boy
   m_TagString: Untagged
@@ -924,6 +925,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8977651681479607996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031082011276462934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e808e749b427b4c84b2e9a65218235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Character.Hero.Attacker
+  anim: {fileID: 0}
 --- !u!1 &7364343322611822601
 GameObject:
   m_ObjectHideFlags: 0

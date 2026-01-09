@@ -1,5 +1,5 @@
 using System;
-
+using UnityEngine;
 
 namespace ND.Data
 {
@@ -14,6 +14,10 @@ namespace ND.Data
         public float defaultAtk;
         public float defaultArmor;
         public float defaultDps;
+        public int poolCount;
+        public float startPosX;
+        public float startPosY;
+        public float startPosZ;
     }
 
     [Serializable]
@@ -27,5 +31,6 @@ namespace ND.Data
         public float defaultAtk;
         public float defaultArmor;
         public float defaultDps;
+        public int poolCount;
     }
 }

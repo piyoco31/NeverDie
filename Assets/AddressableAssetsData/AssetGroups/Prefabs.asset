@@ -64,6 +64,13 @@ MonoBehaviour:
     - Hero
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a64d1360355fea44cb29c317641ba437
+    m_Address: ND_Bg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bg
+    - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c21facb32f3a6f44eaaabafcebfe191d
     m_Address: ND_H_Police
     m_ReadOnly: 0

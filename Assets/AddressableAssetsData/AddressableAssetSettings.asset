@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7d513070c81892e48b0d47e4aab0b8c4
   m_currentHash:
     serializedVersion: 2
-    Hash: 00b5314161178be927f44236cd5f9099
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
     - Prefab
     - Monster
     - Data
+    - Bg
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 07121430b6115d0479f8227f9ff2136e, type: 2}

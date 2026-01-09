@@ -7,7 +7,11 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 8.0
+    "defaultDps": 8.0,
+    "poolCount": 1,
+    "startPosX": -5.0,
+    "startPosY": 0.0,
+    "startPosZ": 1.0
   },
   {
     "type": 1,
@@ -17,7 +21,11 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 2.0
+    "defaultDps": 2.0,
+    "poolCount": 1,
+    "startPosX": -2.6,
+    "startPosY": 0.0,
+    "startPosZ": -1.8
   },
   {
     "type": 2,
@@ -27,7 +35,11 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 3.0
+    "defaultDps": 3.0,
+    "poolCount": 1,
+    "startPosX": -2.5,
+    "startPosY": 0.0,
+    "startPosZ": 0.0
   },
   {
     "type": 3,
@@ -37,7 +49,11 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 5.0
+    "defaultDps": 5.0,
+    "poolCount": 1,
+    "startPosX": -5.0,
+    "startPosY": 0.0,
+    "startPosZ": -1.0
   },
   {
     "type": 4,
@@ -47,6 +63,10 @@
     "defaultHp": 0.0,
     "defaultAtk": 0.0,
     "defaultArmor": 0.0,
-    "defaultDps": 6.0
+    "defaultDps": 6.0,
+    "poolCount": 1,
+    "startPosX": -2.0,
+    "startPosY": 0.0,
+    "startPosZ": 2.0
   }
 ]

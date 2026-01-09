@@ -22,6 +22,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 0
+    poolCount: 10
   - type: 1
     name: "\uAD70\uC778"
     prefab: ND_M_SoldierA
@@ -30,6 +31,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 0
+    poolCount: 3
   - type: 2
     name: "\uC5D8\uB9AC\uD2B8 \uAD70\uC778"
     prefab: ND_M_SoldierB
@@ -38,6 +40,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 0
+    poolCount: 3
   - type: 3
     name: "\uD654\uC5FC\uBC29\uC0AC\uBCD1"
     prefab: ND_M_SoldierC
@@ -46,3 +49,4 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 0
+    poolCount: 3
