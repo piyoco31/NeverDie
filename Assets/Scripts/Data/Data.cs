@@ -14,6 +14,7 @@ namespace ND.Data
         public float defaultAtk;
         public float defaultArmor;
         public float defaultDps;
+        public float defaultRange;
         public int poolCount;
         public float startPosX;
         public float startPosY;
@@ -31,6 +32,7 @@ namespace ND.Data
         public float defaultAtk;
         public float defaultArmor;
         public float defaultDps;
+        public float defaultRange;
         public int poolCount;
     }
 }

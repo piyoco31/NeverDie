@@ -14,9 +14,12 @@ namespace ND.Manager
     public class MonsterManager : MonoBehaviour
     {
         Dictionary<E_MonsterType, Pool<Character>> poolDic = new();
+        Dictionary<E_MonsterType, MonsterData> dataDic = new();
         MonsterDataSO monsterDataSO;
         Transform poolParentTr;
-    
+
+        List<Character> monsterList = new();
+
         public async UniTask Init()
         {
             GameObject trObj = new();
@@ -30,16 +33,10 @@ namespace ND.Manager
                 var obj = await Addressables.LoadAssetAsync<GameObject>(data.prefab);
 
                 var type = data.type;
-                
-                if (type == E_MonsterType.Zombie)
+
+                if (!dataDic.ContainsKey(type))
                 {
-                    var monster = obj.GetComponent<Zombie>();
-                    monster.InitCharacter(data);
-                }
-                else
-                {
-                    var monster = obj.GetComponent<Soldier>();
-                    monster.InitCharacter(data);
+                    dataDic.Add(type, data);
                 }
 
                 if (!poolDic.ContainsKey(type))
@@ -48,6 +45,33 @@ namespace ND.Manager
                     poolDic.Add(type, pool);
                 }
             }
+        }
+
+        public async UniTask SpawmMonster(E_MonsterType type)
+        {
+            var monster = poolDic[type].Get();
+            monster.InitCharacter(dataDic[type]);
+            monsterList.Add(monster);
+
+            //await hero.MoveToPos(new Vector3(dataDic[type].startPosX, dataDic[type].startPosY, dataDic[type].startPosZ));
+            //
+            monster.transform.forward = Vector3.right;
+        }
+
+        public Character GetTargetMonster(Character attacker)
+        {
+            Vector3 attackerPos = attacker.transform.position;
+            float distance = attacker.Range;
+
+            foreach (var monster in monsterList)
+            {
+                if (!monster || monster.State == E_CharacterState.Death) continue;
+
+                if (Vector3.Distance(attackerPos, monster.transform.position) <= distance)
+                    return monster;
+            }
+
+            return null;
         }
     }
 }

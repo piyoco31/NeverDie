@@ -10,6 +10,7 @@ namespace ND.Manager
     using Character;
     using Character.Hero;
     using Data;
+    using DG.Tweening;
 
     public class HeroManager : MonoBehaviour
     {
@@ -19,8 +20,12 @@ namespace ND.Manager
         HeroDataSO heroDataSO;
         
         List<Character> heroList = new();
+        readonly IObjectResolver container;
 
-
+        public HeroManager(IObjectResolver container)
+        {
+            this.container = container;
+        }
         public async UniTask Init()
         {
             GameObject trObj = new();
@@ -43,6 +48,7 @@ namespace ND.Manager
                     dataDic.Add(type, data);
                 }
 
+                /*
                 if (type == E_HeroType.Doctor)
                 {
                     var hero = obj.GetComponent<Surportter>();
@@ -59,6 +65,7 @@ namespace ND.Manager
                     var hero = obj.GetComponent<Attacker>();
                     hero.InitCharacter(data);
                 }
+                */
 
                 if (!poolDic.ContainsKey(type))
                 {
@@ -71,12 +78,15 @@ namespace ND.Manager
         public async UniTask SpawmHero(E_HeroType type)
         {
             var hero = poolDic[type].Get();
+            container.Inject(hero);
             hero.InitCharacter(dataDic[type]);
             heroList.Add(hero);
 
             await hero.MoveToPos(new Vector3(dataDic[type].startPosX, dataDic[type].startPosY, dataDic[type].startPosZ));
 
             hero.transform.forward = Vector3.right;
+
+            hero.StartAttack();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using R3;
 using System.Threading;
 using VContainer;
 using VContainer.Unity;
@@ -27,18 +28,17 @@ namespace ND.Manager
             await UniTask.Delay(System.TimeSpan.FromSeconds(1));
 
             _ = heroManager.SpawmHero(E_HeroType.Doctor);
-
             _ = heroManager.SpawmHero(E_HeroType.Police);
-
             _ = heroManager.SpawmHero(E_HeroType.Girl);
-
             _ = heroManager.SpawmHero(E_HeroType.Boy);
-
             _ = heroManager.SpawmHero(E_HeroType.Soldier);
 
 
 
-            await UniTask.WaitUntil(() => 1 == 2);
+
+            //await UniTask.WaitUntil(() => 1 == 2);
+
+            _ = monsterManager.SpawmMonster(E_MonsterType.Zombie);
 
         }
 

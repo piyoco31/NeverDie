@@ -8,6 +8,7 @@ using System;
 namespace ND.Character
 {
     using Data;
+    using System.Threading;
 
     public class Character : MonoBehaviour
     {
@@ -69,13 +70,25 @@ namespace ND.Character
             set { dpsRxProp.Value = value; }
         }
 
+        protected ReactiveProperty<float> rangeRxProp = new ReactiveProperty<float>();
+        public float Range
+        {
+            get { return rangeRxProp.Value; }
+            set { rangeRxProp.Value = value; }
+        }
+
         #endregion
 
         #region Property
         public E_HeroType HeroType { get; private set; } = E_HeroType.NotHero;
         public E_MonsterType MonsterType { get; private set; } = E_MonsterType.NotMonster;
         public bool IsHero { get { return HeroType != E_HeroType.NotHero; } }
-        public bool IsDead { get { return State != E_CharacterState.Death; } }
+        public bool IsDead { get; private set; } = false;
+        public bool IsAttacking { get; protected set; } = false;
+        public Character Target { get; protected set; }
+        public string AttackAnimName { get; protected set; }
+
+        CompositeDisposable disposables = new CompositeDisposable();
         #endregion
 
         #region Component
@@ -90,8 +103,12 @@ namespace ND.Character
 
             stateRxProp.Subscribe(state =>
             {
-                SetAnimByState(state);
-            });
+                if (!IsDead)
+                {
+                    SetAnimByState(state);
+                    IsDead = state == E_CharacterState.Death ? true : false;
+                }
+            }).AddTo(disposables);
         }
 
         public void InitCharacter(HeroData data)
@@ -103,8 +120,17 @@ namespace ND.Character
             Atk = data.defaultAtk;
             Armor = data.defaultArmor;
             Dps = data.defaultDps;
+            Range = data.defaultRange;
             HeroType = data.type;
             State = E_CharacterState.Idle;
+
+            anim.SetBool("IsMale", HeroType != E_HeroType.Girl);
+            anim.SetFloat("HeroType", (int)HeroType);
+
+            AttackAnimName = anim.runtimeAnimatorController.animationClips[(int)HeroType + 5].name;
+
+            transform.position = new Vector3(-10, 0, 0);
+            transform.rotation = Quaternion.Euler(Vector3.right);
         }
 
         public void InitCharacter(MonsterData data)
@@ -116,8 +142,12 @@ namespace ND.Character
             Atk = data.defaultAtk;
             Armor = data.defaultArmor;
             Dps = data.defaultDps;
+            Range = data.defaultRange;
             MonsterType = data.type;
             State = E_CharacterState.Idle;
+
+            transform.position = new Vector3(10, 0, 0);
+            transform.rotation = Quaternion.Euler(Vector3.left);
         }
 
         void SetAnimByState(E_CharacterState InState)
@@ -131,26 +161,6 @@ namespace ND.Character
             };
 
             anim?.SetTrigger(triggerStr);
-        }
-
-        private async void WaitingAttack()
-        {
-            await UniTask.Delay((int)(Dps * 1000));
-
-            if (!IsDead)
-            {
-                await AttackToTarget(null);
-            }
-        }
-
-        protected virtual async UniTask AttackToTarget(Character target)
-        { 
-            await target.DamageToCharacter(Atk);
-        }
-
-        public async UniTask DamageToCharacter(float damage = 0)
-        {
-            await UniTask.CompletedTask;
         }
 
         public async UniTask MoveToPos(Vector3 pos)
@@ -168,9 +178,57 @@ namespace ND.Character
             await UniTask.Delay(TimeSpan.FromSeconds(3));
         }
 
+        public void StartAttack()
+        {
+            //Observable.Ev
+            //
+            //Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(async _ =>
+            //{
+            //    await AttackToTarget();
+            //}).AddTo(disposables);
+
+            WaitingAttack();
+        }
+
+        protected virtual async UniTask AttackToTarget()
+        {
+            
+
+
+        }
+
+        async void WaitingAttack()
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(Dps));
+
+            await AttackToTarget();
+
+            WaitingAttack();
+        }
+
+        public async UniTask DamageToCharacter(float damage = 0)
+        {
+            await UniTask.CompletedTask;
+        }
+
         private void OnDestroy()
         {
             stateRxProp.Dispose();
+        }
+
+        protected async UniTask WaitingAnimTime()
+        { 
+            
+        }
+
+        public virtual void OnAttackHit()
+        { 
+        
+        }
+
+        public virtual void OnAttackEnd()
+        { 
+            
         }
     }
 }

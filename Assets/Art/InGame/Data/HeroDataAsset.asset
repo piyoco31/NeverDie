@@ -22,6 +22,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 8
+    defaultRange: 0
     poolCount: 1
     startPosX: -5
     startPosY: 0
@@ -34,6 +35,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 2
+    defaultRange: 5
     poolCount: 1
     startPosX: -2.6
     startPosY: 0
@@ -46,6 +48,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 3
+    defaultRange: 5
     poolCount: 1
     startPosX: -2.5
     startPosY: 0
@@ -58,6 +61,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 5
+    defaultRange: 8
     poolCount: 1
     startPosX: -5
     startPosY: 0
@@ -70,6 +74,7 @@ MonoBehaviour:
     defaultAtk: 0
     defaultArmor: 0
     defaultDps: 6
+    defaultRange: 8
     poolCount: 1
     startPosX: -2
     startPosY: 0
