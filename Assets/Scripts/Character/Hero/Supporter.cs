@@ -1,19 +1,40 @@
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using VContainer;
 
 namespace ND.Character.Hero
 {
-    public class Surportter : Character
+    using Manager;
+
+    public class Surpporter : Character
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        [Inject] MonsterManager monsterManager;
+
+        protected override async UniTask AttackToTarget()
         {
+            if (Target == null || Vector3.Distance(Target.transform.position, transform.position) > Range)
+            {
+                Target = monsterManager.GetTargetMonster(this);
+            }
 
-        }
+            if (Target != null)
+            {
+                Vector3 dir = Target.transform.position - transform.position;
 
-        // Update is called once per frame
-        void Update()
-        {
+                Quaternion targetRotation = Quaternion.LookRotation(dir, Vector3.up);
 
+                transform.DORotate(targetRotation.eulerAngles, 0.5f).OnComplete(() =>
+                {
+                    State = E_CharacterState.Attack;
+                });
+
+                await WaitingAttackAnimTime();
+
+                State = E_CharacterState.Idle;
+                targetRotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
+                transform.DORotate(targetRotation.eulerAngles, 0.5f);
+            }
         }
     }
 }

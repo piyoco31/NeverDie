@@ -1,6 +1,5 @@
 using R3;
 using UnityEngine;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
@@ -8,7 +7,6 @@ using System;
 namespace ND.Character
 {
     using Data;
-    using System.Threading;
 
     public class Character : MonoBehaviour
     {
@@ -82,13 +80,11 @@ namespace ND.Character
         #region Property
         public E_HeroType HeroType { get; private set; } = E_HeroType.NotHero;
         public E_MonsterType MonsterType { get; private set; } = E_MonsterType.NotMonster;
-        public bool IsHero { get { return HeroType != E_HeroType.NotHero; } }
         public bool IsDead { get; private set; } = false;
-        public bool IsAttacking { get; protected set; } = false;
         public Character Target { get; protected set; }
-        public string AttackAnimName { get; protected set; }
+        protected string attackAnimName;
 
-        CompositeDisposable disposables = new CompositeDisposable();
+        protected CompositeDisposable disposables = new CompositeDisposable();
         #endregion
 
         #region Component
@@ -111,8 +107,16 @@ namespace ND.Character
             }).AddTo(disposables);
         }
 
+        private void OnDestroy()
+        {
+            stateRxProp.Dispose();
+            disposables.Dispose();
+        }
+
         public void InitCharacter(HeroData data)
         {
+            IsDead = false;
+
             Name = data.name;
             Speed = data.defaultSpeed;
             CurrentHp = data.defaultHp;
@@ -127,7 +131,7 @@ namespace ND.Character
             anim.SetBool("IsMale", HeroType != E_HeroType.Girl);
             anim.SetFloat("HeroType", (int)HeroType);
 
-            AttackAnimName = anim.runtimeAnimatorController.animationClips[(int)HeroType + 5].name;
+            attackAnimName = anim.runtimeAnimatorController.animationClips[(int)HeroType + 5].name;
 
             transform.position = new Vector3(-10, 0, 0);
             transform.rotation = Quaternion.Euler(Vector3.right);
@@ -135,6 +139,8 @@ namespace ND.Character
 
         public void InitCharacter(MonsterData data)
         {
+            IsDead = false;
+
             Name = data.name;
             Speed = data.defaultSpeed;
             CurrentHp = data.defaultHp;
@@ -145,6 +151,12 @@ namespace ND.Character
             Range = data.defaultRange;
             MonsterType = data.type;
             State = E_CharacterState.Idle;
+
+            bool IsZombie = MonsterType == E_MonsterType.Zombie;
+
+            anim.SetFloat("IsZombie", IsZombie ? 0 : 1);
+
+            attackAnimName = anim.runtimeAnimatorController.animationClips[IsZombie ? 4 : 5].name;
 
             transform.position = new Vector3(10, 0, 0);
             transform.rotation = Quaternion.Euler(Vector3.left);
@@ -178,23 +190,14 @@ namespace ND.Character
             await UniTask.Delay(TimeSpan.FromSeconds(3));
         }
 
-        public void StartAttack()
+        public virtual void StartAttack()
         {
-            //Observable.Ev
-            //
-            //Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(async _ =>
-            //{
-            //    await AttackToTarget();
-            //}).AddTo(disposables);
-
             WaitingAttack();
         }
 
         protected virtual async UniTask AttackToTarget()
         {
-            
-
-
+            await UniTask.CompletedTask;
         }
 
         async void WaitingAttack()
@@ -211,24 +214,13 @@ namespace ND.Character
             await UniTask.CompletedTask;
         }
 
-        private void OnDestroy()
+        protected async UniTask WaitingAttackAnimTime()
         {
-            stateRxProp.Dispose();
-        }
+            await UniTask.WaitUntil(() => attackAnimName == anim.GetCurrentAnimatorClipInfo(0)?[0].clip.name);
 
-        protected async UniTask WaitingAnimTime()
-        { 
-            
-        }
+            float waitTime = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 
-        public virtual void OnAttackHit()
-        { 
-        
-        }
-
-        public virtual void OnAttackEnd()
-        { 
-            
+            await UniTask.Delay(TimeSpan.FromSeconds(waitTime));
         }
     }
 }

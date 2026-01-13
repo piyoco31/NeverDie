@@ -8,24 +8,23 @@ using VContainer;
 namespace ND.Manager
 {
     using Character;
-    using Character.Hero;
     using Data;
-    using DG.Tweening;
 
     public class HeroManager : MonoBehaviour
     {
+        List<Character> heroList = new();
         Dictionary<E_HeroType, Pool<Character>> poolDic = new();
         Dictionary<E_HeroType, HeroData> dataDic = new();
+
         Transform poolParentTr;
         HeroDataSO heroDataSO;
-        
-        List<Character> heroList = new();
-        readonly IObjectResolver container;
+        IObjectResolver container;
 
         public HeroManager(IObjectResolver container)
         {
             this.container = container;
         }
+
         public async UniTask Init()
         {
             GameObject trObj = new();
@@ -48,25 +47,6 @@ namespace ND.Manager
                     dataDic.Add(type, data);
                 }
 
-                /*
-                if (type == E_HeroType.Doctor)
-                {
-                    var hero = obj.GetComponent<Surportter>();
-                    hero.InitCharacter(data);
-                    
-                }
-                else if (type == E_HeroType.Police || type == E_HeroType.Soldier)
-                {
-                    var hero = obj.GetComponent<Ranger>();
-                    hero.InitCharacter(data);
-                }
-                else
-                {
-                    var hero = obj.GetComponent<Attacker>();
-                    hero.InitCharacter(data);
-                }
-                */
-
                 if (!poolDic.ContainsKey(type))
                 {
                     Pool<Character> pool = Pool.Create(obj.GetComponent<Character>(), data.poolCount, poolParentTr).NonLazy();
@@ -87,6 +67,21 @@ namespace ND.Manager
             hero.transform.forward = Vector3.right;
 
             hero.StartAttack();
+        }
+
+        public Character GetTargetHero(Character attacker)
+        {
+            Vector3 attackerPos = attacker.transform.position;
+            float distance = attacker.Range;
+
+            foreach (var hero in heroList)
+            {
+                if (!hero || hero.State == E_CharacterState.Death) continue;
+
+                return hero;
+            }
+
+            return null;
         }
     }
 }

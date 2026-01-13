@@ -21,7 +21,8 @@ MonoBehaviour:
     defaultHp: 0
     defaultAtk: 0
     defaultArmor: 0
-    defaultDps: 0
+    defaultDps: 3
+    defaultRange: 2
     poolCount: 10
   - type: 1
     name: "\uAD70\uC778"
@@ -30,7 +31,8 @@ MonoBehaviour:
     defaultHp: 0
     defaultAtk: 0
     defaultArmor: 0
-    defaultDps: 0
+    defaultDps: 3
+    defaultRange: 0
     poolCount: 3
   - type: 2
     name: "\uC5D8\uB9AC\uD2B8 \uAD70\uC778"
@@ -39,7 +41,8 @@ MonoBehaviour:
     defaultHp: 0
     defaultAtk: 0
     defaultArmor: 0
-    defaultDps: 0
+    defaultDps: 3
+    defaultRange: 0
     poolCount: 3
   - type: 3
     name: "\uD654\uC5FC\uBC29\uC0AC\uBCD1"
@@ -48,5 +51,6 @@ MonoBehaviour:
     defaultHp: 0
     defaultAtk: 0
     defaultArmor: 0
-    defaultDps: 0
+    defaultDps: 3
+    defaultRange: 0
     poolCount: 3

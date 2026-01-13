@@ -1,24 +1,29 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Redcode.Pools;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using VContainer;
 
 namespace ND.Manager
 {
     using Character;
-    using Character.Monster;
     using Data;
     
-
     public class MonsterManager : MonoBehaviour
     {
+        List<Character> monsterList = new();
         Dictionary<E_MonsterType, Pool<Character>> poolDic = new();
         Dictionary<E_MonsterType, MonsterData> dataDic = new();
         MonsterDataSO monsterDataSO;
         Transform poolParentTr;
 
-        List<Character> monsterList = new();
+        IObjectResolver container;
+
+        public MonsterManager(IObjectResolver container)
+        {
+            this.container = container;
+        }
 
         public async UniTask Init()
         {
@@ -50,12 +55,15 @@ namespace ND.Manager
         public async UniTask SpawmMonster(E_MonsterType type)
         {
             var monster = poolDic[type].Get();
+            container.Inject(monster);
             monster.InitCharacter(dataDic[type]);
             monsterList.Add(monster);
 
             //await hero.MoveToPos(new Vector3(dataDic[type].startPosX, dataDic[type].startPosY, dataDic[type].startPosZ));
             //
             monster.transform.forward = Vector3.right;
+
+            monster.StartAttack();
         }
 
         public Character GetTargetMonster(Character attacker)
