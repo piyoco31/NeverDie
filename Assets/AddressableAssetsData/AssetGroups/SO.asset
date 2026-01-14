@@ -29,6 +29,13 @@ MonoBehaviour:
     - Data
     - Hero
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2a4983407d7f1a4cae1b494f3542398
+    m_Address: HeroPositionDataAsset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    - Hero
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 685d4662c783a37448d816131db4088f, type: 2}
   m_SchemaSet:

@@ -82,8 +82,10 @@ namespace ND.Character
         public E_MonsterType MonsterType { get; private set; } = E_MonsterType.NotMonster;
         public bool IsDead { get; private set; } = false;
         public Character Target { get; protected set; }
-        protected string attackAnimName;
+        public int PosIdx { get; private set; }
+        public bool IsForward { get { return PosIdx < 3; } }
 
+        protected string attackAnimName;
         protected CompositeDisposable disposables = new CompositeDisposable();
         #endregion
 
@@ -103,6 +105,9 @@ namespace ND.Character
                 {
                     SetAnimByState(state);
                     IsDead = state == E_CharacterState.Death ? true : false;
+
+                    if (IsDead)
+                        disposables.Dispose();
                 }
             }).AddTo(disposables);
         }
@@ -113,8 +118,9 @@ namespace ND.Character
             disposables.Dispose();
         }
 
-        public void InitCharacter(HeroData data)
+        public void InitCharacter(HeroData data, int idx = 0)
         {
+            PosIdx = idx;
             IsDead = false;
 
             Name = data.name;
@@ -126,6 +132,7 @@ namespace ND.Character
             Dps = data.defaultDps;
             Range = data.defaultRange;
             HeroType = data.type;
+            MonsterType = E_MonsterType.NotMonster;
             State = E_CharacterState.Idle;
 
             anim.SetBool("IsMale", HeroType != E_HeroType.Girl);
@@ -150,11 +157,12 @@ namespace ND.Character
             Dps = data.defaultDps;
             Range = data.defaultRange;
             MonsterType = data.type;
+            HeroType = E_HeroType.NotHero;
             State = E_CharacterState.Idle;
 
             bool IsZombie = MonsterType == E_MonsterType.Zombie;
 
-            anim.SetFloat("IsZombie", IsZombie ? 0 : 1);
+            anim.SetFloat("MonsterType", IsZombie ? 0 : 1);
 
             attackAnimName = anim.runtimeAnimatorController.animationClips[IsZombie ? 4 : 5].name;
 
@@ -182,7 +190,7 @@ namespace ND.Character
             Vector3 dir = pos - transform.position;
             transform.forward = dir.normalized;
 
-            transform.DOMove(pos, 3).OnComplete(() => 
+            transform.DOMove(pos, Speed).OnComplete(() => 
             {
                 State = E_CharacterState.Idle;
             });
@@ -206,17 +214,29 @@ namespace ND.Character
 
             await AttackToTarget();
 
-            WaitingAttack();
+            if (!IsDead)
+                WaitingAttack();
         }
 
         public async UniTask DamageToCharacter(float damage = 0)
         {
+            float AddDamage = damage;
+
+            // 이 외에 조건은 체력 회복임
+            if (damage > 0)
+                AddDamage = Mathf.Clamp(damage - Armor, 1, damage);
+
+            CurrentHp = Mathf.Clamp(CurrentHp - AddDamage, 0, MaxHp);
+
+            if (CurrentHp <= 0)
+                State = E_CharacterState.Death;
+
             await UniTask.CompletedTask;
         }
 
         protected async UniTask WaitingAttackAnimTime()
         {
-            await UniTask.WaitUntil(() => attackAnimName == anim.GetCurrentAnimatorClipInfo(0)?[0].clip.name);
+            await UniTask.WaitUntil(() => attackAnimName == anim?.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
             float waitTime = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 

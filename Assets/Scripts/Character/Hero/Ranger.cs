@@ -13,7 +13,7 @@ namespace ND.Character.Hero
 
         protected override async UniTask AttackToTarget()
         {
-            if (Target == null || Vector3.Distance(Target.transform.position, transform.position) > Range)
+            if (Target == null || Target.IsDead || Vector3.Distance(Target.transform.position, transform.position) > Range)
             {
                 Target = monsterManager.GetTargetMonster(this);
             }
@@ -30,6 +30,7 @@ namespace ND.Character.Hero
                 });
 
                 await WaitingAttackAnimTime();
+                await Target.DamageToCharacter(Atk);
 
                 State = E_CharacterState.Idle;
                 targetRotation = Quaternion.LookRotation(Vector3.right, Vector3.up);

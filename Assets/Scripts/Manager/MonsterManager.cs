@@ -59,11 +59,12 @@ namespace ND.Manager
             monster.InitCharacter(dataDic[type]);
             monsterList.Add(monster);
 
-            //await hero.MoveToPos(new Vector3(dataDic[type].startPosX, dataDic[type].startPosY, dataDic[type].startPosZ));
-            //
-            monster.transform.forward = Vector3.right;
+            monster.transform.position = new Vector3(10, 0, Random.Range(-1.8f, 2.0f));
+            monster.transform.forward = Vector3.left;
 
             monster.StartAttack();
+
+            await UniTask.CompletedTask;
         }
 
         public Character GetTargetMonster(Character attacker)

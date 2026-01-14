@@ -9,20 +9,17 @@ namespace ND.Character.Hero
 
     public class Surpporter : Character
     {
-        [Inject] MonsterManager monsterManager;
+        [Inject] HeroManager heroManager;
 
         protected override async UniTask AttackToTarget()
         {
-            if (Target == null || Vector3.Distance(Target.transform.position, transform.position) > Range)
-            {
-                Target = monsterManager.GetTargetMonster(this);
-            }
+            Target = heroManager.GetHealTargetHero();
 
             if (Target != null)
             {
                 Vector3 dir = Target.transform.position - transform.position;
 
-                Quaternion targetRotation = Quaternion.LookRotation(dir, Vector3.up);
+                Quaternion targetRotation = Quaternion.LookRotation(Target == this ? Vector3.right : dir, Vector3.up);
 
                 transform.DORotate(targetRotation.eulerAngles, 0.5f).OnComplete(() =>
                 {
@@ -30,6 +27,7 @@ namespace ND.Character.Hero
                 });
 
                 await WaitingAttackAnimTime();
+                await Target.DamageToCharacter(-Atk);
 
                 State = E_CharacterState.Idle;
                 targetRotation = Quaternion.LookRotation(Vector3.right, Vector3.up);

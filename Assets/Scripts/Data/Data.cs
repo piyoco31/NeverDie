@@ -4,6 +4,14 @@ using UnityEngine;
 namespace ND.Data
 {
     [Serializable]
+    public class HeroPositionData
+    {
+        public int Idx;
+        public bool IsForward;
+        public Vector3 Pos;
+    }
+
+    [Serializable]
     public class HeroData
     {
         public E_HeroType type;
@@ -16,9 +24,6 @@ namespace ND.Data
         public float defaultDps;
         public float defaultRange;
         public int poolCount;
-        public float startPosX;
-        public float startPosY;
-        public float startPosZ;
     }
 
     [Serializable]

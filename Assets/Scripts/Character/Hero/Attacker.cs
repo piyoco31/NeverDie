@@ -30,6 +30,7 @@ namespace ND.Character.Hero
                 });
 
                 await WaitingAttackAnimTime();
+                await Target.DamageToCharacter(Atk);
 
                 State = E_CharacterState.Idle;
                 targetRotation = Quaternion.LookRotation(Vector3.right, Vector3.up);

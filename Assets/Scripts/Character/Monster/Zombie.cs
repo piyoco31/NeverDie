@@ -20,7 +20,7 @@ namespace ND.Character.Monster
             {
                 if (Target == null || Target.IsDead)
                 {
-                    Target = HeroManager.GetTargetHero(this);
+                    Target = HeroManager.GetAttackTargetHero(this);
                 }
 
                 if (Target)
@@ -31,7 +31,7 @@ namespace ND.Character.Monster
                     {
                         Vector3 dir = Target.transform.position - transform.position;
                         dir.Normalize();
-                        transform.position += dir * 3 * Time.deltaTime;
+                        transform.position += dir * Speed * Time.deltaTime;
                         transform.forward = dir;
 
                         if (State != E_CharacterState.Run)
@@ -47,7 +47,7 @@ namespace ND.Character.Monster
         {
             if (Target == null || Target.IsDead)
             {
-                Target = HeroManager.GetTargetHero(this);
+                Target = HeroManager.GetAttackTargetHero(this);
             }
 
             if (Target != null)
@@ -66,6 +66,9 @@ namespace ND.Character.Monster
                     });
 
                     await WaitingAttackAnimTime();
+
+                    if (Target)
+                        await Target.DamageToCharacter(Atk);
 
                     State = E_CharacterState.Idle;
                     targetRotation = Quaternion.LookRotation(Vector3.left, Vector3.up);

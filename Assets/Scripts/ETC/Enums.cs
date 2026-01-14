@@ -24,7 +24,6 @@ namespace ND
         Soldier_A,
         Soldier_B,
         Soldier_C,
-        NotMonster
-            
+        NotMonster       
     }
 }
