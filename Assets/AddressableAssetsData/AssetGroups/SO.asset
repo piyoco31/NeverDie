@@ -16,21 +16,21 @@ MonoBehaviour:
   m_GUID: 2860f42d0ecc20f43bfa95bb8ecc7e2f
   m_SerializeEntries:
   - m_GUID: 3a046fbcb666e1a4cb73e8a717fdb960
-    m_Address: MonsterDataAsset
+    m_Address: ND_SO_MonsterDataAsset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Data
     - Monster
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e3048b9774d68d49a142b13d8fa0a84
-    m_Address: HeroDataAsset
+    m_Address: ND_SO_HeroDataAsset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Data
     - Hero
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2a4983407d7f1a4cae1b494f3542398
-    m_Address: HeroPositionDataAsset
+    m_Address: ND_SO_HeroPositionDataAsset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Data

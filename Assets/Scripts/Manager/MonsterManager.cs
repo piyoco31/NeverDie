@@ -12,18 +12,13 @@ namespace ND.Manager
     
     public class MonsterManager : MonoBehaviour
     {
+        [Inject] IObjectResolver container;
+
         List<Character> monsterList = new();
         Dictionary<E_MonsterType, Pool<Character>> poolDic = new();
         Dictionary<E_MonsterType, MonsterData> dataDic = new();
         MonsterDataSO monsterDataSO;
         Transform poolParentTr;
-
-        IObjectResolver container;
-
-        public MonsterManager(IObjectResolver container)
-        {
-            this.container = container;
-        }
 
         public async UniTask Init()
         {
@@ -31,7 +26,7 @@ namespace ND.Manager
             trObj.name = "MonsterPool";
             poolParentTr = trObj.transform;
 
-            monsterDataSO = await Addressables.LoadAssetAsync<MonsterDataSO>("MonsterDataAsset");
+            monsterDataSO = await Addressables.LoadAssetAsync<MonsterDataSO>("ND_SO_MonsterDataAsset");
     
             foreach (var data in monsterDataSO.monsterDataList)
             {

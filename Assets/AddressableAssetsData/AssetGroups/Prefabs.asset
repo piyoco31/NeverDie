@@ -16,70 +16,77 @@ MonoBehaviour:
   m_GUID: 39a29be024de08244b46775f600e6ef1
   m_SerializeEntries:
   - m_GUID: 00bbfb76e91f0664599a2ecb40b017f0
-    m_Address: ND_H_Soldier
+    m_Address: ND_CH_Soldier
     m_ReadOnly: 0
     m_SerializedLabels:
     - Hero
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 292c4c3e66f94ed4c9e0b93c055dc543
-    m_Address: ND_M_Zombie
+    m_Address: ND_CM_Zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4196eaac5157c604b84a71652433fa5d
-    m_Address: ND_M_SoldierA
+    m_Address: ND_CM_SoldierA
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4eb2fd976fbe33140bf21cc5582832d1
-    m_Address: ND_M_SoldierB
+    m_Address: ND_CM_SoldierB
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6cffb2f16f0e0654a9523c27dd2d9a2c
-    m_Address: ND_H_Boy
+    m_Address: ND_CH_Boy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Hero
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f909f1e8d6c8e240b6dd8ee794d1de1
-    m_Address: ND_H_Doctor
+    m_Address: ND_CH_Doctor
     m_ReadOnly: 0
     m_SerializedLabels:
     - Hero
     - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84f34bc7f0582d3489fb9762436c1a0f
-    m_Address: ND_H_Girl
+    m_Address: ND_CH_Girl
     m_ReadOnly: 0
     m_SerializedLabels:
     - Hero
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ebebbe158082b645a9b50ec2aa6e18a
+    m_Address: ND_UI_SpawnButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a64d1360355fea44cb29c317641ba437
-    m_Address: ND_Bg
+    m_Address: ND_BG_Town
     m_ReadOnly: 0
     m_SerializedLabels:
     - Bg
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c21facb32f3a6f44eaaabafcebfe191d
-    m_Address: ND_H_Police
+    m_Address: ND_CH_Police
     m_ReadOnly: 0
     m_SerializedLabels:
     - Hero
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc9f203236c365a4ea08b67554531180
-    m_Address: ND_M_SoldierC
+    m_Address: ND_CM_SoldierC
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster

@@ -8,13 +8,16 @@ using VContainer.Unity;
 
 namespace ND.Manager
 {
+    using UI;
+
     public class MainGameManager : IAsyncStartable
     {
         public int WaveCount { get; private set; } = 0;
 
         [Inject] HeroManager heroManager;
         [Inject] MonsterManager monsterManager;
-
+        [Inject] UserDataManager userDataManager;
+        [Inject] InGameUI gameUI;
 
         public async UniTask StartAsync(CancellationToken cancellation)
         {
@@ -27,21 +30,11 @@ namespace ND.Manager
 
             await monsterManager.Init();
 
-            await UniTask.Delay(System.TimeSpan.FromSeconds(1));
+            await gameUI.Init();
 
-            var list = new List<int>() { 0, 1, 2, 3, 4 };
+            await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
 
-            var random = new System.Random();
-            list = list.OrderBy(x => random.Next()).ToList();
-
-            _ = heroManager.SpawmHero(E_HeroType.Doctor, list[0]);
-            _ = heroManager.SpawmHero(E_HeroType.Police, list[1]);
-            _ = heroManager.SpawmHero(E_HeroType.Girl, list[2]);
-            _ = heroManager.SpawmHero(E_HeroType.Boy, list[3]);
-            _ = heroManager.SpawmHero(E_HeroType.Soldier, list[4]);
-
-            await UniTask.Delay(System.TimeSpan.FromSeconds(1));
-            //await UniTask.WaitUntil(() => 1 == 2);
+            await UniTask.Delay(System.TimeSpan.FromSeconds(3));
 
             for (int i = 0; i < 50; i++)
             {

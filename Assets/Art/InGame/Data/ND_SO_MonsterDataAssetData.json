@@ -1,0 +1,50 @@
+[
+  {
+    "type": 0,
+    "name": "좀비",
+    "prefab": "ND_CM_Zombie",
+    "defaultSpeed": 1.0,
+    "defaultHp": 10.0,
+    "defaultAtk": 3.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 3.0,
+    "defaultRange": 1.5,
+    "poolCount": 50
+  },
+  {
+    "type": 1,
+    "name": "군인",
+    "prefab": "ND_CM_SoldierA",
+    "defaultSpeed": 1.0,
+    "defaultHp": 5.0,
+    "defaultAtk": 1.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 3.0,
+    "defaultRange": 6.0,
+    "poolCount": 30
+  },
+  {
+    "type": 2,
+    "name": "엘리트 군인",
+    "prefab": "ND_CM_SoldierB",
+    "defaultSpeed": 1.0,
+    "defaultHp": 5.0,
+    "defaultAtk": 1.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 3.0,
+    "defaultRange": 8.0,
+    "poolCount": 30
+  },
+  {
+    "type": 3,
+    "name": "화염방사병",
+    "prefab": "ND_CM_SoldierC",
+    "defaultSpeed": 1.0,
+    "defaultHp": 5.0,
+    "defaultAtk": 1.0,
+    "defaultArmor": 0.0,
+    "defaultDps": 3.0,
+    "defaultRange": 5.0,
+    "poolCount": 30
+  }
+]

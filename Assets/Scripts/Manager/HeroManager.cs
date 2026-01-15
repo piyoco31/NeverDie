@@ -5,14 +5,23 @@ using Redcode.Pools;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VContainer;
+using R3;
 
 namespace ND.Manager
 {
     using Character;
     using Data;
-    
+
     public class HeroManager : MonoBehaviour
     {
+        [Inject] IObjectResolver container;
+
+        ReactiveProperty<int> spawnCountRxProp = new(0);
+        public ReactiveProperty<int> SpawnCountRxProp { get { return spawnCountRxProp; } }
+        public int SpawnCount { get { return spawnCountRxProp.Value; } private set { spawnCountRxProp.Value = value; } }
+
+        public List<Character> HeroList { get { return heroList; } }
+
         List<Character> heroList = new();
         Dictionary<E_HeroType, Pool<Character>> poolDic = new();
         Dictionary<E_HeroType, HeroData> dataDic = new();
@@ -20,12 +29,6 @@ namespace ND.Manager
 
         Transform poolParentTr;
         HeroDataSO heroDataSO;
-        IObjectResolver container;
-
-        public HeroManager(IObjectResolver container)
-        {
-            this.container = container;
-        }
 
         public async UniTask Init()
         {
@@ -33,11 +36,11 @@ namespace ND.Manager
             trObj.name = "HeroPool";
             poolParentTr = trObj.transform;
 
-            var bgObj = await Addressables.LoadAssetAsync<GameObject>("ND_Bg");
+            var bgObj = await Addressables.LoadAssetAsync<GameObject>("ND_BG_Town");
 
             Instantiate(bgObj);
 
-            heroDataSO = await Addressables.LoadAssetAsync<HeroDataSO>("HeroDataAsset");
+            heroDataSO = await Addressables.LoadAssetAsync<HeroDataSO>("ND_SO_HeroDataAsset");
 
             foreach (var data in heroDataSO.heroDataList)
             {
@@ -56,17 +59,17 @@ namespace ND.Manager
                 }
             }
 
-            var positionDataSO = await Addressables.LoadAssetAsync<HeroPositionDataSO>("HeroPositionDataAsset");
+            var positionDataSO = await Addressables.LoadAssetAsync<HeroPositionDataSO>("ND_SO_HeroPositionDataAsset");
 
             positionDataDic = positionDataSO.heroPositionDataList.ToDictionary(keySelector: m => m.Idx, elementSelector: m => m);
         }
 
         public async UniTask SpawmHero(E_HeroType type, int idx = 0)
         {
+            SpawnCount++;
             var hero = poolDic[type].Get();
             container.Inject(hero);
             hero.InitCharacter(dataDic[type], idx);
-
             await hero.MoveToPos(positionDataDic[idx].Pos);
 
             hero.transform.forward = Vector3.right;
