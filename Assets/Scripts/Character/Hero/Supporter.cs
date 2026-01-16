@@ -7,7 +7,7 @@ namespace ND.Character.Hero
 {
     using Manager;
 
-    public class Surpporter : Character
+    public class Supporter : Character
     {
         [Inject] HeroManager heroManager;
 

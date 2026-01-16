@@ -167,3 +167,12 @@ MonoBehaviour:
     statType: 7
     price: 10
     upgradeValue: 100000
+  - idx: 18
+    isRare: 0
+    name: "\uACF5\uC9DC \uB9AC\uB864 \uAE30\uD68C"
+    desc: "\uC5C5\uADF8\uB808\uC774\uB4DC \uC0C1\uC810\uC758\\n\uBB3C\uD488\uC744
+      \uC0C8\uB85C \uAC31\uC2E0\uD569\uB2C8\uB2E4."
+    upgradeTarget: 7
+    statType: 7
+    price: 0
+    upgradeValue: 0

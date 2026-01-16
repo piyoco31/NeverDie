@@ -35,7 +35,8 @@ namespace ND
         HealerOnly,
         ForwardOnly,
         BackWardOnly,
-        UserMoney
+        UserMoney,
+        FreeReRoll
     }
 
     public enum E_HeroStatType

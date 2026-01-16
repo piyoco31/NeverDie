@@ -253,5 +253,31 @@ namespace ND.Character
 
             await UniTask.Delay(TimeSpan.FromSeconds(waitTime));
         }
+
+        public void AddStat(E_HeroStatType type, float value)
+        {
+            switch (type)
+            {
+                case E_HeroStatType.Atk:
+                    Atk = Mathf.Clamp(Atk += value, 1, float.MaxValue);
+                    break;
+                case E_HeroStatType.MaxHp:
+                    MaxHp = Mathf.Clamp(MaxHp += value, 1, float.MaxValue);
+                    break;
+                case E_HeroStatType.CurrentHp:
+                    if (!IsDead)
+                        CurrentHp = Mathf.Clamp(CurrentHp += value, 0, MaxHp);
+                    break;
+                case E_HeroStatType.Armor:
+                    Armor = Mathf.Clamp(Armor += value, 0, float.MaxValue);
+                    break;
+                case E_HeroStatType.Dps:
+                    Dps = Mathf.Clamp(Dps -= value, 0.5f, float.MaxValue);
+                    break;
+                case E_HeroStatType.Range:
+                    Range = Mathf.Clamp(Range += value, 0.5f, float.MaxValue);
+                    break;
+            }
+        }
     }
 }

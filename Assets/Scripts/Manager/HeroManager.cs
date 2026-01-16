@@ -11,6 +11,7 @@ namespace ND.Manager
 {
     using Character;
     using Data;
+    using Character.Hero;
 
     public class HeroManager : MonoBehaviour
     {
@@ -111,6 +112,32 @@ namespace ND.Manager
             List<Character> list = heroList.FindAll(a => a && !a.IsDead);
 
             return list.OrderByDescending(a => a.MaxHp - a.CurrentHp).FirstOrDefault();
+        }
+
+        public void UpgradeHero(UpgradeData data)
+        {
+            var targetHero = data.upgradeTarget switch
+            {
+                E_UpgradeTargetType.AttackerOnly => heroList.FindAll(x => x is Attacker),
+                E_UpgradeTargetType.RangerOnly => heroList.FindAll(x => x is Ranger),
+                E_UpgradeTargetType.HealerOnly => heroList.FindAll(x => x is Supporter),
+                E_UpgradeTargetType.ForwardOnly => heroList.FindAll(x => x.IsForward),
+                E_UpgradeTargetType.BackWardOnly => heroList.FindAll(x => !x.IsForward),
+                _ => heroList
+            };
+
+            targetHero.ForEach(x => 
+            {
+                if (data.statType == E_HeroStatType.All)
+                {
+                    for (E_HeroStatType i = E_HeroStatType.Atk; i < E_HeroStatType.All; i++)
+                    {
+                        x.AddStat(i, data.upgradeValue);
+                    }
+                }
+                else
+                    x.AddStat(data.statType, data.upgradeValue);
+            });
         }
     }
 }

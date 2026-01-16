@@ -178,5 +178,15 @@
     "statType": 7,
     "price": 10,
     "upgradeValue": 100000.0
+  },
+  {
+    "idx": 18,
+    "isRare": false,
+    "name": "공짜 리롤 기회",
+    "desc": "업그레이드 상점의\\n물품을 새로 갱신합니다.",
+    "upgradeTarget": 7,
+    "statType": 7,
+    "price": 0,
+    "upgradeValue": 0.0
   }
 ]

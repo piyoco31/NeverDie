@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VContainer;
-using System.Linq;
 
 namespace ND.UI
 {
@@ -21,11 +21,17 @@ namespace ND.UI
         [SerializeField] GameObject upgradeShop;
         [SerializeField] Transform spawnButtonTr;
         [SerializeField] TMP_Text userMoneyTxt;
+        [SerializeField] MessageUI messageUI;
 
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
 
         List<HeroSpawnButtonUI> spawnButtonlist= new();
         List<UpgradeData> upgradeDataList;
+
+        private void Start()
+        {
+            CloseUpgradeShop();
+        }
 
         public async UniTask Init()
         {
@@ -40,7 +46,8 @@ namespace ND.UI
                 userMoneyTxt.text = x.ToString();
             });
 
-            await OpenUpgradeShop();
+            //await OpenUpgradeShop();
+            //CloseUpgradeShop();
         }
 
         async UniTask InitSelectButtonUI()
@@ -70,12 +77,21 @@ namespace ND.UI
 
         public async UniTask OpenUpgradeShop()
         {
+            var itemList = upgradeDataList.FindAll(x => !x.isRare);
+            int rareDrop = Random.Range(0, 100);
+
+            if (rareDrop <= 10)
+            {
+                var rareList = upgradeDataList.FindAll(x => x.isRare);
+                itemList.AddRange(rareList);
+            }
+
             var random = new System.Random();
-            var list = upgradeDataList.OrderBy(x => random.Next()).ToList();
+            var list = itemList.OrderBy(x => random.Next()).ToList();
 
             for (int i = 0; i < upgradeButtonList.Count; i++)
             {
-                upgradeButtonList[i].SetUpgradeButton(list[i]);
+                upgradeButtonList[i].SetUpgradeButton(list[i], OnUpgrade);
             }
 
             upgradeShop.SetActive(true);
@@ -85,16 +101,62 @@ namespace ND.UI
 
         public void ReRollUpgradeShop()
         {
-            //if (userDataManager.Money >= 100)
-            //{
+            Test();
+
+            /*
+            if (userDataManager.Money >= 100)
+            {
                 userDataManager.Money -= 100;
                 _ = OpenUpgradeShop();
-            //}
+                ShowMessage("상점을 갱신하였습니다.");
+            }
+            else
+                ShowMessage("소지금이 부족합니다.");
+            */
+        }
+
+        public void Test()
+        {
+            _ = OpenUpgradeShop();
         }
 
         public void CloseUpgradeShop()
         {
             upgradeShop.SetActive(false);
+        }
+
+        public void OnUpgrade(UpgradeShopButtonUI button, int idx)
+        {
+            var data = upgradeDataList.Find(x => x.idx == idx);
+
+            if (data != null && data.price <= userDataManager.Money)
+            {
+                button.IsEnable = false;
+                userDataManager.Money -= data.price;
+                
+                if (data.upgradeTarget == E_UpgradeTargetType.FreeReRoll)
+                {
+                    _ = OpenUpgradeShop();
+                    ShowMessage("상점을 갱신하였습니다.");
+                }
+                else if (data.upgradeTarget == E_UpgradeTargetType.UserMoney)
+                {
+                    userDataManager.Money += (int)data.upgradeValue;
+                    ShowMessage($"${data.upgradeValue}를 획득하였습니다.");
+                }
+                else
+                {
+                    ShowMessage($"'{data.name}'을 구매하였습니다.");
+                    heroManager.UpgradeHero(data);
+                }
+            }
+            else
+                ShowMessage("소지금이 부족합니다.");
+        }
+
+        public void ShowMessage(string message, float time = 3.0f)
+        {
+            messageUI.ShowMessage(message, time);
         }
     }
 }
