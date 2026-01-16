@@ -26,8 +26,8 @@ namespace ND.Manager
 
         async UniTask StartMainGame()
         {
+            await userDataManager.Init();
             await heroManager.Init();
-
             await monsterManager.Init();
 
             await gameUI.Init();
@@ -36,7 +36,7 @@ namespace ND.Manager
 
             await UniTask.Delay(System.TimeSpan.FromSeconds(3));
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 10; i++)
             {
                 await UniTask.Delay(System.TimeSpan.FromSeconds(1));
                 _ = monsterManager.SpawmMonster((E_MonsterType)Random.Range(0, (int)E_MonsterType.NotMonster));

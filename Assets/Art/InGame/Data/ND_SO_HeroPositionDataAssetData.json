@@ -1,0 +1,37 @@
+[
+  {
+    "idx": 0,
+    "isForward": true,
+    "posX": -2.5,
+    "posY": 0.0,
+    "posZ": 0.0
+  },
+  {
+    "idx": 1,
+    "isForward": true,
+    "posX": -2.0,
+    "posY": 0.0,
+    "posZ": 2.0
+  },
+  {
+    "idx": 2,
+    "isForward": true,
+    "posX": -2.6,
+    "posY": 0.0,
+    "posZ": -1.8
+  },
+  {
+    "idx": 3,
+    "isForward": false,
+    "posX": -5.0,
+    "posY": 0.0,
+    "posZ": 1.0
+  },
+  {
+    "idx": 4,
+    "isForward": false,
+    "posX": -5.0,
+    "posY": 0.0,
+    "posZ": -1.0
+  }
+]

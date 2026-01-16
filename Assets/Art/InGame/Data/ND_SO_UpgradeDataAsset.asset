@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ded0a8bc5409348a18e41f7ae5a34b, type: 3}
+  m_Name: ND_SO_UpgradeDataAsset
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Data.UpgradeDataSO
+  textAsset: {fileID: 0}
+  upgradeDataList:
+  - idx: 0
+    isRare: 1
+    name: "\uB9C8\uB978 \uD558\uB298\uC5D0 \uB3C8\uBCBC\uB77D"
+    desc: "\uACE8\uB4DC 1000\uC744\\n\uC989\uC2DC \uC5BB\uC2B5\uB2C8\uB2E4."
+    upgradeTarget: 6
+    statType: 7
+    price: 0
+    upgradeValue: 1000
+  - idx: 1
+    isRare: 1
+    name: "\uC6D0\uD3EC\uC62C, \uC62C\uD3EC\uC6D0"
+    desc: "\uBAA8\uB4E0 \uD788\uC5B4\uB85C\uC758\\n\uC2A4\uD0EF +2"
+    upgradeTarget: 0
+    statType: 6
+    price: 500
+    upgradeValue: 1
+  - idx: 2
+    isRare: 1
+    name: "\uBC14\uC704\uCC98\uB7FC \uB2E8\uB2E8\uD558\uAC8C"
+    desc: "\uADFC\uC811 \uD788\uC5B4\uB85C\uC758\\n\uBC29\uC5B4\uB825 +3"
+    upgradeTarget: 1
+    statType: 3
+    price: 300
+    upgradeValue: 3
+  - idx: 3
+    isRare: 1
+    name: "\uC7A5\uAC70\uB9AC \uC870\uC900 \uC2A4\uCF54\uD504"
+    desc: "\uC6D0\uAC70\uB9AC \uD788\uC5B4\uB85C\uC758\\n\uACF5\uACA9 \uC0AC\uAC70\uB9AC
+      +2"
+    upgradeTarget: 2
+    statType: 5
+    price: 300
+    upgradeValue: 2
+  - idx: 4
+    isRare: 1
+    name: "\uB098\uC774\uD305 \uAC8C\uC77C\uC758 \uC740\uCD1D"
+    desc: "\uD790\uB7EC \uD788\uC5B4\uB85C\uC758\\n\uCE58\uB8CC \uC2DC\uC804 \uC18D\uB3C4
+      +1"
+    upgradeTarget: 3
+    statType: 4
+    price: 300
+    upgradeValue: 1
+  - idx: 5
+    isRare: 0
+    name: "\uD37C\uC2A4\uD2B8 \uC5D0\uC774\uB4DC \uD0B7"
+    desc: "\uBAA8\uB4E0 \uD788\uC5B4\uB85C\uAC00\\n\uCCB4\uB825\uC744 100 \uD68C\uBCF5"
+    upgradeTarget: 0
+    statType: 2
+    price: 100
+    upgradeValue: 100
+  - idx: 6
+    isRare: 0
+    name: "\uAE30\uCD08\uCCB4\uB825 \uAC15\uD654 \uD2B9\uD6C8"
+    desc: "\uC804\uC704\uC5D0 \uBC30\uCE58\uB41C\\n\uD788\uC5B4\uB85C\uB4E4\uC758\\n\uCD5C\uB300
+      \uCCB4\uB825 +10"
+    upgradeTarget: 4
+    statType: 1
+    price: 80
+    upgradeValue: 10
+  - idx: 7
+    isRare: 0
+    name: "\uAE34\uAE09 \uBBFC\uBC29\uC704 \uD6C8\uB828"
+    desc: "\uD6C4\uC704\uC5D0 \uBC30\uCE58\uB41C\\n\uD788\uC5B4\uB85C\uB4E4\uC758\\n\uACF5\uACA9\uB825
+      +2"
+    upgradeTarget: 5
+    statType: 0
+    price: 80
+    upgradeValue: 2
+  - idx: 8
+    isRare: 0
+    name: "\uBB3C\uD30C\uC2A4"
+    desc: "\uBAA8\uB4E0 \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uCCB4\uB825\uC744 50 \uD68C\uBCF5"
+    upgradeTarget: 0
+    statType: 2
+    price: 50
+    upgradeValue: 50
+  - idx: 9
+    isRare: 0
+    name: "\uBC29\uD0C4\uBCF5 \uD544\uC218 \uCC29\uC6A9"
+    desc: "\uBAA8\uB4E0 \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uBC29\uC5B4\uB825 +1"
+    upgradeTarget: 0
+    statType: 3
+    price: 100
+    upgradeValue: 1
+  - idx: 10
+    isRare: 0
+    name: "\uC2B9\uB9AC\uC758 \uD568\uC131"
+    desc: "\uBAA8\uB4E0 \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uACF5\uACA9\uB825 +1"
+    upgradeTarget: 0
+    statType: 0
+    price: 100
+    upgradeValue: 1
+  - idx: 11
+    isRare: 0
+    name: "\uCCB4\uB825\uC740 \uAD6D\uB825"
+    desc: "\uBAA8\uB4E0 \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uCD5C\uB300\uCCB4\uB825
+      +5"
+    upgradeTarget: 0
+    statType: 1
+    price: 100
+    upgradeValue: 5
+  - idx: 12
+    isRare: 0
+    name: "\uB300\uB098\uBB34 \uC8FD\uCC3D"
+    desc: "\uADFC\uC811 \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uACF5\uACA9 \uC0AC\uAC70\uB9AC
+      +1"
+    upgradeTarget: 1
+    statType: 5
+    price: 60
+    upgradeValue: 1
+  - idx: 13
+    isRare: 0
+    name: "\uBA85\uD488 \uC758\uB8CC \uC790\uCF13"
+    desc: "\uD790\uB7EC \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uBC29\uC5B4\uB825 +1"
+    upgradeTarget: 3
+    statType: 3
+    price: 60
+    upgradeValue: 1
+  - idx: 14
+    isRare: 0
+    name: "\uCD1D\uAE30\uC218\uC785"
+    desc: "\uC6D0\uAC70\uB9AC \uD788\uC5B4\uB85C\uB4E4\uC758\\n\uACF5\uACA9\uB825
+      +1"
+    upgradeTarget: 2
+    statType: 0
+    price: 60
+    upgradeValue: 1
+  - idx: 15
+    isRare: 0
+    name: "\uB0B4\uAC00 \uC120\uBD09\uC5D0 \uC11C\uACA0\uB2E4"
+    desc: "\uC804\uC704\uC5D0 \uBC30\uCE58\uB41C\\n\uD788\uC5B4\uB85C\uB4E4\uC758\\n\uACF5\uACA9
+      +1"
+    upgradeTarget: 4
+    statType: 0
+    price: 70
+    upgradeValue: 1
+  - idx: 16
+    isRare: 0
+    name: "\uD788\uD2B8\uC564\uB7F0"
+    desc: "\uD6C4\uC704\uC5D0 \uBC30\uCE58\uB41C\\n\uD788\uC5B4\uB85C\uB4E4\uC758\\n\uACF5\uACA9
+      \uC0AC\uAC70\uB9AC +1"
+    upgradeTarget: 5
+    statType: 5
+    price: 70
+    upgradeValue: 1
+  - idx: 17
+    isRare: 1
+    name: "\uB85C\uB610 1\uB4F1 \uB2F9\uCCA8"
+    desc: "\uACE8\uB4DC 100000\uC744\\n \uC989\uC2DC \uC5BB\uC2B5\uB2C8\uB2E4."
+    upgradeTarget: 6
+    statType: 7
+    price: 10
+    upgradeValue: 100000

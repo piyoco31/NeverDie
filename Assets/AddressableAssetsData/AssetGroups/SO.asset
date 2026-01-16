@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: SO
   m_GUID: 2860f42d0ecc20f43bfa95bb8ecc7e2f
   m_SerializeEntries:
+  - m_GUID: 01b1d3fe21aba9344bd30138240b137c
+    m_Address: ND_SO_UpgradeDataAsset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    - Upgrade
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a046fbcb666e1a4cb73e8a717fdb960
     m_Address: ND_SO_MonsterDataAsset
     m_ReadOnly: 0

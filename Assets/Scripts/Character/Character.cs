@@ -1,17 +1,20 @@
-using R3;
-using UnityEngine;
+using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using System;
+using R3;
+using UnityEngine;
+using VContainer;
 
 namespace ND.Character
 {
     using Data;
+    using Manager;
 
     public class Character : MonoBehaviour
     {
-        #region RxProp
+        [Inject] UserDataManager userDataManager;
 
+        #region RxProp
         protected ReactiveProperty<E_CharacterState> stateRxProp = new ReactiveProperty<E_CharacterState>(E_CharacterState.Idle);
         public E_CharacterState State 
         { 
@@ -85,8 +88,10 @@ namespace ND.Character
         public int PosIdx { get; private set; }
         public bool IsForward { get { return PosIdx < 3; } }
 
+
         protected string attackAnimName;
         protected CompositeDisposable disposables = new CompositeDisposable();
+        protected int rewardMoney = 0;
         #endregion
 
         #region Component
@@ -107,7 +112,12 @@ namespace ND.Character
                     IsDead = state == E_CharacterState.Death ? true : false;
 
                     if (IsDead)
+                    {
+                        if (HeroType == E_HeroType.NotHero)
+                            userDataManager.Money += rewardMoney;
+
                         disposables.Dispose();
+                    }
                 }
             }).AddTo(disposables);
         }
@@ -157,9 +167,10 @@ namespace ND.Character
             Dps = data.defaultDps;
             Range = data.defaultRange;
             MonsterType = data.type;
+            rewardMoney = data.rewardMoney;
             HeroType = E_HeroType.NotHero;
             State = E_CharacterState.Idle;
-
+            
             bool IsZombie = MonsterType == E_MonsterType.Zombie;
 
             anim.SetFloat("MonsterType", IsZombie ? 0 : 1);

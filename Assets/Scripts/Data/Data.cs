@@ -6,9 +6,11 @@ namespace ND.Data
     [Serializable]
     public class HeroPositionData
     {
-        public int Idx;
-        public bool IsForward;
-        public Vector3 Pos;
+        public int idx;
+        public bool isForward;
+        public float posX;
+        public float posY;
+        public float posZ;
     }
 
     [Serializable]
@@ -39,5 +41,19 @@ namespace ND.Data
         public float defaultDps;
         public float defaultRange;
         public int poolCount;
+        public int rewardMoney;
+    }
+
+    [Serializable]
+    public class UpgradeData
+    {
+        public int idx;
+        public bool isRare;
+        public string name;
+        public string desc;
+        public E_UpgradeTargetType upgradeTarget;
+        public E_HeroStatType statType;
+        public int price;
+        public float upgradeValue;
     }
 }

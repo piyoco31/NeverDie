@@ -26,4 +26,27 @@ namespace ND
         Soldier_C,
         NotMonster       
     }
+
+    public enum E_UpgradeTargetType
+    { 
+        AllHero = 0,
+        AttackerOnly,
+        RangerOnly,
+        HealerOnly,
+        ForwardOnly,
+        BackWardOnly,
+        UserMoney
+    }
+
+    public enum E_HeroStatType
+    { 
+        Atk = 0,
+        MaxHp,
+        CurrentHp,
+        Armor,
+        Dps,
+        Range,
+        All,
+        NotStat
+    }
 }

@@ -1,0 +1,182 @@
+[
+  {
+    "idx": 0,
+    "isRare": true,
+    "name": "마른 하늘에 돈벼락",
+    "desc": "골드 1000을\\n즉시 얻습니다.",
+    "upgradeTarget": 6,
+    "statType": 7,
+    "price": 0,
+    "upgradeValue": 1000.0
+  },
+  {
+    "idx": 1,
+    "isRare": true,
+    "name": "원포올, 올포원",
+    "desc": "모든 히어로의\\n스탯 +2",
+    "upgradeTarget": 0,
+    "statType": 6,
+    "price": 500,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 2,
+    "isRare": true,
+    "name": "바위처럼 단단하게",
+    "desc": "근접 히어로의\\n방어력 +3",
+    "upgradeTarget": 1,
+    "statType": 3,
+    "price": 300,
+    "upgradeValue": 3.0
+  },
+  {
+    "idx": 3,
+    "isRare": true,
+    "name": "장거리 조준 스코프",
+    "desc": "원거리 히어로의\\n공격 사거리 +2",
+    "upgradeTarget": 2,
+    "statType": 5,
+    "price": 300,
+    "upgradeValue": 2.0
+  },
+  {
+    "idx": 4,
+    "isRare": true,
+    "name": "나이팅 게일의 은총",
+    "desc": "힐러 히어로의\\n치료 시전 속도 +1",
+    "upgradeTarget": 3,
+    "statType": 4,
+    "price": 300,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 5,
+    "isRare": false,
+    "name": "퍼스트 에이드 킷",
+    "desc": "모든 히어로가\\n체력을 100 회복",
+    "upgradeTarget": 0,
+    "statType": 2,
+    "price": 100,
+    "upgradeValue": 100.0
+  },
+  {
+    "idx": 6,
+    "isRare": false,
+    "name": "기초체력 강화 특훈",
+    "desc": "전위에 배치된\\n히어로들의\\n최대 체력 +10",
+    "upgradeTarget": 4,
+    "statType": 1,
+    "price": 80,
+    "upgradeValue": 10.0
+  },
+  {
+    "idx": 7,
+    "isRare": false,
+    "name": "긴급 민방위 훈련",
+    "desc": "후위에 배치된\\n히어로들의\\n공격력 +2",
+    "upgradeTarget": 5,
+    "statType": 0,
+    "price": 80,
+    "upgradeValue": 2.0
+  },
+  {
+    "idx": 8,
+    "isRare": false,
+    "name": "물파스",
+    "desc": "모든 히어로들의\\n체력을 50 회복",
+    "upgradeTarget": 0,
+    "statType": 2,
+    "price": 50,
+    "upgradeValue": 50.0
+  },
+  {
+    "idx": 9,
+    "isRare": false,
+    "name": "방탄복 필수 착용",
+    "desc": "모든 히어로들의\\n방어력 +1",
+    "upgradeTarget": 0,
+    "statType": 3,
+    "price": 100,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 10,
+    "isRare": false,
+    "name": "승리의 함성",
+    "desc": "모든 히어로들의\\n공격력 +1",
+    "upgradeTarget": 0,
+    "statType": 0,
+    "price": 100,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 11,
+    "isRare": false,
+    "name": "체력은 국력",
+    "desc": "모든 히어로들의\\n최대체력 +5",
+    "upgradeTarget": 0,
+    "statType": 1,
+    "price": 100,
+    "upgradeValue": 5.0
+  },
+  {
+    "idx": 12,
+    "isRare": false,
+    "name": "대나무 죽창",
+    "desc": "근접 히어로들의\\n공격 사거리 +1",
+    "upgradeTarget": 1,
+    "statType": 5,
+    "price": 60,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 13,
+    "isRare": false,
+    "name": "명품 의료 자켓",
+    "desc": "힐러 히어로들의\\n방어력 +1",
+    "upgradeTarget": 3,
+    "statType": 3,
+    "price": 60,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 14,
+    "isRare": false,
+    "name": "총기수입",
+    "desc": "원거리 히어로들의\\n공격력 +1",
+    "upgradeTarget": 2,
+    "statType": 0,
+    "price": 60,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 15,
+    "isRare": false,
+    "name": "내가 선봉에 서겠다",
+    "desc": "전위에 배치된\\n히어로들의\\n공격 +1",
+    "upgradeTarget": 4,
+    "statType": 0,
+    "price": 70,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 16,
+    "isRare": false,
+    "name": "히트앤런",
+    "desc": "후위에 배치된\\n히어로들의\\n공격 사거리 +1",
+    "upgradeTarget": 5,
+    "statType": 5,
+    "price": 70,
+    "upgradeValue": 1.0
+  },
+  {
+    "idx": 17,
+    "isRare": true,
+    "name": "로또 1등 당첨",
+    "desc": "골드 100000을\\n 즉시 얻습니다.",
+    "upgradeTarget": 6,
+    "statType": 7,
+    "price": 10,
+    "upgradeValue": 100000.0
+  }
+]

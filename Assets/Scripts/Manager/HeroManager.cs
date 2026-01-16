@@ -61,7 +61,7 @@ namespace ND.Manager
 
             var positionDataSO = await Addressables.LoadAssetAsync<HeroPositionDataSO>("ND_SO_HeroPositionDataAsset");
 
-            positionDataDic = positionDataSO.heroPositionDataList.ToDictionary(keySelector: m => m.Idx, elementSelector: m => m);
+            positionDataDic = positionDataSO.heroPositionDataList.ToDictionary(keySelector: m => m.idx, elementSelector: m => m);
         }
 
         public async UniTask SpawmHero(E_HeroType type, int idx = 0)
@@ -70,7 +70,7 @@ namespace ND.Manager
             var hero = poolDic[type].Get();
             container.Inject(hero);
             hero.InitCharacter(dataDic[type], idx);
-            await hero.MoveToPos(positionDataDic[idx].Pos);
+            await hero.MoveToPos(new Vector3(positionDataDic[idx].posX, positionDataDic[idx].posY, positionDataDic[idx].posZ));
 
             hero.transform.forward = Vector3.right;
             heroList.Add(hero);

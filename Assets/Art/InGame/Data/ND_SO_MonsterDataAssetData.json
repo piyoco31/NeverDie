@@ -9,7 +9,8 @@
     "defaultArmor": 0.0,
     "defaultDps": 3.0,
     "defaultRange": 1.5,
-    "poolCount": 50
+    "poolCount": 50,
+    "rewardMoney": 1
   },
   {
     "type": 1,
@@ -21,7 +22,8 @@
     "defaultArmor": 0.0,
     "defaultDps": 3.0,
     "defaultRange": 6.0,
-    "poolCount": 30
+    "poolCount": 30,
+    "rewardMoney": 5
   },
   {
     "type": 2,
@@ -33,7 +35,8 @@
     "defaultArmor": 0.0,
     "defaultDps": 3.0,
     "defaultRange": 8.0,
-    "poolCount": 30
+    "poolCount": 30,
+    "rewardMoney": 10
   },
   {
     "type": 3,
@@ -45,6 +48,7 @@
     "defaultArmor": 0.0,
     "defaultDps": 3.0,
     "defaultRange": 5.0,
-    "poolCount": 30
+    "poolCount": 30,
+    "rewardMoney": 30
   }
 ]
