@@ -9,7 +9,7 @@ namespace ND.Manager
 {
     using Character;
     using Data;
-    
+
     public class MonsterManager : MonoBehaviour
     {
         [Inject] IObjectResolver container;
@@ -56,7 +56,7 @@ namespace ND.Manager
 
             monster.transform.position = new Vector3(10, 0, Random.Range(-1.8f, 2.0f));
             monster.transform.forward = Vector3.left;
-
+            
             monster.StartAttack();
 
             await UniTask.CompletedTask;

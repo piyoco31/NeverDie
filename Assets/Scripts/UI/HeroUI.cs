@@ -64,7 +64,7 @@ namespace ND.UI
             
             hero.CurrentHpRxProp.Subscribe(x =>
             {
-                Debug.Log($"HP:{x}");
+                //Debug.Log($"HP:{x}");
                 hpBar.value = x;
             }).AddTo(this);
 

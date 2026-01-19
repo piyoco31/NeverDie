@@ -9,6 +9,7 @@ namespace ND.Character
 {
     using Data;
     using Manager;
+    using UI;
 
     public class Character : MonoBehaviour
     {
@@ -116,6 +117,7 @@ namespace ND.Character
         #region Component
 
         [SerializeField] protected Animator anim;
+        [SerializeField] protected MonsterHpBarUI monsterHpBarUI;
 
         #endregion
 
@@ -198,6 +200,8 @@ namespace ND.Character
 
             transform.position = new Vector3(10, 0, 0);
             transform.rotation = Quaternion.Euler(Vector3.left);
+
+            monsterHpBarUI = GetComponentInChildren<MonsterHpBarUI>();
         }
 
         void SetAnimByState(E_CharacterState InState)
@@ -259,6 +263,9 @@ namespace ND.Character
                 AddDamage = Mathf.Clamp(damage - Armor, 1, damage);
 
             CurrentHp = Mathf.Clamp(CurrentHp - AddDamage, 0, MaxHp);
+
+            if (monsterHpBarUI)
+                monsterHpBarUI.ShowTime = 3.0f;
 
             if (CurrentHp <= 0)
                 State = E_CharacterState.Death;

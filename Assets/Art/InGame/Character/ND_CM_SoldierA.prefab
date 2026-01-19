@@ -894,6 +894,7 @@ Transform:
   m_Children:
   - {fileID: 6586865915472620994}
   - {fileID: 4889022200547193389}
+  - {fileID: 6056501700628603452}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7493014879467097791
@@ -931,6 +932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ND.Character.Monster.Soldier
   anim: {fileID: 0}
+  monsterHpBarUI: {fileID: 0}
 --- !u!1 &6553676390860160099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,3 +1095,73 @@ Transform:
   - {fileID: 2120461097267198887}
   m_Father: {fileID: 3032503957147103681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5235486433202998075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6199581538661754121}
+    m_Modifications:
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6934544328190624514, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564345824820088742, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_Name
+      value: ND_UI_MonsterHpBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564345824820088742, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+--- !u!4 &6056501700628603452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2064103391314143495, guid: 5b88cfab15bf2ca48a797d3b78b95a96, type: 3}
+  m_PrefabInstance: {fileID: 5235486433202998075}
+  m_PrefabAsset: {fileID: 0}
