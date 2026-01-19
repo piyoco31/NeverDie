@@ -23,6 +23,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<string> nameRxProp = new ReactiveProperty<string>();
+        public ReactiveProperty<string> NameRxProp { get { return nameRxProp; } }
         public string Name
         {
             get { return nameRxProp.Value; }
@@ -37,6 +38,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<float> currentHpRxProp = new ReactiveProperty<float>();
+        public ReactiveProperty<float> CurrentHpRxProp { get { return currentHpRxProp; } }
         public float CurrentHp
         {
             get { return currentHpRxProp.Value; }
@@ -44,6 +46,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<float> maxHpRxProp = new ReactiveProperty<float>();
+        public ReactiveProperty<float> MaxHpRxProp { get { return maxHpRxProp; } }
         public float MaxHp
         {
             get { return maxHpRxProp.Value; }
@@ -65,6 +68,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<float> dpsRxProp = new ReactiveProperty<float>();
+        public ReactiveProperty<float> DpsRxProp { get { return dpsRxProp; } }
         public float Dps
         {
             get { return dpsRxProp.Value; }
@@ -78,12 +82,27 @@ namespace ND.Character
             set { rangeRxProp.Value = value; }
         }
 
+        protected ReactiveProperty<bool> isCoolTimeRxProp = new ReactiveProperty<bool>();
+        public ReactiveProperty<bool> IsCoolTimeRxProp { get { return isCoolTimeRxProp; } }
+        public bool IsCoolTime
+        {
+            get { return isCoolTimeRxProp.Value; }
+            private set { isCoolTimeRxProp.Value = value; }
+        }
+
+        protected ReactiveProperty<bool> isDeadRxProp = new ReactiveProperty<bool>();
+        public ReactiveProperty<bool> IsDeadRxProp { get { return isDeadRxProp; } }
+        public bool IsDead
+        {
+            get { return isDeadRxProp.Value; }
+            private set { isDeadRxProp.Value = value; }
+        }
+
         #endregion
 
         #region Property
         public E_HeroType HeroType { get; private set; } = E_HeroType.NotHero;
         public E_MonsterType MonsterType { get; private set; } = E_MonsterType.NotMonster;
-        public bool IsDead { get; private set; } = false;
         public Character Target { get; protected set; }
         public int PosIdx { get; private set; }
         public bool IsForward { get { return PosIdx < 3; } }
@@ -221,7 +240,9 @@ namespace ND.Character
 
         async void WaitingAttack()
         {
+            IsCoolTime = true;
             await UniTask.Delay(TimeSpan.FromSeconds(Dps));
+            IsCoolTime = false;
 
             await AttackToTarget();
 

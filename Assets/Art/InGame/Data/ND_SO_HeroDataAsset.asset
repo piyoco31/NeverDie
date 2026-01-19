@@ -15,7 +15,7 @@ MonoBehaviour:
   textAsset: {fileID: 4900000, guid: 61e679a3014c95c40bf529c59d065a38, type: 3}
   heroDataList:
   - type: 0
-    name: "\uB3D9\uBB3C\uBCD1\uC6D0 \uBC15\uC120\uC0DD\uB2D8"
+    name: "\uB3D9\uBB3C\uBCD1\uC6D0\\n\uBC15\uC120\uC0DD\uB2D8"
     prefab: ND_CH_Doctor
     defaultSpeed: 3
     defaultHp: 10
@@ -25,7 +25,7 @@ MonoBehaviour:
     defaultRange: 0
     poolCount: 1
   - type: 1
-    name: "\uC640\uC778\uBC14 \uC815\uB9C8\uB2F4"
+    name: "\uC640\uC778\uBC14\\n\uC815\uB9C8\uB2F4"
     prefab: ND_CH_Girl
     defaultSpeed: 3
     defaultHp: 20
@@ -35,7 +35,7 @@ MonoBehaviour:
     defaultRange: 5
     poolCount: 1
   - type: 2
-    name: "\uC26C\uC5C8\uC74C\uCCAD\uB144 \uAE40\uAD70"
+    name: "\uC26C\uC5C8\uC74C\uCCAD\uB144\\n\uAE40\uAD70"
     prefab: ND_CH_Boy
     defaultSpeed: 3
     defaultHp: 30
@@ -45,7 +45,7 @@ MonoBehaviour:
     defaultRange: 5
     poolCount: 1
   - type: 3
-    name: "\uBD80\uD328\uACBD\uCC30\uAD00 \uC774\uACBD\uC7A5"
+    name: "\uBD80\uD328\uACBD\uCC30\uAD00\\n\uC774\uACBD\uC0AC"
     prefab: ND_CH_Police
     defaultSpeed: 3
     defaultHp: 10
@@ -55,7 +55,7 @@ MonoBehaviour:
     defaultRange: 8
     poolCount: 1
   - type: 4
-    name: "\uBB34\uC7A5\uD0C8\uC601 \uCD5C\uC77C\uBCD1"
+    name: "\uBB34\uC7A5\uD0C8\uC601\\n\uCD5C\uC77C\uBCD1"
     prefab: ND_CH_Soldier
     defaultSpeed: 3
     defaultHp: 15

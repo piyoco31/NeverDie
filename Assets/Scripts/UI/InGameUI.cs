@@ -20,6 +20,7 @@ namespace ND.UI
 
         [SerializeField] GameObject upgradeShop;
         [SerializeField] Transform spawnButtonTr;
+        [SerializeField] Transform heroUITr;
         [SerializeField] TMP_Text userMoneyTxt;
         [SerializeField] MessageUI messageUI;
 
@@ -27,6 +28,8 @@ namespace ND.UI
 
         List<HeroSpawnButtonUI> spawnButtonlist= new();
         List<UpgradeData> upgradeDataList;
+
+        public Transform HeroUITr { get { return heroUITr; } }
 
         private void Start()
         {
@@ -60,7 +63,7 @@ namespace ND.UI
             {
                 var spawnButton = Instantiate(UIObj, spawnButtonTr).GetComponent<HeroSpawnButtonUI>();
                 container.Inject(spawnButton);
-                spawnButton.Init(i, new Vector3(poslist[i].posX, poslist[i].posY, poslist[i].posZ));
+                spawnButton.Init(i, new Vector3(poslist[i].posX, poslist[i].posY, poslist[i].posZ), poslist[i].heroUIPosY);
                 spawnButtonlist.Add(spawnButton);
             }
         }

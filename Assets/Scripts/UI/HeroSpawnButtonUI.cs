@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
+using Cysharp.Threading.Tasks;
+using R3;
 using TMPro;
 using UnityEngine;
 using VContainer;
-using R3;
 
 namespace ND.UI
 {
@@ -14,19 +16,22 @@ namespace ND.UI
         [Inject] UserDataManager userDataManager;   
 
         [SerializeField] GameObject costButtonRoot;
-        [SerializeField] TMP_Text costTxt;
         [SerializeField] GameObject selectButtonRoot;
+        [SerializeField] TMP_Text costTxt;
         [SerializeField] List<HeroSelectButtonUI> selectButtonList;
 
         public int Idx { get; private set; }
         public bool IsSpawn { get; set; }
+        
 
         InGameUI gameUI;
         int cost = 0;
+        float heroUIPosY;
 
-        public void Init(int idx, Vector3 pos)
+        public void Init(int idx, Vector3 pos, float posY)
         {
             Idx = idx;
+            heroUIPosY = posY;
             IsSpawn = false;
 
             gameUI = GetComponentInParent<InGameUI>();
@@ -96,8 +101,12 @@ namespace ND.UI
             //{
                 gameUI?.ActiveAllSelectButtons(false, -1);
                 IsSpawn = true;
-                await heroManager.SpawmHero(type, Idx);
-                
+
+                var hero = await heroManager.SpawmHero(type, Idx);
+                var UIObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_HeroUI");
+                var heroUI = Instantiate(UIObj, gameUI?.HeroUITr).GetComponent<HeroUI>();
+                heroUI.SetHeroUI(hero, GetComponent<RectTransform>().anchoredPosition, heroUIPosY);
+
                 //OnClickCostButton(false);
                 gameUI?.ActiveAllSelectButtons(true, Idx);
                 //gameObject.SetActive(false);

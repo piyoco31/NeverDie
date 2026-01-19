@@ -2282,6 +2282,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676245551}
   m_CullTransparentMesh: 1
+--- !u!1 &702700308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702700309}
+  m_Layer: 5
+  m_Name: HeroUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &702700309
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702700308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1378179228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &800551501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,6 +3609,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1201595203}
+  - {fileID: 702700309}
   - {fileID: 1148189952}
   - {fileID: 1762747354}
   - {fileID: 2105275104}
@@ -3599,6 +3635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::inGameUI
   upgradeShop: {fileID: 1762747353}
   spawnButtonTr: {fileID: 1201595203}
+  heroUITr: {fileID: 702700309}
   userMoneyTxt: {fileID: 538650493}
   messageUI: {fileID: 256094744}
   upgradeButtonList:
@@ -4456,7 +4493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3656205179381584457, guid: a64d1360355fea44cb29c317641ba437, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8341785782590552202, guid: a64d1360355fea44cb29c317641ba437, type: 3}
       propertyPath: m_LocalPosition.x

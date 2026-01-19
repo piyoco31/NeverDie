@@ -11,6 +11,7 @@ namespace ND.Data
         public float posX;
         public float posY;
         public float posZ;
+        public float heroUIPosY;
     }
 
     [Serializable]

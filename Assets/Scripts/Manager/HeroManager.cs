@@ -65,7 +65,7 @@ namespace ND.Manager
             positionDataDic = positionDataSO.heroPositionDataList.ToDictionary(keySelector: m => m.idx, elementSelector: m => m);
         }
 
-        public async UniTask SpawmHero(E_HeroType type, int idx = 0)
+        public async UniTask<Character> SpawmHero(E_HeroType type, int idx = 0)
         {
             SpawnCount++;
             var hero = poolDic[type].Get();
@@ -77,6 +77,8 @@ namespace ND.Manager
             heroList.Add(hero);
 
             hero.StartAttack();
+
+            return hero;
         }
 
         public Character GetAttackTargetHero(Character attacker)

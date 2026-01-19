@@ -19,23 +19,28 @@ MonoBehaviour:
     posX: -2.5
     posY: 0
     posZ: 0
+    heroUIPosY: -130
   - idx: 1
     isForward: 1
     posX: -2
     posY: 0
     posZ: 2
+    heroUIPosY: -180
   - idx: 2
     isForward: 1
     posX: -2.6
     posY: 0
     posZ: -1.8
+    heroUIPosY: -50
   - idx: 3
     isForward: 0
     posX: -5
     posY: 0
     posZ: 1
+    heroUIPosY: -150
   - idx: 4
     isForward: 0
     posX: -5
     posY: 0
     posZ: -1
+    heroUIPosY: -90
