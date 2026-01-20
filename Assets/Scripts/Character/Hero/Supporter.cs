@@ -9,8 +9,6 @@ namespace ND.Character.Hero
 
     public class Supporter : Character
     {
-        [Inject] HeroManager heroManager;
-
         protected override async UniTask AttackToTarget()
         {
             Target = heroManager.GetHealTargetHero();

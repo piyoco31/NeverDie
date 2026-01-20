@@ -31,7 +31,7 @@ namespace ND.Manager
         Transform poolParentTr;
         HeroDataSO heroDataSO;
 
-        public async UniTask Init()
+        public async UniTask Init(MainGameManager mainGameManager)
         {
             GameObject trObj = new();
             trObj.name = "HeroPool";

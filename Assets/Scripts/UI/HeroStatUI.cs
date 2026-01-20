@@ -10,7 +10,7 @@ namespace ND.UI
         [SerializeField] GameObject heroDetailStatRoot;
         [SerializeField] List<HeroDetailStatUI> heroDetailStatList;
 
-        private void Awake()
+        private void Start()
         {
             OnActiveDetailStat(false);
         }
@@ -23,7 +23,7 @@ namespace ND.UI
         public void SetHeroDetailStat(Character hero)
         {
             var detailUI = heroDetailStatList.Find(x => !x.IsInitComplete);
-            detailUI.SetHeroDerailStat(hero);
+            detailUI.SetHeroDetailStat(hero);
         }
     }
 }

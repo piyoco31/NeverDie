@@ -35,6 +35,7 @@ namespace ND.UI
 
 
         public Transform HeroUITr { get { return heroUITr; } }
+        public bool IsUpgradeShopOpen { get { return upgradeShop.gameObject.activeSelf; } }
 
         private void Start()
         {

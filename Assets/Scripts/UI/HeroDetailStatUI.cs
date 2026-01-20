@@ -19,13 +19,11 @@ namespace ND.UI
 
         public bool IsInitComplete { get; private set; } = false;
 
-        private void Awake()
+        public async void SetHeroDetailStat(Character hero)
         {
-            gameObject.SetActive(false);
-        }
+            gameObject.SetActive(true);
+            IsInitComplete = true;
 
-        public async void SetHeroDerailStat(Character hero)
-        {
             var sprite = await Addressables.LoadAssetAsync<Sprite>($"ND_SP_{hero.HeroType}Portrait");
             heroIcon.sprite = sprite;
 
@@ -74,9 +72,6 @@ namespace ND.UI
             {
                 SetHeroRightStat(hero);
             }).AddTo(this);
-
-            gameObject.SetActive(true);
-            IsInitComplete = true;
         }
 
         // 상태, 공격력, HP

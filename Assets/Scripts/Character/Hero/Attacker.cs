@@ -9,8 +9,6 @@ namespace ND.Character.Hero
 
     public class Attacker : Character
     {
-        [Inject] MonsterManager monsterManager;
-
         protected override async UniTask AttackToTarget()
         {
             if (Target == null || Target.IsDead || Vector3.Distance(Target.transform.position, transform.position) > Range)

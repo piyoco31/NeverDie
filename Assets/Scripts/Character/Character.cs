@@ -13,7 +13,9 @@ namespace ND.Character
 
     public class Character : MonoBehaviour
     {
-        [Inject] UserDataManager userDataManager;
+        [Inject] protected UserDataManager userDataManager;
+        [Inject] protected MonsterManager monsterManager;
+        [Inject] protected HeroManager heroManager;
 
         #region RxProp
         protected ReactiveProperty<E_CharacterState> stateRxProp = new ReactiveProperty<E_CharacterState>(E_CharacterState.Idle);
@@ -139,7 +141,10 @@ namespace ND.Character
                     if (IsDead)
                     {
                         if (HeroType == E_HeroType.NotHero)
+                        {
+                            _ = monsterManager.DeSpawnMonster(this);
                             userDataManager.Money += rewardMoney;
+                        }
 
                         disposables.Dispose();
                     }

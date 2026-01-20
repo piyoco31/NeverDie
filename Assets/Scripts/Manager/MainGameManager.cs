@@ -17,6 +17,7 @@ namespace ND.Manager
         private ReactiveProperty<int> waveCountRxProp = new(0);
         public ReactiveProperty<int> WaveCountRxProp { get => waveCountRxProp; }
         public int WaveCount { get { return waveCountRxProp.Value; } private set { waveCountRxProp.Value = value; } }
+        public int TotalWaveMonsterCount { get; set; } = 0;
 
         [Inject] HeroManager heroManager;
         [Inject] MonsterManager monsterManager;
@@ -38,20 +39,51 @@ namespace ND.Manager
             waveDataList = waveDataSO.waveDataList;
 
             await userDataManager.Init();
-            await heroManager.Init();
-            await monsterManager.Init();
-
+            await heroManager.Init(this);
+            await monsterManager.Init(this);
             await gameUI.Init(this);
 
             await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
 
             await UniTask.Delay(System.TimeSpan.FromSeconds(3));
 
+            MonsterWave();
+
+            /*
             for (int i = 0; i < 1; i++)
             {
                 await UniTask.Delay(System.TimeSpan.FromSeconds(1));
                 _ = monsterManager.SpawmMonster((E_MonsterType)Random.Range(0, (int)E_MonsterType.NotMonster));
             }
+            */
+        }
+
+        async void MonsterWave()
+        {
+            int waveIdx = WaveCount >= waveDataList.Count ? waveDataList.Count - 1 : WaveCount;
+            var dataList = waveDataList[waveIdx];
+            dataList.waveMonsterList.ForEach(x =>
+            {
+                TotalWaveMonsterCount += x.count;
+            });
+
+            foreach (var data in dataList.waveMonsterList)
+            {
+                for (int i = 0; i < data.count; i++)
+                {
+                    await monsterManager.SpawmMonster(data.type);
+                }
+
+                await UniTask.Delay(System.TimeSpan.FromSeconds(10));
+            }
+
+            await UniTask.WaitUntil(() => TotalWaveMonsterCount <= 0);
+            await gameUI.OpenUpgradeShop();
+            await UniTask.WaitUntil(() => !gameUI.IsUpgradeShopOpen);
+
+            WaveCount++;
+
+            MonsterWave();
         }
 
         void EndMainGame()

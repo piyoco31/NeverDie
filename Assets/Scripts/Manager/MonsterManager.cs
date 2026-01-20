@@ -19,9 +19,12 @@ namespace ND.Manager
         Dictionary<E_MonsterType, MonsterData> dataDic = new();
         MonsterDataSO monsterDataSO;
         Transform poolParentTr;
+        MainGameManager mainGameManager;
 
-        public async UniTask Init()
+        public async UniTask Init(MainGameManager mainGameManager)
         {
+            this.mainGameManager = mainGameManager;
+
             GameObject trObj = new();
             trObj.name = "MonsterPool";
             poolParentTr = trObj.transform;
@@ -76,6 +79,17 @@ namespace ND.Manager
             }
 
             return null;
+        }
+
+        public async UniTask DeSpawnMonster(Character monster)
+        {
+            await UniTask.Delay(System.TimeSpan.FromSeconds(3));
+
+            poolDic[monster.MonsterType].Take(monster);
+            monsterList.Remove(monster);
+            mainGameManager.TotalWaveMonsterCount--;
+
+            await UniTask.CompletedTask;
         }
     }
 }

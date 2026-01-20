@@ -18,7 +18,7 @@ MonoBehaviour:
     name: "\uB3D9\uBB3C\uBCD1\uC6D0 \uBC15\uC120\uC0DD\uB2D8"
     prefab: ND_CH_Doctor
     defaultSpeed: 3
-    defaultHp: 10
+    defaultHp: 15
     defaultAtk: 3
     defaultArmor: 1
     defaultDps: 8
@@ -48,7 +48,7 @@ MonoBehaviour:
     name: "\uBD80\uD328\uACBD\uCC30\uAD00 \uC774\uACBD\uC0AC"
     prefab: ND_CH_Police
     defaultSpeed: 3
-    defaultHp: 10
+    defaultHp: 15
     defaultAtk: 2
     defaultArmor: 2
     defaultDps: 5
@@ -58,7 +58,7 @@ MonoBehaviour:
     name: "\uBB34\uC7A5\uD0C8\uC601 \uCD5C\uC77C\uBCD1"
     prefab: ND_CH_Soldier
     defaultSpeed: 3
-    defaultHp: 15
+    defaultHp: 25
     defaultAtk: 3
     defaultArmor: 1
     defaultDps: 6

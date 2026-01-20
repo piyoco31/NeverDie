@@ -10,8 +10,6 @@ namespace ND.Character.Monster
 
     public class Soldier : Character
     {
-        [Inject] HeroManager HeroManager;
-
         public override void StartAttack()
         {
             base.StartAttack();
@@ -20,7 +18,7 @@ namespace ND.Character.Monster
             {
                 if (Target == null || Target.IsDead)
                 {
-                    Target = HeroManager.GetAttackTargetHero(this);
+                    Target = heroManager.GetAttackTargetHero(this);
                 }
 
                 if (Target)
@@ -47,7 +45,7 @@ namespace ND.Character.Monster
         {
             if (Target == null || Target.IsDead)
             {
-                Target = HeroManager.GetAttackTargetHero(this);
+                Target = heroManager.GetAttackTargetHero(this);
             }
 
             if (Target != null)

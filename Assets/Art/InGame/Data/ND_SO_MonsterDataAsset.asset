@@ -19,9 +19,9 @@ MonoBehaviour:
     prefab: ND_CM_Zombie
     defaultSpeed: 1
     defaultHp: 10
-    defaultAtk: 3
+    defaultAtk: 1
     defaultArmor: 0
-    defaultDps: 3
+    defaultDps: 5
     defaultRange: 1.5
     poolCount: 50
     rewardMoney: 1

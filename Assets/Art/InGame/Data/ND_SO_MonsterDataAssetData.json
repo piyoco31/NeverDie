@@ -5,9 +5,9 @@
     "prefab": "ND_CM_Zombie",
     "defaultSpeed": 1.0,
     "defaultHp": 10.0,
-    "defaultAtk": 3.0,
+    "defaultAtk": 1.0,
     "defaultArmor": 0.0,
-    "defaultDps": 3.0,
+    "defaultDps": 5.0,
     "defaultRange": 1.5,
     "poolCount": 50,
     "rewardMoney": 1
