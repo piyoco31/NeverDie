@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 namespace ND.Data
 {
@@ -56,5 +56,18 @@ namespace ND.Data
         public E_HeroStatType statType;
         public int price;
         public float upgradeValue;
+    }
+
+    [Serializable]
+    public class WaveData
+    {
+        public List<WaveMonsterData> waveMonsterList;
+    }
+
+    [Serializable]
+    public class WaveMonsterData
+    {
+        public int count;
+        public E_MonsterType type;
     }
 }

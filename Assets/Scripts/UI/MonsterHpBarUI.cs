@@ -19,7 +19,7 @@ namespace ND.UI
 
         private void Awake()
         {
-            transform.localPosition = new Vector3(0, 1.7f, 0 );
+            transform.localPosition = new Vector3(0, 1.8f, 0 );
             transform.localScale = new Vector3(0.1f, 0.1f, 0.01f);
 
             localScale = transform.localScale;

@@ -43,6 +43,13 @@ MonoBehaviour:
     - Data
     - Hero
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1f49e03f2f04af43a762332a51bd79b
+    m_Address: ND_SO_WaveDataAsset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    - Level
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 685d4662c783a37448d816131db4088f, type: 2}
   m_SchemaSet:

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce269f50bdc9e74a95b2c458d5d1724, type: 3}
+  m_Name: ND_SO_WaveDataAsset
+  m_EditorClassIdentifier: Assembly-CSharp::ND.Data.WaveDataSO
+  textAsset: {fileID: 4900000, guid: 0834aa23ad5b1c342aa850e57a6326f6, type: 3}
+  waveDataList:
+  - waveMonsterList:
+    - count: 1
+      type: 0
+    - count: 2
+      type: 0
+    - count: 4
+      type: 0
+    - count: 5
+      type: 0
+    - count: 5
+      type: 0
+  - waveMonsterList:
+    - count: 3
+      type: 0
+    - count: 4
+      type: 0
+    - count: 5
+      type: 0
+    - count: 6
+      type: 0
+    - count: 1
+      type: 1
+  - waveMonsterList:
+    - count: 3
+      type: 0
+    - count: 2
+      type: 1
+    - count: 5
+      type: 0
+    - count: 4
+      type: 1
+    - count: 10
+      type: 0
+  - waveMonsterList:
+    - count: 5
+      type: 0
+    - count: 5
+      type: 1
+    - count: 1
+      type: 2
+    - count: 3
+      type: 1
+    - count: 2
+      type: 2
+  - waveMonsterList:
+    - count: 10
+      type: 1
+    - count: 5
+      type: 2
+    - count: 20
+      type: 0
+    - count: 10
+      type: 2
+    - count: 1
+      type: 3

@@ -5831,13 +5831,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec4f47fbf626d8409d11212e01cd54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inGameUI
+  messageUI: {fileID: 256094744}
+  heroStatUI: {fileID: 1261437414}
   upgradeShop: {fileID: 1762747353}
+  exitPopup: {fileID: 157342831}
   spawnButtonTr: {fileID: 1201595203}
   heroUITr: {fileID: 702700309}
   userMoneyTxt: {fileID: 538650493}
-  messageUI: {fileID: 256094744}
-  heroStatUI: {fileID: 1261437414}
-  exitPopup: {fileID: 157342831}
+  waveCountTxt: {fileID: 737281558}
   upgradeButtonList:
   - {fileID: 1065442358}
   - {fileID: 146252212}

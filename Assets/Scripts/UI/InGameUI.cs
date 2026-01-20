@@ -19,21 +19,22 @@ namespace ND.UI
         [Inject] HeroManager heroManager;
         [Inject] UserDataManager userDataManager;
 
+        [SerializeField] MessageUI messageUI;
+        [SerializeField] HeroStatUI heroStatUI;
         [SerializeField] GameObject upgradeShop;
+        [SerializeField] GameObject exitPopup;
         [SerializeField] Transform spawnButtonTr;
         [SerializeField] Transform heroUITr;
         [SerializeField] TMP_Text userMoneyTxt;
-        [SerializeField] MessageUI messageUI;
-        [SerializeField] HeroStatUI heroStatUI;
-        [SerializeField] GameObject exitPopup;
-
+        [SerializeField] TMP_Text waveCountTxt;
+        
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
 
         List<HeroSpawnButtonUI> spawnButtonlist= new();
         List<UpgradeData> upgradeDataList;
 
-        public Transform HeroUITr { get { return heroUITr; } }
 
+        public Transform HeroUITr { get { return heroUITr; } }
 
         private void Start()
         {
@@ -41,7 +42,7 @@ namespace ND.UI
             ActiveExitPopup(false);
         }
 
-        public async UniTask Init()
+        public async UniTask Init(MainGameManager mainGameManager)
         {
             var dataSO = await Addressables.LoadAssetAsync<UpgradeDataSO>("ND_SO_UpgradeDataAsset");
 
@@ -52,10 +53,12 @@ namespace ND.UI
             userDataManager.MoneyRxProp.Subscribe(x =>
             {
                 userMoneyTxt.text = x.ToString();
-            });
+            }).AddTo(this);
 
-            //await OpenUpgradeShop();
-            //CloseUpgradeShop();
+            mainGameManager.WaveCountRxProp.Subscribe(x =>
+            {
+                waveCountTxt.text = $"Wave {x + 1}";
+            }).AddTo(this);
         }
 
         async UniTask InitSelectButtonUI()

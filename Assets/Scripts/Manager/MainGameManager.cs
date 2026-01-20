@@ -1,23 +1,29 @@
-using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine.AddressableAssets;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using R3;
 
 namespace ND.Manager
 {
+    using Data;
     using UI;
 
     public class MainGameManager : IAsyncStartable
     {
-        public int WaveCount { get; private set; } = 0;
+        private ReactiveProperty<int> waveCountRxProp = new(0);
+        public ReactiveProperty<int> WaveCountRxProp { get => waveCountRxProp; }
+        public int WaveCount { get { return waveCountRxProp.Value; } private set { waveCountRxProp.Value = value; } }
 
         [Inject] HeroManager heroManager;
         [Inject] MonsterManager monsterManager;
         [Inject] UserDataManager userDataManager;
         [Inject] InGameUI gameUI;
+
+        List<WaveData> waveDataList;
 
         public async UniTask StartAsync(CancellationToken cancellation)
         {
@@ -26,11 +32,16 @@ namespace ND.Manager
 
         async UniTask StartMainGame()
         {
+            WaveCount = 0;
+
+            var waveDataSO = await Addressables.LoadAssetAsync<WaveDataSO>("ND_SO_WaveDataAsset");
+            waveDataList = waveDataSO.waveDataList;
+
             await userDataManager.Init();
             await heroManager.Init();
             await monsterManager.Init();
 
-            await gameUI.Init();
+            await gameUI.Init(this);
 
             await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
 
