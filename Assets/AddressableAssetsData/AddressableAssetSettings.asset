@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7d513070c81892e48b0d47e4aab0b8c4
   m_currentHash:
     serializedVersion: 2
-    Hash: ee650382ca5d00d13ede48aa0cf5ddf6
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -62,6 +62,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: e715eb7581d2478439de676480e73163, type: 2}
   - {fileID: 11400000, guid: 92495218d01837d45b39bdbdd669a098, type: 2}
+  - {fileID: 11400000, guid: d4a03bac77017fc478f7782864fdf756, type: 2}
   - {fileID: 11400000, guid: 8b0388327d919d949a86b39994ea1487, type: 2}
   - {fileID: 11400000, guid: f3e51b2541682ae4291d81c51f929728, type: 2}
   m_BuildSettings:
@@ -110,6 +111,7 @@ MonoBehaviour:
     - Bg
     - UI
     - Upgrade
+    - Sprite
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 07121430b6115d0479f8227f9ff2136e, type: 2}

@@ -17,6 +17,7 @@ namespace ND.Character
 
         #region RxProp
         protected ReactiveProperty<E_CharacterState> stateRxProp = new ReactiveProperty<E_CharacterState>(E_CharacterState.Idle);
+        public ReactiveProperty<E_CharacterState> StateRxProp { get { return stateRxProp; } }
         public E_CharacterState State 
         { 
             get { return stateRxProp.Value; }
@@ -55,6 +56,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<float> atkRxProp = new ReactiveProperty<float>();
+        public ReactiveProperty<float> AtkRxProp { get { return atkRxProp; } }
         public float Atk
         {
             get { return atkRxProp.Value; }
@@ -62,6 +64,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<float> armorRxProp = new ReactiveProperty<float>();
+        public ReactiveProperty<float> ArmorRxProp { get { return armorRxProp; } }
         public float Armor
         {
             get { return armorRxProp.Value; }
@@ -77,6 +80,7 @@ namespace ND.Character
         }
 
         protected ReactiveProperty<float> rangeRxProp = new ReactiveProperty<float>();
+        public ReactiveProperty<float> RangeRxProp { get { return rangeRxProp; } }
         public float Range
         {
             get { return rangeRxProp.Value; }

@@ -30,6 +30,11 @@ namespace ND.Manager
 
         void OnApplicationQuit()
         {
+            SaveUserData();
+        }
+
+        public void SaveUserData()
+        {
             PlayerPrefs.SetInt(moneyKey, Money);
             PlayerPrefs.Save();
         }

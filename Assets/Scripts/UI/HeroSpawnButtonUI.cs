@@ -106,6 +106,7 @@ namespace ND.UI
                 var UIObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_HeroUI");
                 var heroUI = Instantiate(UIObj, gameUI?.HeroUITr).GetComponent<HeroUI>();
                 heroUI.SetHeroUI(hero, GetComponent<RectTransform>().anchoredPosition, heroUIPosY);
+                gameUI?.SetHeroDetailStat(hero);
 
                 //OnClickCostButton(false);
                 gameUI?.ActiveAllSelectButtons(true, Idx);

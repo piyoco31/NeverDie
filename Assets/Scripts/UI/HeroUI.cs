@@ -59,7 +59,7 @@ namespace ND.UI
 
             hero.NameRxProp.Subscribe(x => 
             {
-                nameTxt.text = x;
+                nameTxt.text = x.Replace(" ", "\n");
             }).AddTo(this);
             
             hero.CurrentHpRxProp.Subscribe(x =>

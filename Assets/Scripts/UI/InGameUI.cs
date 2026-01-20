@@ -11,6 +11,7 @@ namespace ND.UI
 {
     using Data;
     using Manager;
+    using Character;
    
     public class InGameUI : MonoBehaviour
     {
@@ -23,6 +24,8 @@ namespace ND.UI
         [SerializeField] Transform heroUITr;
         [SerializeField] TMP_Text userMoneyTxt;
         [SerializeField] MessageUI messageUI;
+        [SerializeField] HeroStatUI heroStatUI;
+        [SerializeField] GameObject exitPopup;
 
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
 
@@ -31,9 +34,11 @@ namespace ND.UI
 
         public Transform HeroUITr { get { return heroUITr; } }
 
+
         private void Start()
         {
             CloseUpgradeShop();
+            ActiveExitPopup(false);
         }
 
         public async UniTask Init()
@@ -160,6 +165,27 @@ namespace ND.UI
         public void ShowMessage(string message, float time = 3.0f)
         {
             messageUI.ShowMessage(message, time);
+        }
+
+        public void SetHeroDetailStat(Character hero)
+        {
+            heroStatUI.SetHeroDetailStat(hero);
+        }
+
+        public void ActiveExitPopup(bool isActive)
+        {
+            exitPopup.SetActive(isActive);
+        }
+
+        public void OnClickExitButton()
+        {
+            userDataManager.SaveUserData();
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.ExitPlaymode();
+#else
+            Application.Quit();
+#endif
         }
     }
 }
