@@ -115,10 +115,10 @@ namespace ND.Character
         public int PosIdx { get; private set; }
         public bool IsForward { get { return PosIdx < 3; } }
 
-
         protected string attackAnimName;
         protected CompositeDisposable disposables = new CompositeDisposable();
         protected int rewardMoney = 0;
+        protected bool isAttackFinish = true;
         #endregion
 
         #region Component
@@ -131,6 +131,7 @@ namespace ND.Character
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            monsterHpBarUI = GetComponentInChildren<MonsterHpBarUI>();
         }
 
         private void OnDestroy()
@@ -142,6 +143,7 @@ namespace ND.Character
         {
             PosIdx = idx;
             IsDead = false;
+            isAttackFinish = true;
 
             Name = data.name;
             Speed = data.defaultSpeed;
@@ -169,6 +171,7 @@ namespace ND.Character
         public async UniTask InitCharacter(MonsterData data)
         {
             IsDead = false;
+            isAttackFinish = true;
 
             Name = data.name;
             Speed = data.defaultSpeed;
@@ -192,7 +195,7 @@ namespace ND.Character
             transform.position = new Vector3(10, 0, 0);
             transform.rotation = Quaternion.Euler(Vector3.left);
 
-            monsterHpBarUI = GetComponentInChildren<MonsterHpBarUI>();
+            monsterHpBarUI.Init(this);
 
             await SubscribeRxProp();
         }
@@ -270,6 +273,16 @@ namespace ND.Character
 
             if (!IsDead)
                 WaitingAttack();
+        }
+
+        public async virtual void OnAnimAttack()
+        {
+            if (Target)
+            {
+                await Target.DamageToCharacter(Atk);
+            }
+
+            isAttackFinish = true;
         }
 
         public async UniTask DamageToCharacter(float damage = 0)

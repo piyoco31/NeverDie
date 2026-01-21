@@ -97,8 +97,10 @@ namespace ND.UI
 
         public async void OnSpawnHero(E_HeroType type)
         {
-            //if (cost <= userDataManager.Money)
-            //{
+            if (cost <= userDataManager.Money)
+            {
+                userDataManager.Money -= cost;
+
                 gameUI?.ActiveAllSelectButtons(false, -1);
                 IsSpawn = true;
 
@@ -111,7 +113,9 @@ namespace ND.UI
                 //OnClickCostButton(false);
                 gameUI?.ActiveAllSelectButtons(true, Idx);
                 //gameObject.SetActive(false);
-            //}
+            }
+            else
+                gameUI?.ShowMessage("소지금이 부족합니다.");
         }
     }
 }

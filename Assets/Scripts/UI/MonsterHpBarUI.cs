@@ -1,5 +1,5 @@
-using UnityEngine;
 using R3;
+using UnityEngine;
 
 namespace ND.UI
 {
@@ -7,8 +7,8 @@ namespace ND.UI
 
     public class MonsterHpBarUI : MonoBehaviour
     {
-        Character monster;
         Vector3 localScale;
+        CompositeDisposable disposables = new CompositeDisposable();
 
         protected ReactiveProperty<float> showTimeRxProp = new ReactiveProperty<float>(0);
         public float ShowTime
@@ -23,21 +23,24 @@ namespace ND.UI
             transform.localScale = new Vector3(0.1f, 0.1f, 0.01f);
 
             localScale = transform.localScale;
-            monster = GetComponentInParent<Character>();
         }
 
-        void Start()
+        public void Init(Character monster)
         {
+            disposables.Clear();
+
+            transform.localScale = localScale;
+
             monster?.CurrentHpRxProp.Subscribe(x =>
             {
                 transform.localScale = new Vector3(x / monster.MaxHp * localScale.x, localScale.y, localScale.z);
 
-            }).AddTo(this);
+            }).AddTo(disposables);
 
             monster?.MaxHpRxProp.Subscribe(x =>
             {
                 transform.localScale = new Vector3(monster.CurrentHp / x * localScale.x, localScale.y, localScale.z);
-            }).AddTo(this);
+            }).AddTo(disposables);
 
             showTimeRxProp.Subscribe(x =>
             {
@@ -46,7 +49,7 @@ namespace ND.UI
                 if (isActive != gameObject.activeInHierarchy)
                     gameObject.SetActive(isActive);
 
-            }).AddTo(this);
+            }).AddTo(disposables);
 
             gameObject.SetActive(false);
         }
@@ -63,6 +66,11 @@ namespace ND.UI
                     ShowTime = 0.0f;
                 }
             }
+        }
+
+        private void OnDestroy()
+        {
+            disposables.Dispose();
         }
     }
 

@@ -70,7 +70,7 @@ namespace ND.Manager
 
             foreach (var monster in monsterList)
             {
-                if (!monster || monster.State == E_CharacterState.Death) continue;
+                if (!monster || monster.IsDead) continue;
 
                 if (Vector3.Distance(attackerPos, monster.transform.position) <= distance)
                     return monster;

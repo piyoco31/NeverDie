@@ -113,9 +113,6 @@ namespace ND.UI
 
         public void ReRollUpgradeShop()
         {
-            Test();
-
-            /*
             if (userDataManager.Money >= 100)
             {
                 userDataManager.Money -= 100;
@@ -124,12 +121,11 @@ namespace ND.UI
             }
             else
                 ShowMessage("소지금이 부족합니다.");
-            */
         }
 
-        public void Test()
+        public void OnClickCheatButton()
         {
-            _ = OpenUpgradeShop();
+            userDataManager.Money += 1000000;
         }
 
         public void CloseUpgradeShop()

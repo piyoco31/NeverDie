@@ -48,14 +48,6 @@ namespace ND.Manager
             await UniTask.Delay(System.TimeSpan.FromSeconds(3));
 
             MonsterWave();
-
-            /*
-            for (int i = 0; i < 1; i++)
-            {
-                await UniTask.Delay(System.TimeSpan.FromSeconds(1));
-                _ = monsterManager.SpawmMonster((E_MonsterType)Random.Range(0, (int)E_MonsterType.NotMonster));
-            }
-            */
         }
 
         async void MonsterWave()

@@ -2,12 +2,9 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;
 using UnityEngine;
-using VContainer;
 
 namespace ND.Character.Monster
 {
-    using Manager;
-
     public class Soldier : Character
     {
         public override void StartAttack()
@@ -63,10 +60,9 @@ namespace ND.Character.Monster
                         State = E_CharacterState.Attack;
                     });
 
+                    isAttackFinish = false;
+                    await UniTask.WaitUntil(() => isAttackFinish);
                     await WaitingAttackAnimTime();
-
-                    if (Target)
-                        await Target.DamageToCharacter(Atk);
 
                     State = E_CharacterState.Idle;
                     targetRotation = Quaternion.LookRotation(Vector3.left, Vector3.up);

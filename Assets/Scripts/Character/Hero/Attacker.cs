@@ -1,12 +1,9 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using VContainer;
 
 namespace ND.Character.Hero
 {
-    using Manager;
-
     public class Attacker : Character
     {
         protected override async UniTask AttackToTarget()
@@ -27,8 +24,9 @@ namespace ND.Character.Hero
                     State = E_CharacterState.Attack;
                 });
 
+                isAttackFinish = false;
+                await UniTask.WaitUntil(() => isAttackFinish);
                 await WaitingAttackAnimTime();
-                await Target.DamageToCharacter(Atk);
 
                 State = E_CharacterState.Idle;
                 targetRotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
