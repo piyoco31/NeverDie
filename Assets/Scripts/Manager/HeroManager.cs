@@ -70,7 +70,8 @@ namespace ND.Manager
             SpawnCount++;
             var hero = poolDic[type].Get();
             container.Inject(hero);
-            hero.InitCharacter(dataDic[type], idx);
+            await hero.InitCharacter(dataDic[type], idx);
+            await UniTask.Delay(System.TimeSpan.FromSeconds(0.5f));
             await hero.MoveToPos(new Vector3(positionDataDic[idx].posX, positionDataDic[idx].posY, positionDataDic[idx].posZ));
 
             hero.transform.forward = Vector3.right;

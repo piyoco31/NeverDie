@@ -7,6 +7,7 @@ using VContainer;
 
 namespace ND.Character
 {
+    using System.Linq;
     using Data;
     using Manager;
     using UI;
@@ -130,35 +131,14 @@ namespace ND.Character
         private void Awake()
         {
             anim = GetComponent<Animator>();
-
-            stateRxProp.Subscribe(state =>
-            {
-                if (!IsDead)
-                {
-                    SetAnimByState(state);
-                    IsDead = state == E_CharacterState.Death ? true : false;
-
-                    if (IsDead)
-                    {
-                        if (HeroType == E_HeroType.NotHero)
-                        {
-                            _ = monsterManager.DeSpawnMonster(this);
-                            userDataManager.Money += rewardMoney;
-                        }
-
-                        disposables.Dispose();
-                    }
-                }
-            }).AddTo(disposables);
         }
 
         private void OnDestroy()
         {
-            stateRxProp.Dispose();
             disposables.Dispose();
         }
 
-        public void InitCharacter(HeroData data, int idx = 0)
+        public async UniTask InitCharacter(HeroData data, int idx = 0)
         {
             PosIdx = idx;
             IsDead = false;
@@ -182,9 +162,11 @@ namespace ND.Character
 
             transform.position = new Vector3(-10, 0, 0);
             transform.rotation = Quaternion.Euler(Vector3.right);
+
+            await SubscribeRxProp();
         }
 
-        public void InitCharacter(MonsterData data)
+        public async UniTask InitCharacter(MonsterData data)
         {
             IsDead = false;
 
@@ -211,6 +193,33 @@ namespace ND.Character
             transform.rotation = Quaternion.Euler(Vector3.left);
 
             monsterHpBarUI = GetComponentInChildren<MonsterHpBarUI>();
+
+            await SubscribeRxProp();
+        }
+
+        async UniTask SubscribeRxProp()
+        {
+            stateRxProp.Subscribe(state =>
+            {
+                if (!IsDead)
+                {
+                    SetAnimByState(state);
+                    IsDead = state == E_CharacterState.Death ? true : false;
+
+                    if (IsDead)
+                    {
+                        if (HeroType == E_HeroType.NotHero)
+                        {
+                            _ = monsterManager.DeSpawnMonster(this);
+                            userDataManager.Money += rewardMoney;
+                        }
+
+                        disposables.Clear();
+                    }
+                }
+            }).AddTo(disposables);
+
+            await UniTask.CompletedTask;
         }
 
         void SetAnimByState(E_CharacterState InState)
@@ -284,7 +293,7 @@ namespace ND.Character
 
         protected async UniTask WaitingAttackAnimTime()
         {
-            await UniTask.WaitUntil(() => attackAnimName == anim?.GetCurrentAnimatorClipInfo(0)[0].clip.name);
+            await UniTask.WaitUntil(() => IsSameAnim());
 
             float waitTime = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 
@@ -315,6 +324,16 @@ namespace ND.Character
                     Range = Mathf.Clamp(Range += value, 0.5f, float.MaxValue);
                     break;
             }
+        }
+
+        bool IsSameAnim()
+        {
+            if (anim && anim.GetCurrentAnimatorClipInfo(0).Count() > 0)
+            {
+                return attackAnimName == anim?.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            }
+
+            return false;
         }
     }
 }

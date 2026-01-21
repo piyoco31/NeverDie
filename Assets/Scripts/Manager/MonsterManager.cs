@@ -54,15 +54,13 @@ namespace ND.Manager
         {
             var monster = poolDic[type].Get();
             container.Inject(monster);
-            monster.InitCharacter(dataDic[type]);
+            await monster.InitCharacter(dataDic[type]);
             monsterList.Add(monster);
 
             monster.transform.position = new Vector3(10, 0, Random.Range(-1.8f, 2.0f));
             monster.transform.forward = Vector3.left;
             
             monster.StartAttack();
-
-            await UniTask.CompletedTask;
         }
 
         public Character GetTargetMonster(Character attacker)
