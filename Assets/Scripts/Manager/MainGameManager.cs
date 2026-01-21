@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using UnityEngine.AddressableAssets;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using R3;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using VContainer;
 using VContainer.Unity;
-using R3;
 
 namespace ND.Manager
 {
@@ -22,6 +22,7 @@ namespace ND.Manager
         [Inject] HeroManager heroManager;
         [Inject] MonsterManager monsterManager;
         [Inject] UserDataManager userDataManager;
+        [Inject] ParticleManager particleManager;
         [Inject] InGameUI gameUI;
 
         List<WaveData> waveDataList;
@@ -39,6 +40,7 @@ namespace ND.Manager
             waveDataList = waveDataSO.waveDataList;
 
             await userDataManager.Init();
+            await particleManager.Init();
             await heroManager.Init(this);
             await monsterManager.Init(this);
             await gameUI.Init(this);
@@ -79,8 +81,8 @@ namespace ND.Manager
         }
 
         void EndMainGame()
-        { 
-            
+        {
+
         }
     }
 }

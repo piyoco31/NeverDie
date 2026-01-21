@@ -70,4 +70,17 @@ namespace ND.Data
         public int count;
         public E_MonsterType type;
     }
+
+    [Serializable]
+    public class ParticleData
+    {
+        public string name;
+        public string prefab;
+        public string audio;
+        public bool isLoopAudio;
+        public int poolCount;
+        public float scaleX;
+        public float scaleY;
+        public float scaleZ;
+    }
 }

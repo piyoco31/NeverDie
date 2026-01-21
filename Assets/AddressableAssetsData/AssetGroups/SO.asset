@@ -36,6 +36,13 @@ MonoBehaviour:
     - Data
     - Hero
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92a14640a6d54674ba12f7038bbc6c34
+    m_Address: ND_SO_ParticleDataAsset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    - Particle
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2a4983407d7f1a4cae1b494f3542398
     m_Address: ND_SO_HeroPositionDataAsset
     m_ReadOnly: 0

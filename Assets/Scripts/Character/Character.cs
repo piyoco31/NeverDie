@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;
@@ -7,7 +8,6 @@ using VContainer;
 
 namespace ND.Character
 {
-    using System.Linq;
     using Data;
     using Manager;
     using UI;
@@ -17,12 +17,13 @@ namespace ND.Character
         [Inject] protected UserDataManager userDataManager;
         [Inject] protected MonsterManager monsterManager;
         [Inject] protected HeroManager heroManager;
+        [Inject] protected ParticleManager particleManager;
 
         #region RxProp
         protected ReactiveProperty<E_CharacterState> stateRxProp = new ReactiveProperty<E_CharacterState>(E_CharacterState.Idle);
         public ReactiveProperty<E_CharacterState> StateRxProp { get { return stateRxProp; } }
-        public E_CharacterState State 
-        { 
+        public E_CharacterState State
+        {
             get { return stateRxProp.Value; }
             set { stateRxProp.Value = value; }
         }
@@ -122,10 +123,8 @@ namespace ND.Character
         #endregion
 
         #region Component
-
         [SerializeField] protected Animator anim;
         [SerializeField] protected MonsterHpBarUI monsterHpBarUI;
-
         #endregion
 
         private void Awake()
@@ -185,7 +184,7 @@ namespace ND.Character
             rewardMoney = data.rewardMoney;
             HeroType = E_HeroType.NotHero;
             State = E_CharacterState.Idle;
-            
+
             bool IsZombie = MonsterType == E_MonsterType.Zombie;
 
             anim.SetFloat("MonsterType", IsZombie ? 0 : 1);
@@ -245,9 +244,11 @@ namespace ND.Character
             Vector3 dir = pos - transform.position;
             transform.forward = dir.normalized;
 
-            transform.DOMove(pos, Speed).OnComplete(() => 
+            transform.DOMove(pos, Speed).OnComplete(() =>
             {
                 State = E_CharacterState.Idle;
+                // 테스트용도 파티클 세팅 시에 참고할 것
+                // _ = particleManager.SpawnParticle("Test", transform.position, parentTr : transform, playTime: 3);
             });
 
             await UniTask.Delay(TimeSpan.FromSeconds(3));

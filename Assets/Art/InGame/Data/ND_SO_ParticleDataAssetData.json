@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Test",
+    "prefab": "Test",
+    "audio": "Test",
+    "isLoopAudio": false,
+    "poolCount": 3,
+    "scaleX": 0.2,
+    "scaleY": 0.2,
+    "scaleZ": 0.2
+  }
+]

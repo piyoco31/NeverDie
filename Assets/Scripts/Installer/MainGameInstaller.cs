@@ -13,6 +13,7 @@ namespace ND.Installer
             builder.Register<UserDataManager>(Lifetime.Singleton);
             builder.Register<HeroManager>(Lifetime.Singleton);
             builder.Register<MonsterManager>(Lifetime.Singleton);
+            builder.Register<ParticleManager>(Lifetime.Singleton);
             builder.RegisterComponentInHierarchy<InGameUI>();
 
             builder.RegisterEntryPoint<MainGameManager>().AsSelf();

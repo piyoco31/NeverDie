@@ -9,9 +9,9 @@ using VContainer;
 
 namespace ND.UI
 {
+    using Character;
     using Data;
     using Manager;
-    using Character;
    
     public class InGameUI : MonoBehaviour
     {

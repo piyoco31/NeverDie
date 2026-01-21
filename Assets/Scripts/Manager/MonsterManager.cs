@@ -86,8 +86,6 @@ namespace ND.Manager
             poolDic[monster.MonsterType].Take(monster);
             monsterList.Remove(monster);
             mainGameManager.TotalWaveMonsterCount--;
-
-            await UniTask.CompletedTask;
         }
     }
 }
