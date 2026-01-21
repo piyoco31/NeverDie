@@ -106,6 +106,13 @@ MonoBehaviour:
     - Prefab
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd13a781b7ca37045b0559991363bdd2
+    m_Address: ND_UI_DamageText
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 685d4662c783a37448d816131db4088f, type: 2}
   m_SchemaSet:

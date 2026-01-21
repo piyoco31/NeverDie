@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Redcode.Pools;
 using UnityEngine;
@@ -68,15 +69,10 @@ namespace ND.Manager
             Vector3 attackerPos = attacker.transform.position;
             float distance = attacker.Range;
 
-            foreach (var monster in monsterList)
-            {
-                if (!monster || monster.IsDead) continue;
+            var targetList = monsterList.FindAll(x => x && !x.IsDead && Vector3.Distance(attackerPos, x.transform.position) <= distance);
 
-                if (Vector3.Distance(attackerPos, monster.transform.position) <= distance)
-                    return monster;
-            }
-
-            return null;
+            var random = new System.Random();
+            return targetList.OrderBy(x => random.Next()).FirstOrDefault();
         }
 
         public async UniTask DeSpawnMonster(Character monster)

@@ -294,6 +294,8 @@ namespace ND.Character
             if (damage > 0)
                 AddDamage = Mathf.Clamp(damage - Armor, 1, damage);
 
+            await particleManager.SpawnDamageText(transform, AddDamage);
+
             CurrentHp = Mathf.Clamp(CurrentHp - AddDamage, 0, MaxHp);
 
             if (monsterHpBarUI)
@@ -302,7 +304,7 @@ namespace ND.Character
             if (CurrentHp <= 0)
                 State = E_CharacterState.Death;
 
-            await UniTask.CompletedTask;
+            //await UniTask.CompletedTask;
         }
 
         protected async UniTask WaitingAttackAnimTime()

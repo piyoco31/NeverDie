@@ -92,7 +92,7 @@ namespace ND.UI
             var itemList = upgradeDataList.FindAll(x => !x.isRare);
             int rareDrop = Random.Range(0, 100);
 
-            if (rareDrop <= 10)
+            if (rareDrop <= 30)
             {
                 var rareList = upgradeDataList.FindAll(x => x.isRare);
                 itemList.AddRange(rareList);

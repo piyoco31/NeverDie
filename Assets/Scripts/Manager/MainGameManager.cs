@@ -66,9 +66,10 @@ namespace ND.Manager
                 for (int i = 0; i < data.count; i++)
                 {
                     await monsterManager.SpawmMonster(data.type);
+                    await UniTask.Delay(System.TimeSpan.FromSeconds(2));
                 }
 
-                await UniTask.Delay(System.TimeSpan.FromSeconds(10));
+                await UniTask.Delay(System.TimeSpan.FromSeconds(5));
             }
 
             await UniTask.WaitUntil(() => TotalWaveMonsterCount <= 0);

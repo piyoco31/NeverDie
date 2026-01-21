@@ -18,8 +18,8 @@ MonoBehaviour:
     name: "\uC880\uBE44"
     prefab: ND_CM_Zombie
     defaultSpeed: 1
-    defaultHp: 10
-    defaultAtk: 1
+    defaultHp: 15
+    defaultAtk: 2
     defaultArmor: 0
     defaultDps: 5
     defaultRange: 1.5
@@ -29,9 +29,9 @@ MonoBehaviour:
     name: "\uAD70\uC778"
     prefab: ND_CM_SoldierA
     defaultSpeed: 1
-    defaultHp: 5
-    defaultAtk: 1
-    defaultArmor: 0
+    defaultHp: 30
+    defaultAtk: 5
+    defaultArmor: 1
     defaultDps: 3
     defaultRange: 6
     poolCount: 30
@@ -40,10 +40,10 @@ MonoBehaviour:
     name: "\uC5D8\uB9AC\uD2B8 \uAD70\uC778"
     prefab: ND_CM_SoldierB
     defaultSpeed: 1
-    defaultHp: 5
-    defaultAtk: 1
-    defaultArmor: 0
-    defaultDps: 3
+    defaultHp: 50
+    defaultAtk: 10
+    defaultArmor: 2
+    defaultDps: 2
     defaultRange: 8
     poolCount: 30
     rewardMoney: 10
@@ -51,10 +51,10 @@ MonoBehaviour:
     name: "\uD654\uC5FC\uBC29\uC0AC\uBCD1"
     prefab: ND_CM_SoldierC
     defaultSpeed: 1
-    defaultHp: 5
-    defaultAtk: 1
-    defaultArmor: 0
-    defaultDps: 3
+    defaultHp: 100
+    defaultAtk: 20
+    defaultArmor: 3
+    defaultDps: 4
     defaultRange: 5
     poolCount: 30
     rewardMoney: 30

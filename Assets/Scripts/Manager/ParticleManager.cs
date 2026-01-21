@@ -10,12 +10,14 @@ namespace ND.Manager
 {
     using Data;
     using Particle;
+    using UI;
 
     public class ParticleManager : MonoBehaviour
     {
         [Inject] IObjectResolver container;
 
         Dictionary<string, Pool<Particle>> particleDict = new();
+        Pool<DamageTextUI> damageTextPool;
         Transform poolParentTr;
         ParticleDataSO particleDataSO;
 
@@ -48,12 +50,16 @@ namespace ND.Manager
                 if (!particleDict.ContainsKey(key))
                 {
                     Pool<Particle> pool = Pool.Create(particle, data.poolCount, poolParentTr).NonLazy();
+                    
                     particleDict.Add(key, pool);
                 }
 
                 Destroy(obj);
                 obj = null;
             }
+
+            var damageObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_DamageText");
+            damageTextPool = Pool.Create(damageObj.GetComponent<DamageTextUI>(), 10, poolParentTr).NonLazy();
         }
 
         public async UniTask SpawnParticle(string key, Vector3 pos, float playTime = 0, Transform parentTr = null, Action particleFinish = null)
@@ -71,6 +77,23 @@ namespace ND.Manager
             particle.transform.SetParent(poolParentTr);
 
             // Debug.Log($"PoolCount:{particleDict[particle.ParticleKey].Count}");
+            await UniTask.CompletedTask;
+        }
+
+        public async UniTask SpawnDamageText(Transform parentTr, float damage)
+        {
+            var damageText = damageTextPool.Get();
+            container.Inject(damageText);
+            damageText.Init(damage, parentTr);
+
+            await UniTask.CompletedTask;
+        }
+
+        public async UniTask DespawnDamageText(DamageTextUI damageText)
+        {
+            damageTextPool.Take(damageText);
+            damageText.transform.SetParent(poolParentTr);
+
             await UniTask.CompletedTask;
         }
     }
