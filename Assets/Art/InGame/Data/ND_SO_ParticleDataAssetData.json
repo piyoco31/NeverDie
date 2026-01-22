@@ -1,12 +1,22 @@
 [
   {
-    "name": "Test",
-    "prefab": "Test",
-    "audio": "Test",
+    "name": "RainFalling",
+    "prefab": "RainFalling",
+    "audio": "",
     "isLoopAudio": false,
-    "poolCount": 3,
-    "scaleX": 0.2,
-    "scaleY": 0.2,
-    "scaleZ": 0.2
+    "poolCount": 1,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0
+  },
+  {
+    "name": "RainSplashes",
+    "prefab": "RainSplashes",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 1,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0
   }
 ]

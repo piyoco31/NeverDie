@@ -1,5 +1,6 @@
 using VContainer;
 using VContainer.Unity;
+using UnityEngine;
 
 namespace ND.Installer
 {
@@ -15,6 +16,7 @@ namespace ND.Installer
             builder.Register<MonsterManager>(Lifetime.Singleton);
             builder.Register<ParticleManager>(Lifetime.Singleton);
             builder.RegisterComponentInHierarchy<InGameUI>();
+            builder.RegisterComponentInHierarchy<Light>();
 
             builder.RegisterEntryPoint<MainGameManager>().AsSelf();
         }

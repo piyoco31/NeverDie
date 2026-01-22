@@ -24,8 +24,13 @@ namespace ND.Manager
         [Inject] UserDataManager userDataManager;
         [Inject] ParticleManager particleManager;
         [Inject] InGameUI gameUI;
+        [Inject] Light light;
 
         List<WaveData> waveDataList;
+        List<Material> skyBoxMatList = new();
+
+        Color dayLightColor;
+        bool isRainyDay;
 
         public async UniTask StartAsync(CancellationToken cancellation)
         {
@@ -34,7 +39,14 @@ namespace ND.Manager
 
         async UniTask StartMainGame()
         {
+            dayLightColor = light.color;
             WaveCount = 0;
+            isRainyDay = false;
+
+            var mat = await Addressables.LoadAssetAsync<Material>("ND_MT_Day");
+            skyBoxMatList.Add(mat);
+            mat = await Addressables.LoadAssetAsync<Material>("ND_MT_Night");
+            skyBoxMatList.Add(mat);
 
             var waveDataSO = await Addressables.LoadAssetAsync<WaveDataSO>("ND_SO_WaveDataAsset");
             waveDataList = waveDataSO.waveDataList;
@@ -44,6 +56,7 @@ namespace ND.Manager
             await heroManager.Init(this);
             await monsterManager.Init(this);
             await gameUI.Init(this);
+            ChangeEnviroment();
 
             await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
 
@@ -73,12 +86,33 @@ namespace ND.Manager
             }
 
             await UniTask.WaitUntil(() => TotalWaveMonsterCount <= 0);
-            await gameUI.OpenUpgradeShop();
+            await gameUI.OpenUpgradeShop(true);
+            WaveCount++;
+            ChangeEnviroment();
             await UniTask.WaitUntil(() => !gameUI.IsUpgradeShopOpen);
 
-            WaveCount++;
-
             MonsterWave();
+        }
+
+        async void ChangeEnviroment()
+        {
+            bool isDay = WaveCount % 2 == 0;
+            RenderSettings.skybox = skyBoxMatList[isDay ? 0 : 1];
+            light.color = isDay ? dayLightColor : Color.black;
+            //DynamicGI.UpdateEnvironment();
+
+            if (Random.Range(0, 100) < 50)
+            {
+                if (!isRainyDay)
+                {
+                    await particleManager.SpawnRainyParticle(true);
+                    isRainyDay = true;
+                }
+            }
+            else if (isRainyDay)
+            {
+                await particleManager.SpawnRainyParticle(false);
+            }
         }
 
         void EndMainGame()

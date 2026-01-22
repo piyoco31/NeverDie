@@ -17,6 +17,7 @@ namespace ND.Manager
         [Inject] IObjectResolver container;
 
         Dictionary<string, Pool<Particle>> particleDict = new();
+        List<Particle> spawnParticleList = new();
         Pool<DamageTextUI> damageTextPool;
         Transform poolParentTr;
         ParticleDataSO particleDataSO;
@@ -66,7 +67,12 @@ namespace ND.Manager
         {
             var particle = particleDict[key].Get();
             container.Inject(particle);
-            particle.StartParticle(key, pos, playTime, parentTr, particleFinish);
+            spawnParticleList.Add(particle);
+
+            if (playTime > 0)
+                particle.StartParticle(key, pos, playTime, parentTr, particleFinish);
+            else
+                particle.StartParticle(key, pos, parentTr, particleFinish);
 
             await UniTask.CompletedTask;
         }
@@ -75,6 +81,7 @@ namespace ND.Manager
         {
             particleDict[particle.ParticleKey].Take(particle);
             particle.transform.SetParent(poolParentTr);
+            spawnParticleList.Remove(particle);
 
             // Debug.Log($"PoolCount:{particleDict[particle.ParticleKey].Count}");
             await UniTask.CompletedTask;
@@ -95,6 +102,24 @@ namespace ND.Manager
             damageText.transform.SetParent(poolParentTr);
 
             await UniTask.CompletedTask;
+        }
+
+        public async UniTask SpawnRainyParticle(bool isSpawn)
+        {
+            if (isSpawn)
+            {
+                await SpawnParticle("RainSplashes", Vector3.zero);
+                await SpawnParticle("RainFalling", new Vector3(0.0f, 5.0f, 0.0f));
+            }
+            else
+            {
+                var list = spawnParticleList.FindAll(x => x.ParticleKey == "RainSplashes" || x.ParticleKey == "RainFalling");
+
+                foreach (var item in list)
+                {
+                    await DespawnParticle(item);
+                }
+            }
         }
     }
 }

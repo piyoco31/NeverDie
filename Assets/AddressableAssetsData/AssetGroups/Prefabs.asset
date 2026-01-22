@@ -64,13 +64,6 @@ MonoBehaviour:
     - Hero
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8f7221d4c26ec36469f97f68cac3edfc
-    m_Address: ND_FX_Particle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Particle
-    - Prefab
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ebebbe158082b645a9b50ec2aa6e18a
     m_Address: ND_UI_SpawnButton
     m_ReadOnly: 0

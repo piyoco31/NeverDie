@@ -6,6 +6,7 @@ namespace ND.UI
 {
     public class TitleUI : MonoBehaviour
     {
+        [SerializeField] AudioSource audioSource;
         [SerializeField] GameObject exitPopup;
         // [SerializeField] Button gameStartButton;
 
@@ -13,10 +14,12 @@ namespace ND.UI
         {
             exitPopup.SetActive(false);
             // gameStartButton.interactable = false;
+            audioSource.Play();
         }
 
         public void OnClickGameStart()
         {
+            audioSource.Stop();
             SceneManager.LoadScene("MainGame");
         }
 

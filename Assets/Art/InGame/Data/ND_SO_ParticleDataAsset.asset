@@ -13,4 +13,20 @@ MonoBehaviour:
   m_Name: ND_SO_ParticleDataAsset
   m_EditorClassIdentifier: Assembly-CSharp::ND.Data.ParticleDataSO
   textAsset: {fileID: 4900000, guid: 099118f61a5d09d4eae5b4c59e85f233, type: 3}
-  particleDataList: []
+  particleDataList:
+  - name: RainFalling
+    prefab: RainFalling
+    audio: 
+    isLoopAudio: 0
+    poolCount: 1
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1
+  - name: RainSplashes
+    prefab: RainSplashes
+    audio: 
+    isLoopAudio: 0
+    poolCount: 1
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1

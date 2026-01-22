@@ -5,14 +5,16 @@ using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
 using VContainer;
 
 namespace ND.UI
 {
     using Character;
     using Data;
+    using DG.Tweening;
     using Manager;
-   
+    
     public class InGameUI : MonoBehaviour
     {
         [Inject] IObjectResolver container;
@@ -27,7 +29,9 @@ namespace ND.UI
         [SerializeField] Transform heroUITr;
         [SerializeField] TMP_Text userMoneyTxt;
         [SerializeField] TMP_Text waveCountTxt;
-        
+        [SerializeField] TMP_Text reRollCountTxt;
+        [SerializeField] TMP_Text dimmedTxt;
+        [SerializeField] Image dimmedImg;
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
 
         List<HeroSpawnButtonUI> spawnButtonlist= new();
@@ -38,6 +42,9 @@ namespace ND.UI
         public bool IsUpgradeShopOpen { get { return upgradeShop.gameObject.activeSelf; } }
         public HeroManager HeroManagerInst { get { return heroManager; }}
         public UserDataManager UserDataManagerInst { get { return userDataManager; } }
+
+        ReactiveProperty<int> reRollCountRxProp = new(1);
+        private int ReRollCount { get { return reRollCountRxProp.Value; } set { reRollCountRxProp.Value = value; } }
 
         private void Start()
         {
@@ -62,6 +69,13 @@ namespace ND.UI
             {
                 waveCountTxt.text = $"Wave {x + 1}";
             }).AddTo(this);
+
+            reRollCountRxProp.Subscribe(x =>
+            {
+                reRollCountTxt.text = $"리롤(${x * 100})";
+            }).AddTo(this);
+
+            await AlphaToDimmed();
         }
 
         async UniTask InitSelectButtonUI()
@@ -89,8 +103,11 @@ namespace ND.UI
             }
         }
 
-        public async UniTask OpenUpgradeShop()
+        public async UniTask OpenUpgradeShop(bool isWaveEnd = false)
         {
+            if (isWaveEnd)
+                ReRollCount = 1;
+
             var itemList = upgradeDataList.FindAll(x => !x.isRare);
             int rareDrop = Random.Range(0, 100);
 
@@ -115,9 +132,10 @@ namespace ND.UI
 
         public void ReRollUpgradeShop()
         {
-            if (userDataManager.Money >= 100)
+            if (userDataManager.Money >= ReRollCount * 100)
             {
-                userDataManager.Money -= 100;
+                userDataManager.Money -= ReRollCount * 100;
+                ReRollCount++;
                 _ = OpenUpgradeShop();
                 ShowMessage("상점을 갱신하였습니다.");
             }
@@ -177,6 +195,21 @@ namespace ND.UI
         public void ActiveExitPopup(bool isActive)
         {
             exitPopup.SetActive(isActive);
+        }
+
+        async UniTask AlphaToDimmed()
+        {
+            dimmedTxt.DOFade(0, 2.0f).onComplete = () =>
+            {
+                dimmedTxt.gameObject.SetActive(false);
+            }; 
+
+            dimmedImg.DOFade(0, 2.0f).onComplete = () =>
+            {
+                dimmedImg.gameObject.SetActive(false);
+            };
+
+            await UniTask.Delay(System.TimeSpan.FromSeconds(1.5f));
         }
 
         public void OnClickExitButton()
