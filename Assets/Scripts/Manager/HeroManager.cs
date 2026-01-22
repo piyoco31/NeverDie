@@ -25,6 +25,10 @@ namespace ND.Manager
         public ReactiveProperty<int> RespawnCountRxProp { get { return respawnCountRxProp; } }
         public int RespawnCount { get { return respawnCountRxProp.Value; } private set { respawnCountRxProp.Value = value; } }
 
+        ReactiveProperty<bool> isGameOverRxProp = new(false);
+        public ReactiveProperty<bool> IsGameOverRxProp { get { return isGameOverRxProp; } }
+        public bool IsGameOver { get { return isGameOverRxProp.Value; } private set { isGameOverRxProp.Value = value; } }
+
         public List<Character> HeroList { get { return heroList; } }
 
         List<Character> heroList = new();
@@ -99,7 +103,8 @@ namespace ND.Manager
 
         public Character GetAttackTargetHero(Character attacker)
         {
-            Vector3 attackerPos = attacker.transform.position;
+            if (attacker == null) return null;
+
             float distance = attacker.Range;
 
             // 사망하지 않고 유효한 캐릭터를 찾아낸다.
@@ -156,6 +161,14 @@ namespace ND.Manager
                 else
                     x.AddStat(data.statType, data.upgradeValue);
             });
+        }
+
+        public void CheckGameOver()
+        {
+            if (heroList.Count > 0)
+            {
+                IsGameOver = heroList.FirstOrDefault(x => !x.IsDead) == null;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VContainer;
 
@@ -14,7 +15,7 @@ namespace ND.UI
     using Data;
     using DG.Tweening;
     using Manager;
-    
+
     public class InGameUI : MonoBehaviour
     {
         [Inject] IObjectResolver container;
@@ -25,11 +26,13 @@ namespace ND.UI
         [SerializeField] HeroStatUI heroStatUI;
         [SerializeField] GameObject upgradeShop;
         [SerializeField] GameObject exitPopup;
+        [SerializeField] GameObject gameOverUI;
         [SerializeField] Transform spawnButtonTr;
         [SerializeField] Transform heroUITr;
         [SerializeField] TMP_Text userMoneyTxt;
         [SerializeField] TMP_Text waveCountTxt;
         [SerializeField] TMP_Text reRollCountTxt;
+        [SerializeField] TMP_Text killCountTxt;
         [SerializeField] TMP_Text dimmedTxt;
         [SerializeField] Image dimmedImg;
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
@@ -65,6 +68,11 @@ namespace ND.UI
                 userMoneyTxt.text = x.ToString();
             }).AddTo(this);
 
+            userDataManager.KillRxProp.Subscribe(x =>
+            {
+                killCountTxt.text = x.ToString();
+            }).AddTo(this);
+
             mainGameManager.WaveCountRxProp.Subscribe(x =>
             {
                 waveCountTxt.text = $"Wave {x + 1}";
@@ -73,6 +81,12 @@ namespace ND.UI
             reRollCountRxProp.Subscribe(x =>
             {
                 reRollCountTxt.text = $"¸®·Ñ(${x * 100})";
+            }).AddTo(this);
+
+            heroManager.IsGameOverRxProp.DistinctUntilChanged().Subscribe(x =>
+            { 
+                if (x)
+                    AlphaToGameOver();
             }).AddTo(this);
 
             await AlphaToDimmed();
@@ -210,6 +224,18 @@ namespace ND.UI
             };
 
             await UniTask.Delay(System.TimeSpan.FromSeconds(1.5f));
+        }
+
+        public void AlphaToGameOver()
+        {
+            gameOverUI.SetActive(true);
+            var canvas = gameOverUI.GetComponent<CanvasGroup>();
+            canvas.DOFade(1, 2.0f);
+        }
+
+        public void OnClickMainMenuButton()
+        {
+            SceneManager.LoadScene("TitleGame");
         }
 
         public void OnClickExitButton()

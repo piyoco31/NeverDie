@@ -115,10 +115,10 @@ namespace ND.Character
         public Character Target { get; protected set; }
         public int PosIdx { get; private set; }
         public bool IsForward { get { return PosIdx < 3; } }
+        public int RewardMoney { get; private set; }
 
         protected string attackAnimName;
         protected CompositeDisposable disposables = new CompositeDisposable();
-        protected int rewardMoney = 0;
         protected bool isAttackFinish = true;
         #endregion
 
@@ -181,7 +181,7 @@ namespace ND.Character
             Dps = data.defaultDps;
             Range = data.defaultRange;
             MonsterType = data.type;
-            rewardMoney = data.rewardMoney;
+            RewardMoney = data.rewardMoney;
             HeroType = E_HeroType.NotHero;
             State = E_CharacterState.Idle;
 
@@ -225,7 +225,10 @@ namespace ND.Character
                         if (HeroType == E_HeroType.NotHero)
                         {
                             _ = monsterManager.DeSpawnMonster(this);
-                            userDataManager.Money += rewardMoney;
+                        }
+                        else
+                        {
+                            heroManager.CheckGameOver();
                         }
 
                         disposables.Clear();

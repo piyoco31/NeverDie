@@ -23,7 +23,7 @@ namespace ND.Installer
 
         private void Start()
         {
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
     }
 }

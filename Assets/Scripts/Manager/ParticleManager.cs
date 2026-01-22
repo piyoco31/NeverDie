@@ -19,6 +19,7 @@ namespace ND.Manager
         Dictionary<string, Pool<Particle>> particleDict = new();
         List<Particle> spawnParticleList = new();
         Pool<DamageTextUI> damageTextPool;
+        Pool<RewardUI> rewardTextPool;
         Transform poolParentTr;
         ParticleDataSO particleDataSO;
 
@@ -61,6 +62,9 @@ namespace ND.Manager
 
             var damageObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_DamageText");
             damageTextPool = Pool.Create(damageObj.GetComponent<DamageTextUI>(), 10, poolParentTr).NonLazy();
+
+            var rewardObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_RewardText");
+            rewardTextPool = Pool.Create(rewardObj.GetComponent<RewardUI>(), 10, poolParentTr).NonLazy();
         }
 
         public async UniTask SpawnParticle(string key, Vector3 pos, float playTime = 0, Transform parentTr = null, Action particleFinish = null)
@@ -100,6 +104,22 @@ namespace ND.Manager
         {
             damageTextPool.Take(damageText);
             damageText.transform.SetParent(poolParentTr);
+
+            await UniTask.CompletedTask;
+        }
+
+        public async UniTask SpawnRewardText(Vector3 pos, float damage)
+        {
+            var rewardText = rewardTextPool.Get();
+            container.Inject(rewardText);
+            rewardText.Init(damage, pos);
+
+            await UniTask.CompletedTask;
+        }
+
+        public async UniTask DespawnRewardText(RewardUI rewardText)
+        {
+            rewardTextPool.Take(rewardText);
 
             await UniTask.CompletedTask;
         }
