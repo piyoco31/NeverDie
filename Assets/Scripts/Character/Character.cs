@@ -199,6 +199,18 @@ namespace ND.Character
             await SubscribeRxProp();
         }
 
+        public async UniTask ReSpawnCharacter()
+        {
+            IsDead = false;
+            CurrentHp = MaxHp;
+            isAttackFinish = true;
+            State = E_CharacterState.Idle;
+
+            transform.rotation = Quaternion.Euler(Vector3.right);
+
+            await SubscribeRxProp();
+        }
+
         async UniTask SubscribeRxProp()
         {
             stateRxProp.Subscribe(state =>
@@ -280,10 +292,12 @@ namespace ND.Character
         {
             if (Target)
             {
-                await Target.DamageToCharacter(Atk);
+                _ = Target.DamageToCharacter(Atk);
             }
 
             isAttackFinish = true;
+
+            await UniTask.CompletedTask;
         }
 
         public async UniTask DamageToCharacter(float damage = 0)

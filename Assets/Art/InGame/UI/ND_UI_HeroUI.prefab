@@ -444,7 +444,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8326574675510564143}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1124269017334344348}
+        m_TargetAssemblyTypeName: ND.UI.HeroUI, Assembly-CSharp
+        m_MethodName: RespawnHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1664872311179456080
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +764,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBD80\uD65C ($100)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ad5e5f06e528c154aa22b0cb63ae4606, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a14f736b876188c4d9f292aa5410ba31, type: 2}
   m_sharedMaterial: {fileID: 8022337990422728307, guid: ad5e5f06e528c154aa22b0cb63ae4606, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -819,7 +831,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4157271679195989271
@@ -1059,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroUI
   respawnButton: {fileID: 1542399918246789170}
+  costTxt: {fileID: 6478110496982263499}
   heroUIRoot: {fileID: 8940226782231301198}
   nameTxt: {fileID: 235592236684189456}
   hpBar: {fileID: 5221425948805506790}

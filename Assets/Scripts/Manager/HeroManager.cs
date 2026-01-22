@@ -21,6 +21,10 @@ namespace ND.Manager
         public ReactiveProperty<int> SpawnCountRxProp { get { return spawnCountRxProp; } }
         public int SpawnCount { get { return spawnCountRxProp.Value; } private set { spawnCountRxProp.Value = value; } }
 
+        ReactiveProperty<int> respawnCountRxProp = new(0);
+        public ReactiveProperty<int> RespawnCountRxProp { get { return respawnCountRxProp; } }
+        public int RespawnCount { get { return respawnCountRxProp.Value; } private set { respawnCountRxProp.Value = value; } }
+
         public List<Character> HeroList { get { return heroList; } }
 
         List<Character> heroList = new();
@@ -77,6 +81,17 @@ namespace ND.Manager
             hero.transform.forward = Vector3.right;
             heroList.Add(hero);
 
+            hero.StartAttack();
+
+            return hero;
+        }
+
+        public async UniTask<Character> ReSpawnHero(int idx = 0)
+        {
+            RespawnCount++;
+            var hero = heroList.Find(x => x.IsDead && x.PosIdx == idx);
+            await hero.ReSpawnCharacter();
+            hero.transform.forward = Vector3.right;
             hero.StartAttack();
 
             return hero;

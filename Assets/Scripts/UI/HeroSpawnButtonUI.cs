@@ -52,9 +52,15 @@ namespace ND.UI
 
             heroManager.SpawnCountRxProp.Subscribe(x =>
             {
-                cost = x * 100;
+                cost = (heroManager.RespawnCount + x) * 100;
                 costTxt.text = "구매\n$" + cost;
-            });
+            }).AddTo(this);
+
+            heroManager.RespawnCountRxProp.Subscribe(x =>
+            {
+                cost = (heroManager.SpawnCount + x) * 100;
+                costTxt.text = "구매\n$" + cost;
+            }).AddTo(this);
 
             OnClickCostButton(false);
         }

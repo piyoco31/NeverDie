@@ -15,7 +15,7 @@ MonoBehaviour:
   textAsset: {fileID: 4900000, guid: 0834aa23ad5b1c342aa850e57a6326f6, type: 3}
   waveDataList:
   - waveMonsterList:
-    - count: 2
+    - count: 10
       type: 0
   - waveMonsterList:
     - count: 3

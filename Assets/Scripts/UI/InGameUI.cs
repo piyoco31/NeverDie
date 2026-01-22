@@ -36,6 +36,8 @@ namespace ND.UI
 
         public Transform HeroUITr { get { return heroUITr; } }
         public bool IsUpgradeShopOpen { get { return upgradeShop.gameObject.activeSelf; } }
+        public HeroManager HeroManagerInst { get { return heroManager; }}
+        public UserDataManager UserDataManagerInst { get { return userDataManager; } }
 
         private void Start()
         {
