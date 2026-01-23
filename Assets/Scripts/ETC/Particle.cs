@@ -63,8 +63,9 @@ namespace ND.Particle
             if (parentTr)
                 transform.SetParent(parentTr);
 
-            if (pos != Vector3.zero)
-                transform.position = pos;
+            transform.localPosition = pos;
+
+            transform.localRotation = Quaternion.identity;
         }
 
         public void StopParticle()

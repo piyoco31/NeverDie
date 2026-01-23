@@ -28,7 +28,11 @@ namespace ND.Character.Monster
 
                     Sequence sequence = DOTween.Sequence();
                     sequence.Append(transform.DORotate(GetLookRotationAngle(leftSide), 0.5f)) // 전체 공격 준비
-                              .AppendCallback(() => State = E_CharacterState.Attack) 
+                              .AppendCallback(() =>
+                              {
+                                  State = E_CharacterState.Attack;
+                                  _ = particleManager.SpawnParticle("BossAttack", new Vector3(0.3f, 0.7f, 0.8f), 3, transform);
+                              }) 
                               .Append(transform.DORotate(GetLookRotationAngle(rightSide), 1.0f)) // 1차 공격 시작
                               .AppendCallback(() => OnBossAttack())
                               .Append(transform.DORotate(GetLookRotationAngle(leftSide), 1.0f)) // 2차 공격 시작

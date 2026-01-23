@@ -30,3 +30,11 @@ MonoBehaviour:
     scaleX: 1
     scaleY: 1
     scaleZ: 1
+  - name: BossAttack
+    prefab: BossAttack
+    audio: 
+    isLoopAudio: 0
+    poolCount: 5
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1

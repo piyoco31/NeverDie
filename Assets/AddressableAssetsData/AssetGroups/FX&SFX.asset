@@ -29,6 +29,13 @@ MonoBehaviour:
     - Particle
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4ed38c72957f2241ad144a1614956d9
+    m_Address: ND_FX_BossAttack
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f514474ff8e94554d8477de1f2f601b0
     m_Address: ND_FX_RainFalling
     m_ReadOnly: 0

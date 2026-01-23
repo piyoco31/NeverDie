@@ -18,5 +18,15 @@
     "scaleX": 1.0,
     "scaleY": 1.0,
     "scaleZ": 1.0
+  },
+  {
+    "name": "BossAttack",
+    "prefab": "BossAttack",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 5,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0
   }
 ]
