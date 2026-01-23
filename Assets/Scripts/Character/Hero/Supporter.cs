@@ -36,6 +36,7 @@ namespace ND.Character.Hero
             if (Target)
             {
                 await Target.DamageToCharacter(-Atk);
+                await particleManager.SpawnParticle("Heal", Target.transform.position, 1.5f);
             }
 
             isAttackFinish = true;

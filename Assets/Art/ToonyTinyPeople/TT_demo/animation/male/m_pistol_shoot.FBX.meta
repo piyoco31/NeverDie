@@ -207,6 +207,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.011111111
+        functionName: OnAnimAttackParticle
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 6dcf0cb92eae04042b1e860769c1f6e0, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

@@ -33,5 +33,10 @@ namespace ND.Character.Hero
                 transform.DORotate(targetRotation.eulerAngles, 0.5f);
             }
         }
+
+        public async override void OnAnimAttackParticle()
+        {
+            await particleManager.SpawnParticle("Slash", new Vector3(0, 1.15f, 0.5f), 2.0f, transform);
+        }
     }
 }

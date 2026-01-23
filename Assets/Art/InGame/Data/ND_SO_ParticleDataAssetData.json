@@ -7,7 +7,10 @@
     "poolCount": 1,
     "scaleX": 1.0,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
   },
   {
     "name": "RainSplashes",
@@ -17,7 +20,10 @@
     "poolCount": 1,
     "scaleX": 1.0,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
   },
   {
     "name": "BossAttack",
@@ -27,7 +33,10 @@
     "poolCount": 5,
     "scaleX": 1.0,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
   },
   {
     "name": "GameOver",
@@ -37,7 +46,10 @@
     "poolCount": 1,
     "scaleX": 1.0,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
   },
   {
     "name": "MainGame",
@@ -47,6 +59,74 @@
     "poolCount": 1,
     "scaleX": 1.0,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "Respawn",
+    "prefab": "Respawn",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 5,
+    "scaleX": 0.2,
+    "scaleY": 0.2,
+    "scaleZ": 0.2,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "Heal",
+    "prefab": "Heal",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 1,
+    "scaleX": 0.2,
+    "scaleY": 0.2,
+    "scaleZ": 0.2,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "Slash",
+    "prefab": "Slash",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 5,
+    "scaleX": 0.5,
+    "scaleY": 0.5,
+    "scaleZ": 0.5,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 90.0
+  },
+  {
+    "name": "BossAttackHit",
+    "prefab": "BossAttackHit",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 30,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "Shoot",
+    "prefab": "Shoot",
+    "audio": "Shoot",
+    "isLoopAudio": false,
+    "poolCount": 10,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": -90.0,
+    "rotZ": 0.0
   }
 ]

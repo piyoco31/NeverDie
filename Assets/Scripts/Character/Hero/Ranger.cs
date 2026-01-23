@@ -33,5 +33,12 @@ namespace ND.Character.Hero
                 transform.DORotate(targetRotation.eulerAngles, 0.5f);
             }
         }
+
+        public async override void OnAnimAttackParticle()
+        {
+            Vector3 pos = HeroType == E_HeroType.Police ? new Vector3(0.33f, 0.8f, 0.6f) : new Vector3(0.28f, 0.77f, 1.0f);
+
+            await particleManager.SpawnParticle("Shoot", pos, 2.0f, transform);
+        }
     }
 }

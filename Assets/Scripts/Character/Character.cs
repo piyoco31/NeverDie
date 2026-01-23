@@ -264,8 +264,6 @@ namespace ND.Character
             transform.DOMove(pos, Speed).OnComplete(() =>
             {
                 State = E_CharacterState.Idle;
-                // 테스트용도 파티클 세팅 시에 참고할 것
-                // _ = particleManager.SpawnParticle("Test", transform.position, parentTr : transform, playTime: 3);
             });
 
             await UniTask.Delay(TimeSpan.FromSeconds(3));
@@ -302,6 +300,11 @@ namespace ND.Character
 
             isAttackFinish = true;
 
+            await UniTask.CompletedTask;
+        }
+
+        public async virtual void OnAnimAttackParticle()
+        {
             await UniTask.CompletedTask;
         }
 

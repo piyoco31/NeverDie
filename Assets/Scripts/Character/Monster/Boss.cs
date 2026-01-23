@@ -68,6 +68,7 @@ namespace ND.Character.Monster
                     if (a && !a.IsDead)
                     {
                         _ = a.DamageToCharacter(Atk);
+                        _ = particleManager.SpawnParticle("BossAttackHit", Vector3.zero, 2.0f, a.transform);
                     }
                 });
             }

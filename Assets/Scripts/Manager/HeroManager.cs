@@ -16,6 +16,7 @@ namespace ND.Manager
     public class HeroManager : MonoBehaviour
     {
         [Inject] IObjectResolver container;
+        [Inject] ParticleManager particleManager;
 
         ReactiveProperty<int> spawnCountRxProp = new(0);
         public ReactiveProperty<int> SpawnCountRxProp { get { return spawnCountRxProp; } }
@@ -96,6 +97,7 @@ namespace ND.Manager
             var hero = heroList.Find(x => x.IsDead && x.PosIdx == idx);
             await hero.ReSpawnCharacter();
             hero.transform.forward = Vector3.right;
+            await particleManager.SpawnParticle("Respawn", hero.transform.position, 2.0f);
             hero.StartAttack();
 
             return hero;

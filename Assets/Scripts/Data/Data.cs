@@ -82,5 +82,8 @@ namespace ND.Data
         public float scaleX;
         public float scaleY;
         public float scaleZ;
+        public float rotX;
+        public float rotY;
+        public float rotZ;
     }
 }

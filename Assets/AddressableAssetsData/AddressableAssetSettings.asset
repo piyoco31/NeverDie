@@ -117,7 +117,7 @@ MonoBehaviour:
     - Level
     - Particle
     - Material
-    - MP3
+    - Sound
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 07121430b6115d0479f8227f9ff2136e, type: 2}

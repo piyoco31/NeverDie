@@ -46,6 +46,7 @@ namespace ND.Manager
                 {
                     particlePrefab = Instantiate(particlePrefab);
                     particlePrefab.transform.localScale = new Vector3(data.scaleX, data.scaleY, data.scaleZ);
+                    particlePrefab.transform.localRotation = Quaternion.Euler(new Vector3(data.rotX, data.rotY, data.rotZ));
                 }
 
                 particle.Init(data.isLoopAudio, particlePrefab, audioClip);
