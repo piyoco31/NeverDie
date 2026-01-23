@@ -129,6 +129,11 @@ namespace ND.Manager
             return list.OrderBy(x => random.Next()).FirstOrDefault();
         }
 
+        public List<Character> GetBossAttackTargetList()
+        { 
+            return heroList.FindAll(a => a && !a.IsDead);
+        }
+
         public Character GetHealTargetHero()
         {
             // 사망하지 않고 유효한 캐릭터를 찾아낸다.

@@ -61,7 +61,7 @@ namespace ND.Manager
             }
 
             var damageObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_DamageText");
-            damageTextPool = Pool.Create(damageObj.GetComponent<DamageTextUI>(), 10, poolParentTr).NonLazy();
+            damageTextPool = Pool.Create(damageObj.GetComponent<DamageTextUI>(), 30, poolParentTr).NonLazy();
 
             var rewardObj = await Addressables.LoadAssetAsync<GameObject>("ND_UI_RewardText");
             rewardTextPool = Pool.Create(rewardObj.GetComponent<RewardUI>(), 10, poolParentTr).NonLazy();

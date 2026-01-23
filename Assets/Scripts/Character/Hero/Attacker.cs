@@ -13,7 +13,7 @@ namespace ND.Character.Hero
                 Target = monsterManager.GetTargetMonster(this);
             }
 
-            if (Target != null)
+            if (Target != null && !IsDead)
             {
                 Vector3 dir = Target.transform.position - transform.position;
 

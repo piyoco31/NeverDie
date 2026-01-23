@@ -135,6 +135,7 @@ namespace ND.Character
 
         private void OnDestroy()
         {
+            transform.DOKill();
             disposables.Dispose();
         }
 
@@ -231,6 +232,7 @@ namespace ND.Character
                             heroManager.CheckGameOver();
                         }
 
+                        transform.DOKill();
                         disposables.Clear();
                     }
                 }
@@ -320,8 +322,6 @@ namespace ND.Character
 
             if (CurrentHp <= 0)
                 State = E_CharacterState.Death;
-
-            //await UniTask.CompletedTask;
         }
 
         protected async UniTask WaitingAttackAnimTime()
@@ -354,7 +354,7 @@ namespace ND.Character
                     Dps = Mathf.Clamp(Dps -= value, 0.5f, float.MaxValue);
                     break;
                 case E_HeroStatType.Range:
-                    Range = Mathf.Clamp(Range += value, 0.5f, float.MaxValue);
+                    Range = Mathf.Clamp(Range += value, 0.5f, 10.0f);
                     break;
             }
         }
@@ -367,6 +367,11 @@ namespace ND.Character
             }
 
             return false;
+        }
+
+        protected Vector3 GetLookRotationAngle(Vector3 dir)
+        {
+            return Quaternion.LookRotation(dir, Vector3.up).eulerAngles;
         }
     }
 }

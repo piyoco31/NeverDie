@@ -10,7 +10,7 @@ namespace ND.Character.Hero
         {
             Target = heroManager.GetHealTargetHero();
 
-            if (Target != null)
+            if (Target != null && !IsDead)
             {
                 Vector3 dir = Target.transform.position - transform.position;
 

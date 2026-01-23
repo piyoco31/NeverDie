@@ -45,7 +45,7 @@ namespace ND.Character.Monster
                 Target = heroManager.GetAttackTargetHero(this);
             }
 
-            if (Target != null)
+            if (Target != null && !IsDead)
             {
                 float distance = Vector3.Distance(Target.transform.position, transform.position);
 

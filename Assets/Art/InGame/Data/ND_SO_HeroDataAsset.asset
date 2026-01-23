@@ -38,7 +38,7 @@ MonoBehaviour:
     name: "\uC26C\uC5C8\uC74C\uCCAD\uB144 \uAE40\uAD70"
     prefab: ND_CH_Boy
     defaultSpeed: 3
-    defaultHp: 30
+    defaultHp: 3000000
     defaultAtk: 5
     defaultArmor: 3
     defaultDps: 3

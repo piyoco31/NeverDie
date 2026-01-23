@@ -16,7 +16,9 @@ MonoBehaviour:
   waveDataList:
   - waveMonsterList:
     - count: 1
-      type: 0
+      type: 3
+    - count: 3
+      type: 3
   - waveMonsterList:
     - count: 3
       type: 0
