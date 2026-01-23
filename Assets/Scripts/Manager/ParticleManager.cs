@@ -22,6 +22,7 @@ namespace ND.Manager
         Pool<RewardUI> rewardTextPool;
         Transform poolParentTr;
         ParticleDataSO particleDataSO;
+        Particle bgmSFX = null;
 
         public async UniTask Init()
         {
@@ -139,6 +140,27 @@ namespace ND.Manager
                 {
                     await DespawnParticle(item);
                 }
+            }
+        }
+
+        public void PlayBGM(string name)
+        {
+            StopBGM();
+
+            var particle = particleDict[name].Get();
+            container.Inject(particle);
+            spawnParticleList.Add(particle);
+            bgmSFX = particle;
+
+            particle.StartParticle(name, Vector3.zero);
+        }
+
+        public void StopBGM()
+        {
+            if (bgmSFX)
+            {
+                bgmSFX.StopParticle();
+                bgmSFX = null;
             }
         }
     }

@@ -56,6 +56,7 @@ namespace ND.Manager
             await heroManager.Init(this);
             await monsterManager.Init(this);
             await gameUI.Init(this);
+            particleManager.PlayBGM("MainGame");
             ChangeEnviroment();
 
             await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
@@ -114,11 +115,6 @@ namespace ND.Manager
             {
                 await particleManager.SpawnRainyParticle(false);
             }
-        }
-
-        void EndMainGame()
-        {
-
         }
     }
 }

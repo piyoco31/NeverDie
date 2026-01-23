@@ -38,3 +38,19 @@ MonoBehaviour:
     scaleX: 1
     scaleY: 1
     scaleZ: 1
+  - name: GameOver
+    prefab: 
+    audio: GameOver
+    isLoopAudio: 1
+    poolCount: 1
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1
+  - name: MainGame
+    prefab: 
+    audio: MainGame
+    isLoopAudio: 1
+    poolCount: 1
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1

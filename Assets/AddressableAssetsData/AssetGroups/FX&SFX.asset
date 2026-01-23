@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: FX&SFX
   m_GUID: 3d00277b845a40649a1f4ba3b60015b8
   m_SerializeEntries:
+  - m_GUID: 01dae32d915d3054798e961265bd33ff
+    m_Address: ND_SFX_GameOver
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MP3
+    - Particle
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f7221d4c26ec36469f97f68cac3edfc
     m_Address: ND_FX_Particle
     m_ReadOnly: 0
@@ -42,6 +49,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Particle
     - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7179cb0bd86de34f93c20861a4bb8f3
+    m_Address: ND_SFX_MainGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MP3
+    - Particle
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 685d4662c783a37448d816131db4088f, type: 2}

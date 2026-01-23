@@ -21,6 +21,7 @@ namespace ND.UI
         [Inject] IObjectResolver container;
         [Inject] HeroManager heroManager;
         [Inject] UserDataManager userDataManager;
+        [Inject] ParticleManager particleManager;
 
         [SerializeField] MessageUI messageUI;
         [SerializeField] HeroStatUI heroStatUI;
@@ -84,9 +85,12 @@ namespace ND.UI
             }).AddTo(this);
 
             heroManager.IsGameOverRxProp.DistinctUntilChanged().Subscribe(x =>
-            { 
+            {
                 if (x)
+                {
+                    particleManager.PlayBGM("GameOver");
                     AlphaToGameOver();
+                }
             }).AddTo(this);
 
             await AlphaToDimmed();
@@ -228,6 +232,7 @@ namespace ND.UI
 
         public void AlphaToGameOver()
         {
+            userDataManager.SaveUserData();
             gameOverUI.SetActive(true);
             var canvas = gameOverUI.GetComponent<CanvasGroup>();
             canvas.DOFade(1, 2.0f);
@@ -235,6 +240,7 @@ namespace ND.UI
 
         public void OnClickMainMenuButton()
         {
+            particleManager.StopBGM();
             SceneManager.LoadScene("TitleGame");
         }
 

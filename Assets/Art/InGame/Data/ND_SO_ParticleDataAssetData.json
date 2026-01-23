@@ -28,5 +28,25 @@
     "scaleX": 1.0,
     "scaleY": 1.0,
     "scaleZ": 1.0
+  },
+  {
+    "name": "GameOver",
+    "prefab": "",
+    "audio": "GameOver",
+    "isLoopAudio": true,
+    "poolCount": 1,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0
+  },
+  {
+    "name": "MainGame",
+    "prefab": "",
+    "audio": "MainGame",
+    "isLoopAudio": true,
+    "poolCount": 1,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0
   }
 ]
