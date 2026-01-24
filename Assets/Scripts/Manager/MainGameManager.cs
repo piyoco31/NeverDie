@@ -56,7 +56,7 @@ namespace ND.Manager
             await heroManager.Init(this);
             await monsterManager.Init(this);
             await gameUI.Init(this);
-            particleManager.PlayBGM("MainGame");
+            //particleManager.PlayBGM("MainGame");
             ChangeEnviroment();
 
             await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
@@ -88,7 +88,9 @@ namespace ND.Manager
             }
 
             await UniTask.WaitUntil(() => TotalWaveMonsterCount <= 0);
+            gameUI.PlaySound("UpgradeShop");
             await gameUI.OpenUpgradeShop(true);
+            
             WaveCount++;
             ChangeEnviroment();
             await UniTask.WaitUntil(() => !gameUI.IsUpgradeShopOpen);

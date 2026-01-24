@@ -2,8 +2,8 @@
   {
     "name": "RainFalling",
     "prefab": "RainFalling",
-    "audio": "",
-    "isLoopAudio": false,
+    "audio": "RainFalling",
+    "isLoopAudio": true,
     "poolCount": 1,
     "scaleX": 1.0,
     "scaleY": 1.0,
@@ -28,7 +28,7 @@
   {
     "name": "BossAttack",
     "prefab": "BossAttack",
-    "audio": "",
+    "audio": "BossAttack",
     "isLoopAudio": false,
     "poolCount": 5,
     "scaleX": 1.0,
@@ -52,22 +52,9 @@
     "rotZ": 0.0
   },
   {
-    "name": "MainGame",
-    "prefab": "",
-    "audio": "MainGame",
-    "isLoopAudio": true,
-    "poolCount": 1,
-    "scaleX": 1.0,
-    "scaleY": 1.0,
-    "scaleZ": 1.0,
-    "rotX": 0.0,
-    "rotY": 0.0,
-    "rotZ": 0.0
-  },
-  {
     "name": "Respawn",
     "prefab": "Respawn",
-    "audio": "",
+    "audio": "Respawn",
     "isLoopAudio": false,
     "poolCount": 5,
     "scaleX": 0.2,
@@ -80,7 +67,7 @@
   {
     "name": "Heal",
     "prefab": "Heal",
-    "audio": "",
+    "audio": "Heal",
     "isLoopAudio": false,
     "poolCount": 1,
     "scaleX": 0.2,
@@ -106,7 +93,7 @@
   {
     "name": "BossAttackHit",
     "prefab": "BossAttackHit",
-    "audio": "",
+    "audio": "BossAttackHit",
     "isLoopAudio": false,
     "poolCount": 30,
     "scaleX": 1.0,
@@ -127,6 +114,45 @@
     "scaleZ": 1.0,
     "rotX": 0.0,
     "rotY": -90.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "ShootHit",
+    "prefab": "ShootHit",
+    "audio": "",
+    "isLoopAudio": false,
+    "poolCount": 10,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "SlashHit",
+    "prefab": "SlashHit",
+    "audio": "SlashHit",
+    "isLoopAudio": false,
+    "poolCount": 10,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0
+  },
+  {
+    "name": "ZombieHit",
+    "prefab": "ZombieHit",
+    "audio": "ZombieHit",
+    "isLoopAudio": false,
+    "poolCount": 30,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
     "rotZ": 0.0
   }
 ]

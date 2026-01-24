@@ -16,8 +16,8 @@ MonoBehaviour:
   particleDataList:
   - name: RainFalling
     prefab: RainFalling
-    audio: 
-    isLoopAudio: 0
+    audio: RainFalling
+    isLoopAudio: 1
     poolCount: 1
     scaleX: 1
     scaleY: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
     rotZ: 0
   - name: BossAttack
     prefab: BossAttack
-    audio: 
+    audio: BossAttack
     isLoopAudio: 0
     poolCount: 5
     scaleX: 1
@@ -58,20 +58,9 @@ MonoBehaviour:
     rotX: 0
     rotY: 0
     rotZ: 0
-  - name: MainGame
-    prefab: 
-    audio: MainGame
-    isLoopAudio: 1
-    poolCount: 1
-    scaleX: 1
-    scaleY: 1
-    scaleZ: 1
-    rotX: 0
-    rotY: 0
-    rotZ: 0
   - name: Respawn
     prefab: Respawn
-    audio: 
+    audio: Respawn
     isLoopAudio: 0
     poolCount: 5
     scaleX: 0.2
@@ -82,7 +71,7 @@ MonoBehaviour:
     rotZ: 0
   - name: Heal
     prefab: Heal
-    audio: 
+    audio: Heal
     isLoopAudio: 0
     poolCount: 1
     scaleX: 0.2
@@ -104,7 +93,7 @@ MonoBehaviour:
     rotZ: 90
   - name: BossAttackHit
     prefab: BossAttackHit
-    audio: 
+    audio: BossAttackHit
     isLoopAudio: 0
     poolCount: 30
     scaleX: 1
@@ -123,4 +112,37 @@ MonoBehaviour:
     scaleZ: 1
     rotX: 0
     rotY: -90
+    rotZ: 0
+  - name: ShootHit
+    prefab: ShootHit
+    audio: 
+    isLoopAudio: 0
+    poolCount: 10
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1
+    rotX: 0
+    rotY: 0
+    rotZ: 0
+  - name: SlashHit
+    prefab: SlashHit
+    audio: SlashHit
+    isLoopAudio: 0
+    poolCount: 10
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1
+    rotX: 0
+    rotY: 0
+    rotZ: 0
+  - name: ZombieHit
+    prefab: ZombieHit
+    audio: ZombieHit
+    isLoopAudio: 0
+    poolCount: 30
+    scaleX: 1
+    scaleY: 1
+    scaleZ: 1
+    rotX: 0
+    rotY: 0
     rotZ: 0

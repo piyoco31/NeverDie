@@ -75,5 +75,15 @@ namespace ND.Character.Monster
         {
             await particleManager.SpawnParticle("Shoot", new Vector3(0.28f, 0.77f, 1.0f), 2.0f, transform);
         }
+
+        public async override void OnAnimAttack()
+        {
+            base.OnAnimAttack();
+
+            if (Target)
+            {
+                await particleManager.SpawnParticle("ShootHit", new Vector3(0.0f, 0.6f, 0.0f), 2.0f, Target.transform); ;
+            }
+        }
     }
 }

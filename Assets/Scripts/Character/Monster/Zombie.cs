@@ -70,5 +70,15 @@ namespace ND.Character.Monster
                 }
             }
         }
+
+        public async override void OnAnimAttack()
+        {
+            base.OnAnimAttack();
+
+            if (Target)
+            {
+                await particleManager.SpawnParticle("ZombieHit", new Vector3(0.0f, 0.6f, 0.0f), 2.0f, Target.transform); ;
+            }
+        }
     }
 }

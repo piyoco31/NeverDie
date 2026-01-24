@@ -10,12 +10,14 @@ namespace ND.Manager
 {
     using Character;
     using Data;
+    using UI;
 
     public class MonsterManager : MonoBehaviour
     {
         [Inject] IObjectResolver container;
         [Inject] UserDataManager userDataManager;
         [Inject] ParticleManager particleManager;
+        [Inject] InGameUI gameUI;
 
         List<Character> monsterList = new();
         Dictionary<E_MonsterType, Pool<Character>> poolDic = new();
@@ -82,6 +84,7 @@ namespace ND.Manager
             await UniTask.Delay(System.TimeSpan.FromSeconds(3));
             await particleManager.SpawnRewardText(monster.transform.position, monster.RewardMoney);
 
+            gameUI?.PlaySound("Coin");
             userDataManager.Money += monster.RewardMoney;
             userDataManager.Kill++;
             poolDic[monster.MonsterType].Take(monster);

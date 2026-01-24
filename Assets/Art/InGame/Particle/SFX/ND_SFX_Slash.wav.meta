@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: e1a75776f005439469f89a17a986c567
-timeCreated: 1570803046
+guid: fe0b1f9aeb45b41b089175aeeabd5d95
+labels:
+- Audio
+- Casual
+- Sound
+- SFX
+- Effect
+timeCreated: 1453238771
 licenseType: Store
 AudioImporter:
   serializedVersion: 6
@@ -16,15 +22,14 @@ AudioImporter:
   normalize: 1
   preloadAudioData: 1
   loadInBackground: 0
-  ambisonic: 0
   3D: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 155776
-  packageName: Free Sound Effects Pack
-  packageVersion: 1.0
-  assetPath: Assets/Free Pack/Indiana Jones Punch.wav
-  uploadId: 333958
+  productId: 54116
+  packageName: FREE Casual Game SFX Pack
+  packageVersion: 1.1
+  assetPath: Assets/Casual Game Sounds U6/CasualGameSounds/DM-CGS-46.wav
+  uploadId: 688818

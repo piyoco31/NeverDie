@@ -15,6 +15,7 @@ namespace ND.UI
     using Data;
     using DG.Tweening;
     using Manager;
+    using UnityEngine.Audio;
 
     public class InGameUI : MonoBehaviour
     {
@@ -36,8 +37,11 @@ namespace ND.UI
         [SerializeField] TMP_Text killCountTxt;
         [SerializeField] TMP_Text dimmedTxt;
         [SerializeField] Image dimmedImg;
+        [SerializeField] AudioSource audioSource;
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
+        [SerializeField] List<string> clipNameList;
 
+        Dictionary<string, AudioClip> audioClipDict = new();
         List<HeroSpawnButtonUI> spawnButtonlist= new();
         List<UpgradeData> upgradeDataList;
 
@@ -52,6 +56,7 @@ namespace ND.UI
 
         private void Start()
         {
+            audioSource.loop = false;
             CloseUpgradeShop();
             ActiveExitPopup(false);
         }
@@ -92,6 +97,12 @@ namespace ND.UI
                     AlphaToGameOver();
                 }
             }).AddTo(this);
+
+            clipNameList.ForEach(async x =>
+            {
+                var clip = await Addressables.LoadAssetAsync<AudioClip>($"ND_SFX_{x}");
+                audioClipDict.Add(x, clip);
+            });
 
             await AlphaToDimmed();
         }
@@ -177,6 +188,8 @@ namespace ND.UI
 
             if (data != null && data.price <= userDataManager.Money)
             {
+                PlaySound("UpgradeButton");
+
                 button.IsEnable = false;
                 userDataManager.Money -= data.price;
                 
@@ -242,6 +255,20 @@ namespace ND.UI
         {
             particleManager.StopBGM();
             SceneManager.LoadScene("TitleGame");
+        }
+
+        public void PlaySound(string key)
+        {
+            if (audioClipDict.ContainsKey(key))
+            {
+                audioSource.Stop();
+                var clip = audioClipDict[key];
+
+                if (audioSource.clip != clip)
+                    audioSource.clip = clip;
+
+                audioSource.Play();
+            }
         }
 
         public void OnClickExitButton()

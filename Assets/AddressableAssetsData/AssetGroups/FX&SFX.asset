@@ -29,8 +29,43 @@ MonoBehaviour:
     - Particle
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c008ee3ee72a4362a35be25fa5de043
+    m_Address: ND_SFX_UpgradeButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e5ec5d798406aa4699be8c44dd7599f
     m_Address: ND_SFX_Shoot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 171dda363e9efd94ca9bc63e38ca9658
+    m_Address: ND_FX_ZombieHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17894e800e58a6244955dda4bf1aa56f
+    m_Address: ND_SFX_Title
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25c7c0919d42a6d4f840e590e9779379
+    m_Address: ND_SFX_BossAttack
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2667a0a008b044e218b63df62e2be749
+    m_Address: ND_SFX_UpgradeShop
     m_ReadOnly: 0
     m_SerializedLabels:
     - Particle
@@ -50,6 +85,13 @@ MonoBehaviour:
     - Particle
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7478151cf36724a7dada558f746c3633
+    m_Address: ND_SFX_Respawn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74c549d1b06b6b140a1fd9536eea637f
     m_Address: ND_FX_Slash
     m_ReadOnly: 0
@@ -57,12 +99,54 @@ MonoBehaviour:
     - Particle
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bd6b897eb5ca4b7d88a205c4a51640c
+    m_Address: ND_SFX_Heal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c6d9bb9c8994364dbe5ba2e32dd4d13
+    m_Address: ND_FX_ShootHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 808b1c1bb474b2e4e81f482b61c5af1f
+    m_Address: ND_SFX_Coin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81a74a0aefeb7674ca32535d1a269b4a
     m_Address: ND_FX_Respawn
     m_ReadOnly: 0
     m_SerializedLabels:
     - Particle
     - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 841004c4c6a39e244abe2257394de913
+    m_Address: ND_FX_SlashHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d97fd5d1ab1a414f85bf0d270312403
+    m_Address: ND_SFX_BossAttackHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ebcb6234d419344daa712ba65bb3798
+    m_Address: ND_SFX_ZombieHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f7221d4c26ec36469f97f68cac3edfc
     m_Address: ND_FX_Particle
@@ -85,6 +169,20 @@ MonoBehaviour:
     - Particle
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e13325721879ad0418b4ddbcb65409e8
+    m_Address: ND_SFX_SlashHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f10e9483952c29942b40f217f916d4ba
+    m_Address: ND_SFX_RainFalling
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Particle
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f514474ff8e94554d8477de1f2f601b0
     m_Address: ND_FX_RainFalling
     m_ReadOnly: 0
@@ -92,8 +190,8 @@ MonoBehaviour:
     - Particle
     - Prefab
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f7179cb0bd86de34f93c20861a4bb8f3
-    m_Address: ND_SFX_MainGame
+  - m_GUID: fe0b1f9aeb45b41b089175aeeabd5d95
+    m_Address: ND_SFX_Slash
     m_ReadOnly: 0
     m_SerializedLabels:
     - Particle

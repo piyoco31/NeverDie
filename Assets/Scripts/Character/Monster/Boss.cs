@@ -57,6 +57,11 @@ namespace ND.Character.Monster
             await UniTask.CompletedTask;
         }
 
+        public async override void OnAnimAttackParticle()
+        {
+            await UniTask.CompletedTask;
+        }
+
         public void OnBossAttack()
         {
             var list = heroManager.GetBossAttackTargetList();
