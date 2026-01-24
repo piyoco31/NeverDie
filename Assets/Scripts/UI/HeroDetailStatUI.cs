@@ -85,7 +85,8 @@ namespace ND.UI
                 _ => isDoctor ? "치료중" : "공격중"
             };
 
-            heroLeftStat.text = $"상태 : {stateStr}\nHP : {hero.CurrentHp} / {hero.MaxHp}\nATK : {hero.Atk}";
+            string atkStr = isDoctor ? "치유력" : "ATK";
+            heroLeftStat.text = $"상태 : {stateStr}\nHP : {hero.CurrentHp} / {hero.MaxHp}\n{atkStr} : {hero.Atk}";
         }
 
         // 아머, DPS, 사거리
