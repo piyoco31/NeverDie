@@ -20,7 +20,7 @@
     "defaultAtk": 3.0,
     "defaultArmor": 2.0,
     "defaultDps": 3.0,
-    "defaultRange": 3.0,
+    "defaultRange": 4.0,
     "poolCount": 1
   },
   {
@@ -32,7 +32,7 @@
     "defaultAtk": 2.0,
     "defaultArmor": 3.0,
     "defaultDps": 4.0,
-    "defaultRange": 3.0,
+    "defaultRange": 4.0,
     "poolCount": 1
   },
   {
@@ -56,7 +56,7 @@
     "defaultAtk": 4.0,
     "defaultArmor": 2.0,
     "defaultDps": 6.0,
-    "defaultRange": 6.0,
+    "defaultRange": 7.0,
     "poolCount": 1
   }
 ]
