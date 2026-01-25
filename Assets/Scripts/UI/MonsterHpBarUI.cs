@@ -7,15 +7,15 @@ namespace ND.UI
 
     public class MonsterHpBarUI : MonoBehaviour
     {
-        Vector3 localScale;
-        CompositeDisposable disposables = new CompositeDisposable();
-
         protected ReactiveProperty<float> showTimeRxProp = new ReactiveProperty<float>(0);
         public float ShowTime
         {
             private get { return showTimeRxProp.Value; }
             set { showTimeRxProp.Value = value; }
         }
+
+        Vector3 localScale;
+        CompositeDisposable disposables = new CompositeDisposable();
 
         private void Awake()
         {

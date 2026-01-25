@@ -89,7 +89,6 @@ namespace ND.Manager
             particle.transform.SetParent(poolParentTr);
             spawnParticleList.Remove(particle);
 
-            // Debug.Log($"PoolCount:{particleDict[particle.ParticleKey].Count}");
             await UniTask.CompletedTask;
         }
 

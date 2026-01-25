@@ -36,7 +36,6 @@ namespace ND.Manager
         Dictionary<E_HeroType, Pool<Character>> poolDic = new();
         Dictionary<E_HeroType, HeroData> dataDic = new();
         Dictionary<int, HeroPositionData> positionDataDic = new();
-
         Transform poolParentTr;
         HeroDataSO heroDataSO;
 
@@ -107,21 +106,19 @@ namespace ND.Manager
         {
             if (attacker == null) return null;
 
-            float distance = attacker.Range;
-
             // 사망하지 않고 유효한 캐릭터를 찾아낸다.
             List<Character> list = heroList.FindAll(a => a && !a.IsDead);
 
             if (attacker.MonsterType == E_MonsterType.Zombie) // 좀비라면 전위 배치 캐릭터부터 공격한다.
             {
-                var forwardList = list.FindAll(a => a.IsForward);
+                var forwardList = list.FindAll(a => a.IsForward && !a.IsDead);
 
                 if (forwardList.Count > 0)
                     list = forwardList;
             }
             else // 군인이라면 후위 배치 캐릭터부터 공격한다.
             {
-                var backwardList = list.FindAll(a => !a.IsForward);
+                var backwardList = list.FindAll(a => !a.IsForward && !a.IsDead);
 
                 if (backwardList.Count > 0)
                     list = backwardList;

@@ -8,12 +8,10 @@ namespace ND.UI
     {
         [SerializeField] AudioSource audioSource;
         [SerializeField] GameObject exitPopup;
-        // [SerializeField] Button gameStartButton;
 
         void Start()
         {
             exitPopup.SetActive(false);
-            // gameStartButton.interactable = false;
             audioSource.Play();
         }
 

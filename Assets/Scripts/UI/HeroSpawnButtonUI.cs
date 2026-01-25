@@ -23,7 +23,6 @@ namespace ND.UI
         public int Idx { get; private set; }
         public bool IsSpawn { get; set; }
         
-
         InGameUI gameUI;
         int cost = 0;
         float heroUIPosY;
@@ -115,10 +114,7 @@ namespace ND.UI
                 var heroUI = Instantiate(UIObj, gameUI?.HeroUITr).GetComponent<HeroUI>();
                 heroUI.SetHeroUI(hero, GetComponent<RectTransform>().anchoredPosition, heroUIPosY);
                 gameUI?.SetHeroDetailStat(hero);
-
-                //OnClickCostButton(false);
                 gameUI?.ActiveAllSelectButtons(true, Idx);
-                //gameObject.SetActive(false);
             }
             else
                 gameUI?.ShowMessage("소지금이 부족합니다.");

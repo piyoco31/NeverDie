@@ -18,11 +18,13 @@ namespace ND.UI
         [SerializeField] TMP_Text heroRightStat;
 
         public bool IsInitComplete { get; private set; } = false;
+        bool isDoctor;
 
         public async void SetHeroDetailStat(Character hero)
         {
             gameObject.SetActive(true);
             IsInitComplete = true;
+            isDoctor = hero.HeroType == E_HeroType.Doctor;
 
             var sprite = await Addressables.LoadAssetAsync<Sprite>($"ND_SP_{hero.HeroType}Portrait");
             heroIcon.sprite = sprite;
@@ -77,7 +79,6 @@ namespace ND.UI
         // 상태, 공격력, HP
         void SetHeroLeftStat(Character hero)
         {
-            var isDoctor = hero.HeroType == E_HeroType.Doctor;
             string stateStr = hero.IsDead ? "사망" : hero.State switch
             {
                 E_CharacterState.Idle => isDoctor ? "치료준비" : "공격준비",
@@ -85,14 +86,15 @@ namespace ND.UI
                 _ => isDoctor ? "치료중" : "공격중"
             };
 
-            string atkStr = isDoctor ? "치유력" : "ATK";
+            string atkStr = isDoctor ? "HEAL" : "ATK";
             heroLeftStat.text = $"상태 : {stateStr}\nHP : {hero.CurrentHp} / {hero.MaxHp}\n{atkStr} : {hero.Atk}";
         }
 
         // 아머, DPS, 사거리
         void SetHeroRightStat(Character hero)
         {
-            heroRightStat.text = $"ARMOR : {hero.Armor}\nDPS : {hero.Dps}\nRANGE : {hero.Range}";
+            string rangeStr = isDoctor ? string.Empty : $"RANGE: {hero.Range}";
+            heroRightStat.text = $"ARMOR : {hero.Armor}\nDPS : {hero.Dps}\n{rangeStr}";
         }
     }
 }

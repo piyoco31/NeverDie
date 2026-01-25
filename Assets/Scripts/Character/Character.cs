@@ -113,8 +113,8 @@ namespace ND.Character
         public E_HeroType HeroType { get; private set; } = E_HeroType.NotHero;
         public E_MonsterType MonsterType { get; private set; } = E_MonsterType.NotMonster;
         public Character Target { get; protected set; }
-        public int PosIdx { get; private set; }
         public bool IsForward { get { return PosIdx < 3; } }
+        public int PosIdx { get; private set; }
         public int RewardMoney { get; private set; }
 
         protected string attackAnimName;

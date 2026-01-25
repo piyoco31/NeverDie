@@ -56,11 +56,10 @@ namespace ND.Manager
             await heroManager.Init(this);
             await monsterManager.Init(this);
             await gameUI.Init(this);
-            //particleManager.PlayBGM("MainGame");
+
             ChangeEnviroment();
 
             await UniTask.WaitUntil(() => heroManager.SpawnCount > 0);
-
             await UniTask.Delay(System.TimeSpan.FromSeconds(3));
 
             MonsterWave();
@@ -80,7 +79,6 @@ namespace ND.Manager
                 for (int i = 0; i < data.count; i++)
                 {
                     await monsterManager.SpawmMonster(data.type);
-
                     await UniTask.Delay(System.TimeSpan.FromSeconds(2));
                 }
 
@@ -103,7 +101,6 @@ namespace ND.Manager
             bool isDay = WaveCount % 2 == 0;
             RenderSettings.skybox = skyBoxMatList[isDay ? 0 : 1];
             light.color = isDay ? dayLightColor : Color.black;
-            //DynamicGI.UpdateEnvironment();
 
             if (Random.Range(0, 100) < 50)
             {

@@ -15,14 +15,14 @@ MonoBehaviour:
   m_GroupName: Material
   m_GUID: 0ef47d4e11f3ef84cbfbaf4457d047f5
   m_SerializeEntries:
-  - m_GUID: 133347283e115d147a5fcce7f47a538f
+  - m_GUID: 6abe918ee1229b34f8557fc2a5a39825
     m_Address: ND_MT_Day
     m_ReadOnly: 0
     m_SerializedLabels:
     - Bg
     - Material
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c1c961cbd00909b45b34d97fd7df5cbf
+  - m_GUID: aa87107d0c3535c4983a4edb2d0e9f7b
     m_Address: ND_MT_Night
     m_ReadOnly: 0
     m_SerializedLabels:

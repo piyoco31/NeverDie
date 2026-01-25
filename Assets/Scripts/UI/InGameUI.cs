@@ -15,7 +15,6 @@ namespace ND.UI
     using Data;
     using DG.Tweening;
     using Manager;
-    using UnityEngine.Audio;
 
     public class InGameUI : MonoBehaviour
     {
@@ -41,11 +40,6 @@ namespace ND.UI
         [SerializeField] List<UpgradeShopButtonUI> upgradeButtonList;
         [SerializeField] List<string> clipNameList;
 
-        Dictionary<string, AudioClip> audioClipDict = new();
-        List<HeroSpawnButtonUI> spawnButtonlist= new();
-        List<UpgradeData> upgradeDataList;
-
-
         public Transform HeroUITr { get { return heroUITr; } }
         public bool IsUpgradeShopOpen { get { return upgradeShop.gameObject.activeSelf; } }
         public HeroManager HeroManagerInst { get { return heroManager; }}
@@ -53,6 +47,10 @@ namespace ND.UI
 
         ReactiveProperty<int> reRollCountRxProp = new(1);
         private int ReRollCount { get { return reRollCountRxProp.Value; } set { reRollCountRxProp.Value = value; } }
+
+        Dictionary<string, AudioClip> audioClipDict = new();
+        List<HeroSpawnButtonUI> spawnButtonlist = new();
+        List<UpgradeData> upgradeDataList;
 
         private void Start()
         {

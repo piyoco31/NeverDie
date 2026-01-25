@@ -9,7 +9,6 @@ namespace ND.UI
         [SerializeField] TMP_Text costTxt;
 
         Action<E_HeroType> onSelectAction;
-
         E_HeroType type;
 
         public void SetSelectButton(E_HeroType type, Action<E_HeroType> onSelect = null)

@@ -18,7 +18,6 @@ namespace ND.UI
         [SerializeField] Slider coolTimeBar;
 
         InGameUI gameUI;
-
         bool isCoolTime;
         float coolTime = 0.0f;
         float coolTimeMax = 0.0f;

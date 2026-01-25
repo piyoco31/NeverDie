@@ -10,35 +10,11 @@
         "type": 0
       },
       {
-        "count": 4,
-        "type": 0
-      },
-      {
-        "count": 5,
-        "type": 0
-      },
-      {
-        "count": 5,
-        "type": 0
-      }
-    ]
-  },
-  {
-    "waveMonsterList": [
-      {
         "count": 3,
         "type": 0
       },
       {
         "count": 4,
-        "type": 0
-      },
-      {
-        "count": 5,
-        "type": 0
-      },
-      {
-        "count": 6,
         "type": 0
       },
       {
@@ -50,7 +26,11 @@
   {
     "waveMonsterList": [
       {
-        "count": 3,
+        "count": 5,
+        "type": 0
+      },
+      {
+        "count": 5,
         "type": 0
       },
       {
@@ -62,12 +42,8 @@
         "type": 0
       },
       {
-        "count": 4,
-        "type": 1
-      },
-      {
-        "count": 10,
-        "type": 0
+        "count": 1,
+        "type": 2
       }
     ]
   },
@@ -78,20 +54,44 @@
         "type": 0
       },
       {
-        "count": 5,
-        "type": 1
-      },
-      {
-        "count": 1,
-        "type": 2
-      },
-      {
         "count": 3,
         "type": 1
       },
       {
-        "count": 2,
+        "count": 3,
         "type": 2
+      },
+      {
+        "count": 4,
+        "type": 1
+      },
+      {
+        "count": 1,
+        "type": 3
+      }
+    ]
+  },
+  {
+    "waveMonsterList": [
+      {
+        "count": 5,
+        "type": 1
+      },
+      {
+        "count": 5,
+        "type": 0
+      },
+      {
+        "count": 2,
+        "type": 3
+      },
+      {
+        "count": 5,
+        "type": 2
+      },
+      {
+        "count": 5,
+        "type": 1
       }
     ]
   },
@@ -114,7 +114,7 @@
         "type": 2
       },
       {
-        "count": 1,
+        "count": 3,
         "type": 3
       }
     ]

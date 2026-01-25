@@ -19,7 +19,7 @@ MonoBehaviour:
     prefab: ND_CH_Doctor
     defaultSpeed: 3
     defaultHp: 15
-    defaultAtk: 3
+    defaultAtk: 5
     defaultArmor: 1
     defaultDps: 8
     defaultRange: 0
@@ -29,29 +29,29 @@ MonoBehaviour:
     prefab: ND_CH_Girl
     defaultSpeed: 3
     defaultHp: 20
-    defaultAtk: 4
+    defaultAtk: 3
     defaultArmor: 2
-    defaultDps: 2
-    defaultRange: 5
+    defaultDps: 3
+    defaultRange: 3
     poolCount: 1
   - type: 2
     name: "\uC26C\uC5C8\uC74C\uCCAD\uB144 \uAE40\uAD70"
     prefab: ND_CH_Boy
     defaultSpeed: 3
     defaultHp: 30
-    defaultAtk: 5
+    defaultAtk: 2
     defaultArmor: 3
-    defaultDps: 3
-    defaultRange: 5
+    defaultDps: 4
+    defaultRange: 3
     poolCount: 1
   - type: 3
     name: "\uBD80\uD328\uACBD\uCC30\uAD00 \uC774\uACBD\uC0AC"
     prefab: ND_CH_Police
     defaultSpeed: 3
     defaultHp: 15
-    defaultAtk: 2
-    defaultArmor: 2
-    defaultDps: 5
+    defaultAtk: 5
+    defaultArmor: 1
+    defaultDps: 6
     defaultRange: 8
     poolCount: 1
   - type: 4
@@ -59,8 +59,8 @@ MonoBehaviour:
     prefab: ND_CH_Soldier
     defaultSpeed: 3
     defaultHp: 25
-    defaultAtk: 3
-    defaultArmor: 1
+    defaultAtk: 4
+    defaultArmor: 2
     defaultDps: 6
-    defaultRange: 8
+    defaultRange: 6
     poolCount: 1
